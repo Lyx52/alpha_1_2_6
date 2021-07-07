@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.LivingEntity;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -17,7 +19,7 @@ public class fv extends gk {
 
    public fv() {}
 
-   public fv(hf var1) {
+   public fv(LivingEntity var1) {
       this.a = var1.an;
       this.b = (byte)fq.a(var1);
       this.c = fi.b(var1.aw * 32.0D);

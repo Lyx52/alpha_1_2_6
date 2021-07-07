@@ -27,7 +27,7 @@ public class ff {
          this.f.mkdirs();
       }
 
-      this.g = var1.y.j;
+      this.g = var1.y.skinURL;
       this.a();
       this.a.a();
    }
@@ -39,7 +39,7 @@ public class ff {
          this.a.b();
          this.g = var1.a;
          this.a = var1;
-         this.e.y.j = this.g;
+         this.e.y.skinURL = this.g;
          this.e.y.b();
          this.a.a();
          return true;

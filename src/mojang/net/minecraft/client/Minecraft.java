@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 import mojang.*;
+import mojang.entity.Entity;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Controllers;
 import org.lwjgl.input.Keyboard;
@@ -30,7 +31,7 @@ public abstract class Minecraft implements Runnable {
    private kc P = new kc(20.0F);
    public cy e;
    public f f;
-   public bq g;
+   public bq playerName;
    public bz h;
    public ea i = null;
    public String j;
@@ -39,7 +40,7 @@ public abstract class Minecraft implements Runnable {
    public volatile boolean m = false;
    public fu n;
    public ls o;
-   public bp p = null;
+   public GraphicsUserInterface p = null;
    public hu q = new hu(this);
    public kb r = new kb(this);
    private bn Q;
@@ -193,9 +194,9 @@ public abstract class Minecraft implements Runnable {
       this.c("Post startup");
       this.u = new nl(this);
       if(this.V != null) {
-         this.a((bp)(new og(this, this.V, this.W)));
+         this.a((GraphicsUserInterface)(new og(this, this.V, this.W)));
       } else {
-         this.a((bp)(new dj()));
+         this.a((GraphicsUserInterface)(new dj()));
       }
 
    }
@@ -292,7 +293,7 @@ public abstract class Minecraft implements Runnable {
       return var0.contains("win")?jp.c:(var0.contains("mac")?jp.d:(var0.contains("solaris")?jp.b:(var0.contains("sunos")?jp.b:(var0.contains("linux")?jp.a:(var0.contains("unix")?jp.a:jp.e)))));
    }
 
-   public void a(bp var1) {
+   public void a(GraphicsUserInterface var1) {
       if(!(this.p instanceof ay)) {
          if(this.p != null) {
             this.p.h();
@@ -300,17 +301,17 @@ public abstract class Minecraft implements Runnable {
 
          if(var1 == null && this.e == null) {
             var1 = new dj();
-         } else if(var1 == null && this.g.J <= 0) {
+         } else if(var1 == null && this.playerName.J <= 0) {
             var1 = new bb();
          }
 
-         this.p = (bp)var1;
+         this.p = (GraphicsUserInterface)var1;
          if(var1 != null) {
             this.f();
             kl var2 = new kl(this.c, this.d);
             int var3 = var2.a();
             int var4 = var2.b();
-            ((bp)var1).a(this, var3, var4);
+            ((GraphicsUserInterface)var1).a(this, var3, var4);
             this.v = false;
          } else {
             this.e();
@@ -405,13 +406,13 @@ public abstract class Minecraft implements Runnable {
                   } catch (np var14) {
                      this.e = null;
                      this.a((cy)null);
-                     this.a((bp)(new kh()));
+                     this.a((GraphicsUserInterface)(new kh()));
                   }
                }
 
                long var20 = System.nanoTime() - var19;
                this.c("Pre render");
-               this.A.a(this.g, this.P.c);
+               this.A.a(this.playerName, this.P.c);
                GL11.glEnable(3553);
                if(this.e != null && !this.e.z) {
                   while(true) {
@@ -425,7 +426,7 @@ public abstract class Minecraft implements Runnable {
                   this.e.g();
                }
 
-               if(this.y.h) {
+               if(this.y.vsync) {
                   Thread.sleep(5L);
                }
 
@@ -596,7 +597,7 @@ public abstract class Minecraft implements Runnable {
          if(!this.L) {
             this.L = true;
             this.B.a();
-            this.a((bp)null);
+            this.a((GraphicsUserInterface)null);
             this.aa = this.R + 10000;
          }
       }
@@ -604,8 +605,8 @@ public abstract class Minecraft implements Runnable {
 
    public void f() {
       if(this.L) {
-         if(this.g != null) {
-            this.g.m_();
+         if(this.playerName != null) {
+            this.playerName.m_();
          }
 
          this.L = false;
@@ -615,7 +616,7 @@ public abstract class Minecraft implements Runnable {
 
    public void g() {
       if(this.p == null) {
-         this.a((bp)(new jl()));
+         this.a((GraphicsUserInterface)(new jl()));
       }
    }
 
@@ -639,7 +640,7 @@ public abstract class Minecraft implements Runnable {
    private void a(int var1) {
       if(var1 != 0 || this.S <= 0) {
          if(var1 == 0) {
-            this.g.z();
+            this.playerName.z();
          }
 
          boolean var2 = true;
@@ -649,11 +650,11 @@ public abstract class Minecraft implements Runnable {
             }
          } else if(this.x.a == 1) {
             if(var1 == 0) {
-               this.b.b(this.g, this.x.g);
+               this.b.b(this.playerName, this.x.g);
             }
 
             if(var1 == 1) {
-               this.b.a(this.g, this.x.g);
+               this.b.a(this.playerName, this.x.g);
             }
          } else if(this.x.a == 0) {
             int var3 = this.x.b;
@@ -663,15 +664,15 @@ public abstract class Minecraft implements Runnable {
             nq var7 = nq.m[this.e.a(var3, var4, var5)];
             if(var1 == 0) {
                this.e.i(var3, var4, var5, this.x.e);
-               if(var7 != nq.z || this.g.f >= 100) {
+               if(var7 != nq.z || this.playerName.f >= 100) {
                   this.b.a(var3, var4, var5, this.x.e);
                }
             } else {
-               fp var8 = this.g.e.a();
+               fp var8 = this.playerName.e.a();
                int var9 = var8 != null?var8.a:0;
-               if(this.b.a(this.g, this.e, var8, var3, var4, var5, var6)) {
+               if(this.b.a(this.playerName, this.e, var8, var3, var4, var5, var6)) {
                   var2 = false;
-                  this.g.z();
+                  this.playerName.z();
                }
 
                if(var8 == null) {
@@ -679,7 +680,7 @@ public abstract class Minecraft implements Runnable {
                }
 
                if(var8.a == 0) {
-                  this.g.e.a[this.g.e.d] = null;
+                  this.playerName.e.a[this.playerName.e.d] = null;
                } else if(var8.a != var9) {
                   this.r.a.b();
                }
@@ -687,8 +688,8 @@ public abstract class Minecraft implements Runnable {
          }
 
          if(var2 && var1 == 1) {
-            fp var10 = this.g.e.a();
-            if(var10 != null && this.b.a(this.g, this.e, var10)) {
+            fp var10 = this.playerName.e.a();
+            if(var10 != null && this.b.a(this.playerName, this.e, var10)) {
                this.r.a.c();
             }
          }
@@ -786,7 +787,7 @@ public abstract class Minecraft implements Runnable {
             var1 = nq.t.bh;
          }
 
-         this.g.e.a(var1, this.b instanceof jt);
+         this.playerName.e.a(var1, this.b instanceof jt);
       }
 
    }
@@ -794,8 +795,8 @@ public abstract class Minecraft implements Runnable {
    public void i() throws IOException {
       this.u.a();
       this.r.a(1.0F);
-      if(this.g != null) {
-         this.g.o();
+      if(this.playerName != null) {
+         this.playerName.o();
       }
 
       if(!this.m && this.e != null) {
@@ -807,8 +808,8 @@ public abstract class Minecraft implements Runnable {
          this.n.a();
       }
 
-      if(this.p == null && this.g != null && this.g.J <= 0) {
-         this.a((bp)null);
+      if(this.p == null && this.playerName != null && this.playerName.J <= 0) {
+         this.a((GraphicsUserInterface)null);
       }
 
       if(this.p != null) {
@@ -828,7 +829,7 @@ public abstract class Minecraft implements Runnable {
             if(var1 <= 200L) {
                int var3 = Mouse.getEventDWheel();
                if(var3 != 0) {
-                  this.g.e.a(var3);
+                  this.playerName.e.a(var3);
                }
 
                if(this.p == null) {
@@ -860,7 +861,7 @@ public abstract class Minecraft implements Runnable {
          }
 
          while(Keyboard.next()) {
-            this.g.a(Keyboard.getEventKey(), Keyboard.getEventKeyState());
+            this.playerName.a(Keyboard.getEventKey(), Keyboard.getEventKeyState());
             if(Keyboard.getEventKeyState()) {
                if(Keyboard.getEventKey() == 87) {
                   this.h();
@@ -881,21 +882,21 @@ public abstract class Minecraft implements Runnable {
                      }
 
                      if(Keyboard.getEventKey() == this.y.p.b) {
-                        this.a((bp)(new ne(this.g.e, this.g.e.c)));
+                        this.a((GraphicsUserInterface)(new ne(this.playerName.e, this.playerName.e.c)));
                      }
 
                      if(Keyboard.getEventKey() == this.y.q.b) {
-                        this.g.a(this.g.e.a(this.g.e.d, 1), false);
+                        this.playerName.a(this.playerName.e.a(this.playerName.e.d, 1), false);
                      }
 
                      if(this.j() && Keyboard.getEventKey() == this.y.r.b) {
-                        this.a((bp)(new dr()));
+                        this.a((GraphicsUserInterface)(new dr()));
                      }
                   }
 
                   for(int var4 = 0; var4 < 9; ++var4) {
                      if(Keyboard.getEventKey() == 2 + var4) {
-                        this.g.e.d = var4;
+                        this.playerName.e.d = var4;
                      }
                   }
 
@@ -922,15 +923,15 @@ public abstract class Minecraft implements Runnable {
       }
 
       if(this.e != null) {
-         if(this.g != null) {
+         if(this.playerName != null) {
             ++this.ab;
             if(this.ab == 30) {
                this.ab = 0;
-               this.e.f(this.g);
+               this.e.f(this.playerName);
             }
          }
 
-         this.e.k = this.y.x;
+         this.e.k = this.y.gameDifficulty;
          if(this.e.z) {
             this.e.k = 3;
          }
@@ -952,7 +953,7 @@ public abstract class Minecraft implements Runnable {
          }
 
          if(!this.m && this.e != null) {
-            this.e.m(fi.b(this.g.aw), fi.b(this.g.ax), fi.b(this.g.ay));
+            this.e.m(fi.b(this.playerName.aw), fi.b(this.playerName.ax), fi.b(this.playerName.ay));
          }
 
          if(!this.m) {
@@ -987,38 +988,38 @@ public abstract class Minecraft implements Runnable {
    }
 
    public void k() throws IOException {
-      if(this.g.m == -1) {
-         this.g.m = 0;
+      if(this.playerName.m == -1) {
+         this.playerName.m = 0;
       } else {
-         this.g.m = -1;
+         this.playerName.m = -1;
       }
 
-      this.e.d(this.g);
-      this.g.aN = false;
-      double var1 = this.g.aw;
-      double var3 = this.g.ay;
+      this.e.d(this.playerName);
+      this.playerName.aN = false;
+      double var1 = this.playerName.aw;
+      double var3 = this.playerName.ay;
       double var5 = 8.0D;
       cy var7;
-      if(this.g.m == -1) {
+      if(this.playerName.m == -1) {
          var1 /= var5;
          var3 /= var5;
-         this.g.c(var1, this.g.ax, var3, this.g.aC, this.g.aD);
-         this.e.a(this.g, false);
+         this.playerName.c(var1, this.playerName.ax, var3, this.playerName.aC, this.playerName.aD);
+         this.e.a(this.playerName, false);
          var7 = new cy(this.e, new om());
-         this.a(var7, "Entering the Nether", (eb)this.g);
+         this.a(var7, "Entering the Nether", (eb)this.playerName);
       } else {
          var1 *= var5;
          var3 *= var5;
-         this.g.c(var1, this.g.ax, var3, this.g.aC, this.g.aD);
-         this.e.a(this.g, false);
+         this.playerName.c(var1, this.playerName.ax, var3, this.playerName.aC, this.playerName.aD);
+         this.e.a(this.playerName, false);
          var7 = new cy(this.e, new oz());
-         this.a(var7, "Leaving the Nether", (eb)this.g);
+         this.a(var7, "Leaving the Nether", (eb)this.playerName);
       }
 
-      this.g.as = this.e;
-      this.g.c(var1, this.g.ax, var3, this.g.aC, this.g.aD);
-      this.e.a(this.g, false);
-      (new no()).a(this.e, this.g);
+      this.playerName.as = this.e;
+      this.playerName.c(var1, this.playerName.ax, var3, this.playerName.aC, this.playerName.aD);
+      this.e.a(this.playerName, false);
+      (new no()).a(this.e, this.playerName);
    }
 
    public void a(cy var1) {
@@ -1038,17 +1039,17 @@ public abstract class Minecraft implements Runnable {
       }
 
       this.e = var1;
-      System.out.println("Player is " + this.g);
+      System.out.println("Player is " + this.playerName);
       if(var1 != null) {
          this.b.a(var1);
          if(!this.j()) {
             if(var3 == null) {
-               this.g = (bq)var1.a(bq.class);
+               this.playerName = (bq)var1.a(bq.class);
             }
-         } else if(this.g != null) {
-            this.g.t();
+         } else if(this.playerName != null) {
+            this.playerName.t();
             if(var1 != null) {
-               var1.a((lw)this.g);
+               var1.a((Entity)this.playerName);
             }
          }
 
@@ -1056,14 +1057,14 @@ public abstract class Minecraft implements Runnable {
             this.d(var2);
          }
 
-         System.out.println("Player is now " + this.g);
-         if(this.g == null) {
-            this.g = (bq)this.b.b(var1);
-            this.g.t();
-            this.b.a((eb)this.g);
+         System.out.println("Player is now " + this.playerName);
+         if(this.playerName == null) {
+            this.playerName = (bq)this.b.b(var1);
+            this.playerName.t();
+            this.b.a((eb)this.playerName);
          }
 
-         this.g.a = new he(this.y);
+         this.playerName.a = new he(this.y);
          if(this.f != null) {
             this.f.a(var1);
          }
@@ -1072,17 +1073,17 @@ public abstract class Minecraft implements Runnable {
             this.h.a(var1);
          }
 
-         this.b.b((eb)this.g);
+         this.b.b((eb)this.playerName);
          if(var3 != null) {
             var1.c();
          }
 
-         var1.a((eb)this.g);
+         var1.a((eb)this.playerName);
          if(var1.p) {
             var1.a((pu)this.q);
          }
       } else {
-         this.g = null;
+         this.playerName = null;
       }
 
       System.gc();
@@ -1100,9 +1101,9 @@ public abstract class Minecraft implements Runnable {
       for(int var5 = -var2; var5 <= var2; var5 += 16) {
          int var6 = this.e.m;
          int var7 = this.e.o;
-         if(this.g != null) {
-            var6 = (int)this.g.aw;
-            var7 = (int)this.g.ay;
+         if(this.playerName != null) {
+            var6 = (int)this.playerName.aw;
+            var7 = (int)this.playerName.ay;
          }
 
          for(int var8 = -var2; var8 <= var2; var8 += 16) {
@@ -1162,21 +1163,21 @@ public abstract class Minecraft implements Runnable {
       this.e.b();
       this.e.o();
       int var1 = 0;
-      if(this.g != null) {
-         var1 = this.g.an;
-         this.e.d(this.g);
+      if(this.playerName != null) {
+         var1 = this.playerName.an;
+         this.e.d(this.playerName);
       }
 
-      this.g = (bq)this.b.b(this.e);
-      this.g.t();
-      this.b.a((eb)this.g);
-      this.e.a((eb)this.g);
-      this.g.a = new he(this.y);
-      this.g.an = var1;
-      this.b.b((eb)this.g);
+      this.playerName = (bq)this.b.b(this.e);
+      this.playerName.t();
+      this.b.a((eb)this.playerName);
+      this.e.a((eb)this.playerName);
+      this.playerName.a = new he(this.y);
+      this.playerName.an = var1;
+      this.b.b((eb)this.playerName);
       this.d("Respawning");
       if(this.p instanceof bb) {
-         this.a((bp)null);
+         this.a((GraphicsUserInterface)null);
       }
 
    }

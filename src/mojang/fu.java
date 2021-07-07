@@ -131,7 +131,7 @@ public class fu {
          var9 = var5[var7] >> 16 & 255;
          var10 = var5[var7] >> 8 & 255;
          var11 = var5[var7] & 255;
-         if(this.h != null && this.h.g) {
+         if(this.h != null && this.h.anaglyph3D) {
             var12 = (var9 * 30 + var10 * 59 + var11 * 11) / 100;
             var13 = (var9 * 30 + var10 * 70) / 100;
             var14 = (var9 * 30 + var11 * 70) / 100;
@@ -242,7 +242,7 @@ public class fu {
       int var12;
       for(var1 = 0; var1 < this.f.size(); ++var1) {
          var2 = (ad)this.f.get(var1);
-         var2.c = this.h.g;
+         var2.c = this.h.anaglyph3D;
          var2.a();
          this.e.clear();
          this.e.put(var2.a);

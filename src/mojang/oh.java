@@ -3,7 +3,7 @@ package mojang;
 import mojang.net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
 
-public class oh extends gh {
+public class oh extends Button {
 
    public float i = 1.0F;
    public boolean j = false;

@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.item.PrimedTNT;
+
 import java.util.Random;
 
 public class v extends nq {
@@ -25,15 +28,15 @@ public class v extends nq {
    }
 
    public void c(cy var1, int var2, int var3, int var4) {
-      kr var5 = new kr(var1, (double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F));
+      PrimedTNT var5 = new PrimedTNT(var1, (double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F));
       var5.a = var1.l.nextInt(var5.a / 4) + var5.a / 8;
-      var1.a((lw)var5);
+      var1.a((Entity)var5);
    }
 
    public void b(cy var1, int var2, int var3, int var4, int var5) {
       if(!var1.z) {
-         kr var6 = new kr(var1, (double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F));
-         var1.a((lw)var6);
+         PrimedTNT var6 = new PrimedTNT(var1, (double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F));
+         var1.a((Entity)var6);
          var1.a(var6, "random.fuse", 1.0F, 1.0F);
       }
    }

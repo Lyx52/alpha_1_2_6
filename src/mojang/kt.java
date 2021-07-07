@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.projectile.Arrow;
+import mojang.entity.Entity;
+
 public class kt extends dx {
 
    public kt(int var1) {
@@ -11,7 +14,7 @@ public class kt extends dx {
       if(var3.e.b(j.aW)) {
          var2.a(var3, "random.bow", 1.0F, 1.0F / (b.nextFloat() * 0.4F + 0.8F));
          if(!var2.z) {
-            var2.a((lw)(new lv(var2, var3)));
+            var2.a((Entity)(new Arrow(var2, var3)));
          }
       }
 

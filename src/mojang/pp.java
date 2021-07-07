@@ -1,6 +1,9 @@
 package mojang;
 
-public class pp extends lw {
+import mojang.entity.Entity;
+import mojang.tags.CompoundTag;
+
+public class pp extends Entity {
 
    protected int b;
    protected float c;
@@ -93,7 +96,7 @@ public class pp extends lw {
       return 0;
    }
 
-   public void a(iq var1) {}
+   public void a(CompoundTag var1) {}
 
-   public void b(iq var1) {}
+   public void b(CompoundTag var1) {}
 }

@@ -1,6 +1,8 @@
 package mojang;
 
-public class ot extends hf {
+import mojang.entity.LivingEntity;
+
+public class ot extends LivingEntity {
 
    public ot(cy var1) {
       super(var1);

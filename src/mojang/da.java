@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.vehicle.Boat;
+import mojang.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class da extends aq {
@@ -12,8 +14,8 @@ public class da extends aq {
       this.a = new cv();
    }
 
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
-      dp var1 = (dp)var0;
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
+      Boat var1 = (Boat)var0;
 
       GL11.glPushMatrix();
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);

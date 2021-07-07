@@ -9,7 +9,7 @@ import java.util.Random;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
 
-public class dj extends bp {
+public class dj extends GraphicsUserInterface {
 
    private static final Random h = new Random();
    String[] a = new String[]{" *   * * *   * *** *** *** *** *** ***", " ** ** * **  * *   *   * * * * *    * ", " * * * * * * * **  *   **  *** **   * ", " *   * * *  ** *   *   * * * * *    * ", " *   * * *   * *** *** * * * * *    * "};
@@ -52,7 +52,7 @@ public class dj extends bp {
 
    protected void a(char var1, int var2) {}
 
-   public void a() {
+   public void initButtons() {
       Calendar var1 = Calendar.getInstance();
       var1.setTime(new Date());
       if(var1.get(2) + 1 == 11 && var1.get(5) == 9) {
@@ -65,31 +65,31 @@ public class dj extends bp {
          this.l = "Happy new year!";
       }
 
-      this.e.add(new gh(1, this.c / 2 - 100, this.d / 4 + 48, "Singleplayer"));
-      this.e.add(new gh(2, this.c / 2 - 100, this.d / 4 + 72, "Multiplayer"));
-      this.e.add(new gh(3, this.c / 2 - 100, this.d / 4 + 96, "Mods and Texture Packs"));
-      this.e.add(new gh(0, this.c / 2 - 100, this.d / 4 + 120 + 12, "Options..."));
+      this.buttons.add(new Button(1, this.c / 2 - 100, this.d / 4 + 48, "Singleplayer"));
+      this.buttons.add(new Button(2, this.c / 2 - 100, this.d / 4 + 72, "Multiplayer"));
+      this.buttons.add(new Button(3, this.c / 2 - 100, this.d / 4 + 96, "Mods and Texture Packs"));
+      this.buttons.add(new Button(0, this.c / 2 - 100, this.d / 4 + 120 + 12, "Options..."));
       if(this.b.i == null) {
-         ((gh)this.e.get(1)).g = false;
+         ((Button)this.buttons.get(1)).g = false;
       }
 
    }
 
-   protected void a(gh var1) {
+   protected void a(Button var1) {
       if(var1.f == 0) {
-         this.b.a((bp)(new bf(this, this.b.y)));
+         this.b.a((GraphicsUserInterface)(new bf(this, this.b.y)));
       }
 
       if(var1.f == 1) {
-         this.b.a((bp)(new le(this)));
+         this.b.a((GraphicsUserInterface)(new le(this)));
       }
 
       if(var1.f == 2) {
-         this.b.a((bp)(new hd(this)));
+         this.b.a((GraphicsUserInterface)(new MultiplayerGUI(this)));
       }
 
       if(var1.f == 3) {
-         this.b.a((bp)(new dk(this)));
+         this.b.a((GraphicsUserInterface)(new dk(this)));
       }
 
    }
@@ -97,7 +97,7 @@ public class dj extends bp {
    public void a(int var1, int var2, float var3) {
       this.i();
       is var4 = is.a;
-      this.a(var3);
+      this.initButtons(var3);
       GL11.glBindTexture(3553, this.b.n.a("/mojang/gui/logo.png"));
       GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
       var4.b(16777215);
@@ -115,7 +115,7 @@ public class dj extends bp {
       super.a(var1, var2, var3);
    }
 
-   private void a(float var1) {
+   private void initButtons(float var1) {
       int var3;
       if(this.i == null) {
          this.i = new lr[this.a[0].length()][this.a.length];

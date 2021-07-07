@@ -1,11 +1,13 @@
 package mojang;
 
+import mojang.entity.projectile.Arrow;
+import mojang.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class hn extends aq {
 
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
-      lv var1 = (lv)var0;
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
+      Arrow var1 = (Arrow)var0;
 
       this.a("/mojang/item/arrows.png");
       GL11.glPushMatrix();

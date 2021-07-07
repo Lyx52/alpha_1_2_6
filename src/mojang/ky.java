@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,7 +18,7 @@ public class ky extends gk {
 
    public ky() {}
 
-   public ky(lw var1) {
+   public ky(Entity var1) {
       this.a = var1.an;
       this.b = fi.b(var1.aw * 32.0D);
       this.c = fi.b(var1.ax * 32.0D);

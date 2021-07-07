@@ -3,6 +3,21 @@ package mojang;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import mojang.entity.*;
+import mojang.entity.animal.Chicken;
+import mojang.entity.animal.Cow;
+import mojang.entity.animal.Pig;
+import mojang.entity.animal.Sheep;
+import mojang.entity.item.DroppedItem;
+import mojang.entity.item.FallingSand;
+import mojang.entity.item.Painting;
+import mojang.entity.item.PrimedTNT;
+import mojang.entity.monster.*;
+import mojang.entity.projectile.Arrow;
+import mojang.entity.projectile.Snowball;
+import mojang.entity.vehicle.Boat;
+import mojang.entity.vehicle.Minecart;
 import org.lwjgl.opengl.GL11;
 
 public class mn {
@@ -26,29 +41,29 @@ public class mn {
 
 
    private mn() {
-      this.o.put(be.class, new ql());
-      this.o.put(op.class, new hp(new cj(), new cj(0.5F), 0.7F));
-      this.o.put(bx.class, new pr(new ia(), new cg(), 0.7F));
-      this.o.put(as.class, new nu(new el(), 0.7F));
-      this.o.put(ou.class, new fk(new mk(), 0.3F));
-      this.o.put(dq.class, new g());
-      this.o.put(dh.class, new m(new gu(), 0.5F));
-      this.o.put(nt.class, new m(new ck(), 0.5F));
-      this.o.put(ns.class, new ht(new ik(16), new ik(0), 0.25F));
+      this.o.put(Spider.class, new ql());
+      this.o.put(Pig.class, new hp(new cj(), new cj(0.5F), 0.7F));
+      this.o.put(Sheep.class, new pr(new ia(), new cg(), 0.7F));
+      this.o.put(Cow.class, new nu(new el(), 0.7F));
+      this.o.put(Chicken.class, new fk(new mk(), 0.3F));
+      this.o.put(Creeper.class, new g());
+      this.o.put(Skeleton.class, new m(new gu(), 0.5F));
+      this.o.put(Zombie.class, new m(new ck(), 0.5F));
+      this.o.put(Slime.class, new ht(new ik(16), new ik(0), 0.25F));
       this.o.put(eb.class, new ce());
-      this.o.put(ip.class, new pz(new ck(), 0.5F, 6.0F));
-      this.o.put(am.class, new jz());
-      this.o.put(hf.class, new ec(new dc(), 0.5F));
-      this.o.put(lw.class, new hm());
-      this.o.put(kp.class, new cf());
-      this.o.put(lv.class, new hn());
-      this.o.put(at.class, new fb());
+      this.o.put(Giant.class, new pz(new ck(), 0.5F, 6.0F));
+      this.o.put(Ghast.class, new jz());
+      this.o.put(LivingEntity.class, new ec(new dc(), 0.5F));
+      this.o.put(Entity.class, new hm());
+      this.o.put(Painting.class, new cf());
+      this.o.put(Arrow.class, new hn());
+      this.o.put(Snowball.class, new fb());
       this.o.put(az.class, new gl());
-      this.o.put(eo.class, new af());
-      this.o.put(kr.class, new jb());
-      this.o.put(gb.class, new dy());
-      this.o.put(qd.class, new mi());
-      this.o.put(dp.class, new da());
+      this.o.put(DroppedItem.class, new af());
+      this.o.put(PrimedTNT.class, new jb());
+      this.o.put(FallingSand.class, new dy());
+      this.o.put(Minecart.class, new mi());
+      this.o.put(Boat.class, new da());
       this.o.put(hj.class, new jw());
       Iterator var1 = this.o.values().iterator();
 
@@ -61,7 +76,7 @@ public class mn {
 
    public aq a(Class var1) {
       aq var2 = (aq)this.o.get(var1);
-      if(var2 == null && var1 != lw.class) {
+      if(var2 == null && var1 != Entity.class) {
          var2 = this.a(var1.getSuperclass());
          this.o.put(var1, var2);
       }
@@ -69,7 +84,7 @@ public class mn {
       return var2;
    }
 
-   public aq a(lw var1) {
+   public aq a(Entity var1) {
       return this.a(var1.getClass());
    }
 
@@ -86,7 +101,7 @@ public class mn {
       this.n = var4.aX + (var4.ay - var4.aX) * (double)var6;
    }
 
-   public void a(lw var1, float var2) {
+   public void a(Entity var1, float var2) {
       double var3 = var1.aV + (var1.aw - var1.aV) * (double)var2;
       double var5 = var1.aW + (var1.ax - var1.aW) * (double)var2;
       double var7 = var1.aX + (var1.ay - var1.aX) * (double)var2;
@@ -96,7 +111,7 @@ public class mn {
       this.a(var1, var3 - b, var5 - c, var7 - d, var9, var2);
    }
 
-   public void a(lw var1, double var2, double var4, double var6, float var8, float var9) {
+   public void a(Entity var1, double var2, double var4, double var6, float var8, float var9) {
       aq var10 = this.a(var1);
       if(var10 != null) {
          var10.a(var1, var2, var4, var6, var8, var9);

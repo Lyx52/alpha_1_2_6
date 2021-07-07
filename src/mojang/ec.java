@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
 import org.lwjgl.opengl.GL11;
 
 public class ec extends aq {
@@ -17,9 +19,9 @@ public class ec extends aq {
       this.f = var1;
    }
    @Override
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
 
-      hf var1 = (hf)var0;
+      LivingEntity var1 = (LivingEntity)var0;
       GL11.glPushMatrix();
       GL11.glDisable(2884);
       this.e.k = this.c(var1, var9);
@@ -121,27 +123,27 @@ public class ec extends aq {
       GL11.glPopMatrix();
    }
 
-   protected float c(hf var1, float var2) {
+   protected float c(LivingEntity var1, float var2) {
       return var1.d(var2);
    }
 
-   protected float d(hf var1, float var2) {
+   protected float d(LivingEntity var1, float var2) {
       return (float)var1.be + var2;
    }
 
-   protected void b(hf var1, float var2) {}
+   protected void b(LivingEntity var1, float var2) {}
 
-   protected boolean a(hf var1, int var2) {
+   protected boolean a(LivingEntity var1, int var2) {
       return false;
    }
 
-   protected float a(hf var1) {
+   protected float a(LivingEntity var1) {
       return 90.0F;
    }
 
-   protected int a(hf var1, float var2, float var3) {
+   protected int a(LivingEntity var1, float var2, float var3) {
       return 0;
    }
 
-   protected void a(hf var1, float var2) {}
+   protected void a(LivingEntity var1, float var2) {}
 }

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.LivingEntity;
+
 public class cx extends nq {
 
    private boolean a;
@@ -40,7 +42,7 @@ public class cx extends nq {
       return (var5 == 0 || m[var5].bs.d()) && var1.g(var2, var3 - 1, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, hf var5) {
+   public void a(cy var1, int var2, int var3, int var4, LivingEntity var5) {
       int var6 = fi.b((double)(var5.aC * 4.0F / 360.0F) + 0.5D) & 3;
       var1.b(var2, var3, var4, var6);
    }

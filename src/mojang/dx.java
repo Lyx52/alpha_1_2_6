@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+
 import java.util.Random;
 
 public class dx {
@@ -148,11 +151,11 @@ public class dx {
       return this.aY;
    }
 
-   public void a(fp var1, hf var2) {}
+   public void a(fp var1, LivingEntity var2) {}
 
    public void a(fp var1, int var2, int var3, int var4, int var5) {}
 
-   public int a(lw var1) {
+   public int a(Entity var1) {
       return 1;
    }
 
@@ -160,7 +163,7 @@ public class dx {
       return false;
    }
 
-   public void b(fp var1, hf var2) {}
+   public void b(fp var1, LivingEntity var2) {}
 
    public dx e() {
       this.ba = true;

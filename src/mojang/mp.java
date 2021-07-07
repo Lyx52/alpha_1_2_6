@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.item.DroppedItem;
+import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
 
 import java.io.IOException;
@@ -25,7 +27,7 @@ public class mp extends bq {
       this.bx = var4;
    }
 
-   public boolean a(lw var1, int var2) {
+   public boolean a(Entity var1, int var2) {
       return false;
    }
 
@@ -116,7 +118,7 @@ public class mp extends bq {
 
    }
 
-   protected void a(eo var1) {
+   protected void a(DroppedItem var1) {
       id var2 = new id(var1);
       this.bx.a((gk)var2);
       var1.aw = (double)var2.b / 32.0D;

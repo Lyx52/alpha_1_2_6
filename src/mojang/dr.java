@@ -2,13 +2,13 @@ package mojang;
 
 import org.lwjgl.input.Keyboard;
 
-public class dr extends bp {
+public class dr extends GraphicsUserInterface {
 
    private String a = "";
    private int h = 0;
 
 
-   public void a() {
+   public void initButtons() {
       Keyboard.enableRepeatEvents(true);
    }
 
@@ -22,14 +22,14 @@ public class dr extends bp {
 
    protected void a(char var1, int var2) {
       if(var2 == 1) {
-         this.b.a((bp)null);
+         this.b.a((GraphicsUserInterface)null);
       } else if(var2 == 28) {
          String var3 = this.a.trim();
          if(var3.length() > 0) {
-            this.b.g.a(this.a.trim());
+            this.b.playerName.a(this.a.trim());
          }
 
-         this.b.a((bp)null);
+         this.b.a((GraphicsUserInterface)null);
       } else {
          if(var2 == 14 && this.a.length() > 0) {
             this.a = this.a.substring(0, this.a.length() - 1);

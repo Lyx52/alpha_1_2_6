@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -83,7 +86,7 @@ public class mb extends nq {
       return this.a.d(var1, var2, var3, var4);
    }
 
-   public float a(lw var1) {
+   public float a(Entity var1) {
       return this.a.a(var1);
    }
 
@@ -119,7 +122,7 @@ public class mb extends nq {
       return this.a.f(var1, var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, lw var5, ao var6) {
+   public void a(cy var1, int var2, int var3, int var4, Entity var5, ao var6) {
       this.a.a(var1, var2, var3, var4, var5, var6);
    }
 
@@ -152,7 +155,7 @@ public class mb extends nq {
       this.a.b_(var1, var2, var3, var4, var5);
    }
 
-   public void b(cy var1, int var2, int var3, int var4, lw var5) {
+   public void b(cy var1, int var2, int var3, int var4, Entity var5) {
       this.a.b(var1, var2, var3, var4, var5);
    }
 
@@ -168,7 +171,7 @@ public class mb extends nq {
       this.a.c(var1, var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, hf var5) {
+   public void a(cy var1, int var2, int var3, int var4, LivingEntity var5) {
       int var6 = fi.b((double)(var5.aC * 4.0F / 360.0F) + 0.5D) & 3;
       if(var6 == 0) {
          var1.b(var2, var3, var4, 2);

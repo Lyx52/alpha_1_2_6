@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
@@ -38,7 +40,7 @@ public class hv extends cy {
       }
 
       for(var2 = 0; var2 < 10 && !this.G.isEmpty(); ++var2) {
-         lw var3 = (lw)this.G.iterator().next();
+         Entity var3 = (Entity)this.G.iterator().next();
          if(!this.b.contains(var3)) {
             this.a(var3);
          }
@@ -99,7 +101,7 @@ public class hv extends cy {
 
    }
 
-   public boolean a(lw var1) {
+   public boolean a(Entity var1) {
       boolean var2 = super.a(var1);
       this.F.add(var1);
       if(!var2) {
@@ -109,12 +111,12 @@ public class hv extends cy {
       return var2;
    }
 
-   public void d(lw var1) {
+   public void d(Entity var1) {
       super.d(var1);
       this.F.remove(var1);
    }
 
-   protected void b(lw var1) {
+   protected void b(Entity var1) {
       super.b(var1);
       if(this.G.contains(var1)) {
          this.G.remove(var1);
@@ -122,7 +124,7 @@ public class hv extends cy {
 
    }
 
-   protected void c(lw var1) {
+   protected void c(Entity var1) {
       super.c(var1);
       if(this.F.contains(var1)) {
          this.G.add(var1);
@@ -130,8 +132,8 @@ public class hv extends cy {
 
    }
 
-   public void a(int var1, lw var2) {
-      lw var3 = this.b(var1);
+   public void a(int var1, Entity var2) {
+      Entity var3 = this.b(var1);
       if(var3 != null) {
          this.d(var3);
       }
@@ -145,12 +147,12 @@ public class hv extends cy {
       this.E.a(var1, var2);
    }
 
-   public lw b(int var1) {
-      return (lw)this.E.a(var1);
+   public Entity b(int var1) {
+      return (Entity)this.E.a(var1);
    }
 
-   public lw c(int var1) {
-      lw var2 = (lw)this.E.b(var1);
+   public Entity c(int var1) {
+      Entity var2 = (Entity)this.E.b(var1);
       if(var2 != null) {
          this.F.remove(var2);
          this.d(var2);

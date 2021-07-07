@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+
 public class cb extends dx {
 
    private nq[] bb;
@@ -32,7 +35,7 @@ public class cb extends dx {
       return 1.0F;
    }
 
-   public void a(fp var1, hf var2) {
+   public void a(fp var1, LivingEntity var2) {
       var1.b(2);
    }
 
@@ -40,7 +43,7 @@ public class cb extends dx {
       var1.b(1);
    }
 
-   public int a(lw var1) {
+   public int a(Entity var1) {
       return this.bd;
    }
 

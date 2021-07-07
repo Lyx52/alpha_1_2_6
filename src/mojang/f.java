@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.ARBOcclusionQuery;
 import org.lwjgl.opengl.GL11;
@@ -185,8 +187,8 @@ public class f implements jv {
    }
 
    public void a() {
-      nq.K.a(this.t.y.i);
-      this.H = this.t.y.e;
+      nq.K.a(this.t.y.fancyGraphics);
+      this.H = this.t.y.viewDistance;
       int var1;
       if(this.o != null) {
          for(var1 = 0; var1 < this.o.length; ++var1) {
@@ -242,7 +244,7 @@ public class f implements jv {
       }
 
       if(this.k != null) {
-         bq var7 = this.t.g;
+         bq var7 = this.t.playerName;
          this.b(fi.b(var7.aw), fi.b(var7.ax), fi.b(var7.ay));
          Arrays.sort(this.n, new fx(var7));
       }
@@ -254,12 +256,12 @@ public class f implements jv {
       if(this.I > 0) {
          --this.I;
       } else {
-         gz.a.a(this.k, this.l, this.t.o, this.t.g, var3);
-         mn.a.a(this.k, this.l, this.t.o, this.t.g, this.t.y, var3);
+         gz.a.a(this.k, this.l, this.t.o, this.t.playerName, var3);
+         mn.a.a(this.k, this.l, this.t.o, this.t.playerName, this.t.y, var3);
          this.J = 0;
          this.K = 0;
          this.L = 0;
-         bq var4 = this.t.g;
+         bq var4 = this.t.playerName;
          mn.b = var4.aV + (var4.aw - var4.aV) * (double)var3;
          mn.c = var4.aW + (var4.ax - var4.aW) * (double)var3;
          mn.d = var4.aX + (var4.ay - var4.aX) * (double)var3;
@@ -271,8 +273,8 @@ public class f implements jv {
 
          int var6;
          for(var6 = 0; var6 < var5.size(); ++var6) {
-            lw var7 = (lw)var5.get(var6);
-            if(var7.a(var1) && var2.a(var7.aG) && (var7 != this.t.g || this.t.y.y)) {
+            Entity var7 = (Entity)var5.get(var6);
+            if(var7.a(var1) && var2.a(var7.aG) && (var7 != this.t.playerName || this.t.y.y)) {
                ++this.K;
                mn.a.a(var7, var3);
             }
@@ -363,7 +365,7 @@ public class f implements jv {
    }
 
    public int a(eb var1, int var2, double var3) {
-      if(this.t.y.e != this.H) {
+      if(this.t.y.viewDistance != this.H) {
          this.a();
       }
 
@@ -391,7 +393,7 @@ public class f implements jv {
 
       byte var17 = 0;
       int var33;
-      if(this.w && !this.t.y.g && var2 == 0) {
+      if(this.w && !this.t.y.anaglyph3D && var2 == 0) {
          byte var18 = 0;
          int var19 = 16;
          this.a(var18, var19);
@@ -430,7 +432,7 @@ public class f implements jv {
                   }
 
                   if(this.n[var23].o && !this.n[var23].y) {
-                     float var24 = fi.c(this.n[var23].a((lw)var1));
+                     float var24 = fi.c(this.n[var23].a((Entity)var1));
                      int var25 = (int)(1.0F + var24 / 128.0F);
                      if(this.x % var25 == var23 % var25) {
                         bw var26 = this.n[var23];
@@ -514,7 +516,7 @@ public class f implements jv {
          }
       }
 
-      bq var19 = this.t.g;
+      bq var19 = this.t.playerName;
       double var20 = var19.aV + (var19.aw - var19.aV) * var4;
       double var10 = var19.aW + (var19.ax - var19.aW) * var4;
       double var12 = var19.aX + (var19.ay - var19.aX) * var4;
@@ -561,13 +563,13 @@ public class f implements jv {
    public void a(float var1) {
       if(!this.t.e.q.c) {
          GL11.glDisable(3553);
-         ao var2 = this.k.a(this.t.g, var1);
+         ao var2 = this.k.a(this.t.playerName, var1);
          float var3 = (float)var2.a;
          float var4 = (float)var2.b;
          float var5 = (float)var2.c;
          float var7;
          float var8;
-         if(this.t.y.g) {
+         if(this.t.y.anaglyph3D) {
             float var6 = (var3 * 30.0F + var4 * 59.0F + var5 * 11.0F) / 100.0F;
             var7 = (var3 * 30.0F + var4 * 70.0F) / 100.0F;
             var8 = (var3 * 30.0F + var5 * 70.0F) / 100.0F;
@@ -661,11 +663,11 @@ public class f implements jv {
 
    public void b(float var1) {
       if(!this.t.e.q.c) {
-         if(this.t.y.i) {
+         if(this.t.y.fancyGraphics) {
             this.c(var1);
          } else {
             GL11.glDisable(2884);
-            float var2 = (float)(this.t.g.aW + (this.t.g.ax - this.t.g.aW) * (double)var1);
+            float var2 = (float)(this.t.playerName.aW + (this.t.playerName.ax - this.t.playerName.aW) * (double)var1);
             byte var3 = 32;
             int var4 = 256 / var3;
             is var5 = is.a;
@@ -677,7 +679,7 @@ public class f implements jv {
             float var8 = (float)var6.b;
             float var9 = (float)var6.c;
             float var10;
-            if(this.t.y.g) {
+            if(this.t.y.anaglyph3D) {
                var10 = (var7 * 30.0F + var8 * 59.0F + var9 * 11.0F) / 100.0F;
                float var11 = (var7 * 30.0F + var8 * 70.0F) / 100.0F;
                float var12 = (var7 * 30.0F + var9 * 70.0F) / 100.0F;
@@ -687,8 +689,8 @@ public class f implements jv {
             }
 
             var10 = 4.8828125E-4F;
-            double var22 = this.t.g.at + (this.t.g.aw - this.t.g.at) * (double)var1 + (double)(((float)this.x + var1) * 0.03F);
-            double var13 = this.t.g.av + (this.t.g.ay - this.t.g.av) * (double)var1;
+            double var22 = this.t.playerName.at + (this.t.playerName.aw - this.t.playerName.at) * (double)var1 + (double)(((float)this.x + var1) * 0.03F);
+            double var13 = this.t.playerName.av + (this.t.playerName.ay - this.t.playerName.av) * (double)var1;
             int var15 = fi.b(var22 / 2048.0D);
             int var16 = fi.b(var13 / 2048.0D);
             var22 -= (double)(var15 * 2048);
@@ -718,12 +720,12 @@ public class f implements jv {
 
    public void c(float var1) {
       GL11.glDisable(2884);
-      float var2 = (float)(this.t.g.aW + (this.t.g.ax - this.t.g.aW) * (double)var1);
+      float var2 = (float)(this.t.playerName.aW + (this.t.playerName.ax - this.t.playerName.aW) * (double)var1);
       is var3 = is.a;
       float var4 = 12.0F;
       float var5 = 4.0F;
-      double var6 = (this.t.g.at + (this.t.g.aw - this.t.g.at) * (double)var1 + (double)(((float)this.x + var1) * 0.03F)) / (double)var4;
-      double var8 = (this.t.g.av + (this.t.g.ay - this.t.g.av) * (double)var1) / (double)var4 + 0.33000001311302185D;
+      double var6 = (this.t.playerName.at + (this.t.playerName.aw - this.t.playerName.at) * (double)var1 + (double)(((float)this.x + var1) * 0.03F)) / (double)var4;
+      double var8 = (this.t.playerName.av + (this.t.playerName.ay - this.t.playerName.av) * (double)var1) / (double)var4 + 0.33000001311302185D;
       float var10 = 108.0F - var2 + 0.33F;
       int var11 = fi.b(var6 / 2048.0D);
       int var12 = fi.b(var8 / 2048.0D);
@@ -739,7 +741,7 @@ public class f implements jv {
       float var17;
       float var18;
       float var19;
-      if(this.t.y.g) {
+      if(this.t.y.anaglyph3D) {
          var17 = (var14 * 30.0F + var15 * 59.0F + var16 * 11.0F) / 100.0F;
          var18 = (var14 * 30.0F + var15 * 70.0F) / 100.0F;
          var19 = (var14 * 30.0F + var16 * 70.0F) / 100.0F;
@@ -857,7 +859,7 @@ public class f implements jv {
       for(int var5 = 0; var5 < var4; ++var5) {
          bw var6 = (bw)this.m.get(var3 - var5);
          if(!var2) {
-            if(var6.a((lw)var1) > 1024.0F) {
+            if(var6.a((Entity)var1) > 1024.0F) {
                if(var6.o) {
                   if(var5 >= 3) {
                      return false;
@@ -1078,16 +1080,16 @@ public class f implements jv {
          var10 *= var8;
       }
 
-      if(this.t.g.e(var2, var4, var6) < (double)(var10 * var10)) {
+      if(this.t.playerName.e(var2, var4, var6) < (double)(var10 * var10)) {
          this.t.A.b(var1, (float)var2, (float)var4, (float)var6, var8, var9);
       }
 
    }
 
    public void a(String var1, double var2, double var4, double var6, double var8, double var10, double var12) {
-      double var14 = this.t.g.aw - var2;
-      double var16 = this.t.g.ax - var4;
-      double var18 = this.t.g.ay - var6;
+      double var14 = this.t.playerName.aw - var2;
+      double var16 = this.t.playerName.ax - var4;
+      double var18 = this.t.playerName.ay - var6;
       if(var14 * var14 + var16 * var16 + var18 * var18 <= 256.0D) {
          if(var1 == "bubble") {
             this.t.h.a((pp)(new bh(this.k, var2, var4, var6, var8, var10, var12)));
@@ -1116,14 +1118,14 @@ public class f implements jv {
       }
    }
 
-   public void a(lw var1) {
+   public void a(Entity var1) {
       if(var1.bl != null) {
          this.l.a(var1.bl, (ie)(new lf()));
       }
 
    }
 
-   public void b(lw var1) {
+   public void b(Entity var1) {
       if(var1.bl != null) {
          this.l.b(var1.bl);
       }

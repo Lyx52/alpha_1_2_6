@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.LivingEntity;
+import mojang.entity.animal.Pig;
+
 public class lk extends dx {
 
    public lk(int var1) {
@@ -8,9 +11,9 @@ public class lk extends dx {
       this.aY = 64;
    }
 
-   public void b(fp var1, hf var2) {
-      if(var2 instanceof op) {
-         op var3 = (op)var2;
+   public void b(fp var1, LivingEntity var2) {
+      if(var2 instanceof Pig) {
+         Pig var3 = (Pig)var2;
          if(!var3.a) {
             var3.a = true;
             --var1.a;
@@ -19,7 +22,7 @@ public class lk extends dx {
 
    }
 
-   public void a(fp var1, hf var2) {
+   public void a(fp var1, LivingEntity var2) {
       this.b(var1, var2);
    }
 }

@@ -1,5 +1,10 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+import mojang.entity.monster.Skeleton;
+import mojang.entity.monster.Spider;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -75,9 +80,9 @@ public final class bg {
                                     float var25 = var22 - (float)var0.o;
                                     float var26 = var23 * var23 + var24 * var24 + var25 * var25;
                                     if(var26 >= 576.0F) {
-                                       hf var34;
+                                       LivingEntity var34;
                                        try {
-                                          var34 = (hf)var33[var8].getConstructor(new Class[]{cy.class}).newInstance(new Object[]{var0});
+                                          var34 = (LivingEntity)var33[var8].getConstructor(new Class[]{cy.class}).newInstance(new Object[]{var0});
                                        } catch (Exception var27) {
                                           var27.printStackTrace();
                                           return var1;
@@ -86,11 +91,11 @@ public final class bg {
                                        var34.c((double)var20, (double)var21, (double)var22, var0.l.nextFloat() * 360.0F, 0.0F);
                                        if(var34.a()) {
                                           ++var13;
-                                          var0.a((lw)var34);
-                                          if(var34 instanceof be && var0.l.nextInt(100) == 0) {
-                                             dh var35 = new dh(var0);
+                                          var0.a((Entity)var34);
+                                          if(var34 instanceof Spider && var0.l.nextInt(100) == 0) {
+                                             Skeleton var35 = new Skeleton(var0);
                                              var35.c((double)var20, (double)var21, (double)var22, var34.aC, 0.0F);
-                                             var0.a((lw)var35);
+                                             var0.a((Entity)var35);
                                              var35.h(var34);
                                           }
 

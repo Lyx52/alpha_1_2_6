@@ -3,6 +3,8 @@ package mojang;
 import java.nio.FloatBuffer;
 import java.util.List;
 import java.util.Random;
+
+import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
@@ -17,7 +19,7 @@ public class kb {
    private float i = 0.0F;
    public ku a;
    private int j;
-   private lw k = null;
+   private Entity k = null;
    private long l = System.currentTimeMillis();
    private Random m = new Random();
    volatile int b = 0;
@@ -37,8 +39,8 @@ public class kb {
 
    public void a() {
       this.n = this.o;
-      float var1 = this.h.e.c(fi.b(this.h.g.aw), fi.b(this.h.g.ax), fi.b(this.h.g.ay));
-      float var2 = (float)(3 - this.h.y.e) / 3.0F;
+      float var1 = this.h.e.c(fi.b(this.h.playerName.aw), fi.b(this.h.playerName.ax), fi.b(this.h.playerName.ay));
+      float var2 = (float)(3 - this.h.y.viewDistance) / 3.0F;
       float var3 = var1 * (1.0F - var2) + var2;
       this.o += (var3 - this.o) * 0.1F;
       ++this.j;
@@ -50,11 +52,11 @@ public class kb {
    }
 
    public void a(float var1) {
-      if(this.h.g != null) {
+      if(this.h.playerName != null) {
          double var2 = (double)this.h.b.b();
-         this.h.x = this.h.g.a(var2, var1);
+         this.h.x = this.h.playerName.a(var2, var1);
          double var4 = var2;
-         ao var6 = this.h.g.e(var1);
+         ao var6 = this.h.playerName.e(var1);
          if(this.h.x != null) {
             var4 = this.h.x.f.c(var6);
          }
@@ -70,15 +72,15 @@ public class kb {
             var2 = var4;
          }
 
-         ao var7 = this.h.g.f(var1);
+         ao var7 = this.h.playerName.f(var1);
          ao var8 = var6.c(var7.a * var2, var7.b * var2, var7.c * var2);
          this.k = null;
          float var9 = 1.0F;
-         List var10 = this.h.e.b((lw)this.h.g, this.h.g.aG.a(var7.a * var2, var7.b * var2, var7.c * var2).b((double)var9, (double)var9, (double)var9));
+         List var10 = this.h.e.b((Entity)this.h.playerName, this.h.playerName.aG.a(var7.a * var2, var7.b * var2, var7.c * var2).b((double)var9, (double)var9, (double)var9));
          double var11 = 0.0D;
 
          for(int var13 = 0; var13 < var10.size(); ++var13) {
-            lw var14 = (lw)var10.get(var13);
+            Entity var14 = (Entity)var10.get(var13);
             if(var14.n_()) {
                float var15 = var14.k_();
                co var16 = var14.aG.b((double)var15, (double)var15, (double)var15);
@@ -106,7 +108,7 @@ public class kb {
    }
 
    private float d(float var1) {
-      bq var2 = this.h.g;
+      bq var2 = this.h.playerName;
       float var3 = 70.0F;
       if(var2.a(hb.f)) {
          var3 = 60.0F;
@@ -121,7 +123,7 @@ public class kb {
    }
 
    private void e(float var1) {
-      bq var2 = this.h.g;
+      bq var2 = this.h.playerName;
       float var3 = (float)var2.L - var1;
       float var4;
       if(var2.J <= 0) {
@@ -141,7 +143,7 @@ public class kb {
 
    private void f(float var1) {
       if(!this.h.y.y) {
-         bq var2 = this.h.g;
+         bq var2 = this.h.playerName;
          float var3 = var2.aS - var2.aR;
          float var4 = var2.aS + var3 * var1;
          float var5 = var2.h + (var2.i - var2.h) * var1;
@@ -154,7 +156,7 @@ public class kb {
    }
 
    private void g(float var1) {
-      bq var2 = this.h.g;
+      bq var2 = this.h.playerName;
       double var3 = var2.at + (var2.aw - var2.at) * (double)var1;
       double var5 = var2.au + (var2.ax - var2.au) * (double)var1;
       double var7 = var2.av + (var2.ay - var2.av) * (double)var1;
@@ -205,27 +207,27 @@ public class kb {
    }
 
    private void a(float var1, int var2) {
-      this.i = (float)(256 >> this.h.y.e);
+      this.i = (float)(256 >> this.h.y.viewDistance);
       GL11.glMatrixMode(5889);
       GL11.glLoadIdentity();
       float var3 = 0.07F;
-      if(this.h.y.g) {
+      if(this.h.y.anaglyph3D) {
          GL11.glTranslatef((float)(-(var2 * 2 - 1)) * var3, 0.0F, 0.0F);
       }
 
       GLU.gluPerspective(this.d(var1), (float)this.h.c / (float)this.h.d, 0.05F, this.i);
       GL11.glMatrixMode(5888);
       GL11.glLoadIdentity();
-      if(this.h.y.g) {
+      if(this.h.y.anaglyph3D) {
          GL11.glTranslatef((float)(var2 * 2 - 1) * 0.1F, 0.0F, 0.0F);
       }
 
       this.e(var1);
-      if(this.h.y.f) {
+      if(this.h.y.bobView) {
          this.f(var1);
       }
 
-      float var4 = this.h.g.d + (this.h.g.c - this.h.g.d) * var1;
+      float var4 = this.h.playerName.d + (this.h.playerName.c - this.h.playerName.d) * var1;
       if(var4 > 0.0F) {
          float var5 = 5.0F / (var4 * var4 + 5.0F) - var4 * 0.04F;
          var5 *= var5;
@@ -239,13 +241,13 @@ public class kb {
 
    private void b(float var1, int var2) {
       GL11.glLoadIdentity();
-      if(this.h.y.g) {
+      if(this.h.y.anaglyph3D) {
          GL11.glTranslatef((float)(var2 * 2 - 1) * 0.1F, 0.0F, 0.0F);
       }
 
       GL11.glPushMatrix();
       this.e(var1);
-      if(this.h.y.f) {
+      if(this.h.y.bobView) {
          this.f(var1);
       }
 
@@ -259,7 +261,7 @@ public class kb {
          this.e(var1);
       }
 
-      if(this.h.y.f) {
+      if(this.h.y.bobView) {
          this.f(var1);
       }
 
@@ -276,16 +278,16 @@ public class kb {
 
       if(this.h.L) {
          this.h.B.c();
-         float var2 = this.h.y.c * 0.6F + 0.2F;
+         float var2 = this.h.y.mouseSensitivity * 0.6F + 0.2F;
          float var3 = var2 * var2 * var2 * 8.0F;
          float var4 = (float)this.h.B.a * var3;
          float var5 = (float)this.h.B.b * var3;
          byte var6 = 1;
-         if(this.h.y.d) {
+         if(this.h.y.invertYMouse) {
             var6 = -1;
          }
 
-         this.h.g.d(var4, var5 * (float)var6);
+         this.h.playerName.d(var4, var5 * (float)var6);
       }
 
       if(!this.h.v) {
@@ -320,7 +322,7 @@ public class kb {
 
    public void c(float var1) {
       this.a(var1);
-      bq var2 = this.h.g;
+      bq var2 = this.h.playerName;
       f var3 = this.h.f;
       bz var4 = this.h.h;
       double var5 = var2.aV + (var2.aw - var2.aV) * (double)var1;
@@ -328,7 +330,7 @@ public class kb {
       double var9 = var2.aX + (var2.ay - var2.aX) * (double)var1;
 
       for(int var11 = 0; var11 < 2; ++var11) {
-         if(this.h.y.g) {
+         if(this.h.y.anaglyph3D) {
             if(var11 == 0) {
                GL11.glColorMask(false, true, true, false);
             } else {
@@ -342,7 +344,7 @@ public class kb {
          GL11.glEnable(2884);
          this.a(var1, var11);
          mojang.n.a();
-         if(this.h.y.e < 2) {
+         if(this.h.y.viewDistance < 2) {
             this.a(-1);
             var3.a(var1);
          }
@@ -376,11 +378,11 @@ public class kb {
          GL11.glEnable(3042);
          GL11.glDisable(2884);
          GL11.glBindTexture(3553, this.h.n.a("/mojang/terrain.png"));
-         if(this.h.y.i) {
+         if(this.h.y.fancyGraphics) {
             GL11.glColorMask(false, false, false, false);
             int var13 = var3.a(var2, 1, (double)var1);
             GL11.glColorMask(true, true, true, true);
-            if(this.h.y.g) {
+            if(this.h.y.anaglyph3D) {
                if(var11 == 0) {
                   GL11.glColorMask(false, true, true, false);
                } else {
@@ -417,7 +419,7 @@ public class kb {
          this.a(1);
          GL11.glClear(256);
          this.b(var1, var11);
-         if(!this.h.y.g) {
+         if(!this.h.y.anaglyph3D) {
             return;
          }
       }
@@ -426,8 +428,8 @@ public class kb {
    }
 
    private void c() {
-      if(this.h.y.i) {
-         bq var1 = this.h.g;
+      if(this.h.y.fancyGraphics) {
+         bq var1 = this.h.playerName;
          cy var2 = this.h.e;
          int var3 = fi.b(var1.aw);
          int var4 = fi.b(var1.ax);
@@ -466,10 +468,10 @@ public class kb {
 
    private void h(float var1) {
       cy var2 = this.h.e;
-      bq var3 = this.h.g;
-      float var4 = 1.0F / (float)(4 - this.h.y.e);
+      bq var3 = this.h.playerName;
+      float var4 = 1.0F / (float)(4 - this.h.y.viewDistance);
       var4 = 1.0F - (float)Math.pow((double)var4, 0.25D);
-      ao var5 = var2.a(this.h.g, var1);
+      ao var5 = var2.a(this.h.playerName, var1);
       float var6 = (float)var5.a;
       float var7 = (float)var5.b;
       float var8 = (float)var5.c;
@@ -494,7 +496,7 @@ public class kb {
       this.e *= var10;
       this.f *= var10;
       this.g *= var10;
-      if(this.h.y.g) {
+      if(this.h.y.anaglyph3D) {
          float var11 = (this.e * 30.0F + this.f * 59.0F + this.g * 11.0F) / 100.0F;
          float var12 = (this.e * 30.0F + this.f * 70.0F) / 100.0F;
          float var13 = (this.e * 30.0F + this.g * 70.0F) / 100.0F;
@@ -507,7 +509,7 @@ public class kb {
    }
 
    private void a(int var1) {
-      bq var2 = this.h.g;
+      bq var2 = this.h.playerName;
       GL11.glFog(2918, this.a(this.e, this.f, this.g, 1.0F));
       GL11.glNormal3f(0.0F, -1.0F, 0.0F);
       GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -523,7 +525,7 @@ public class kb {
          var3 = 0.4F;
          var4 = 0.4F;
          var5 = 0.9F;
-         if(this.h.y.g) {
+         if(this.h.y.anaglyph3D) {
             var6 = (var3 * 30.0F + var4 * 59.0F + var5 * 11.0F) / 100.0F;
             var7 = (var3 * 30.0F + var4 * 70.0F) / 100.0F;
             var8 = (var3 * 30.0F + var5 * 70.0F) / 100.0F;
@@ -534,7 +536,7 @@ public class kb {
          var3 = 0.4F;
          var4 = 0.3F;
          var5 = 0.3F;
-         if(this.h.y.g) {
+         if(this.h.y.anaglyph3D) {
             var6 = (var3 * 30.0F + var4 * 59.0F + var5 * 11.0F) / 100.0F;
             var7 = (var3 * 30.0F + var4 * 70.0F) / 100.0F;
             var8 = (var3 * 30.0F + var5 * 70.0F) / 100.0F;

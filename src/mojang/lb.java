@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.vehicle.Minecart;
+
 public class lb extends dx {
 
    public int a;
@@ -15,7 +18,7 @@ public class lb extends dx {
       int var8 = var3.a(var4, var5, var6);
       if(var8 == nq.aG.bh) {
          if(!var3.z) {
-            var3.a((lw)(new qd(var3, (double)((float)var4 + 0.5F), (double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), this.a)));
+            var3.a((Entity)(new Minecart(var3, (double)((float)var4 + 0.5F), (double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), this.a)));
          }
 
          --var1.a;

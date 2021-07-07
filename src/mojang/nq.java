@@ -1,5 +1,9 @@
 package mojang;
 
+import mojang.entity.item.DroppedItem;
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -128,21 +132,21 @@ public class nq {
    public float bt;
 
 
-   protected nq(int var1, hb var2) {
+   protected nq(int slot, hb var2) {
       this.bq = d;
       this.br = 1.0F;
       this.bt = 0.6F;
-      if(m[var1] != null) {
-         throw new IllegalArgumentException("Slot " + var1 + " is already occupied by " + m[var1] + " when adding " + this);
+      if(m[slot] != null) {
+         throw new IllegalArgumentException("Slot " + slot + " is already occupied by " + m[slot] + " when adding " + this);
       } else {
          this.bs = var2;
-         m[var1] = this;
-         this.bh = var1;
+         m[slot] = this;
+         this.bh = slot;
          this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-         o[var1] = this.a();
-         q[var1] = this.a()?255:0;
-         r[var1] = this.i();
-         p[var1] = false;
+         o[slot] = this.a();
+         q[slot] = this.a()?255:0;
+         r[slot] = this.i();
+         p[slot] = false;
       }
    }
 
@@ -297,9 +301,9 @@ public class nq {
                   double var11 = (double)(var1.l.nextFloat() * var10) + (double)(1.0F - var10) * 0.5D;
                   double var13 = (double)(var1.l.nextFloat() * var10) + (double)(1.0F - var10) * 0.5D;
                   double var15 = (double)(var1.l.nextFloat() * var10) + (double)(1.0F - var10) * 0.5D;
-                  eo var17 = new eo(var1, (double)var2 + var11, (double)var3 + var13, (double)var4 + var15, new fp(var9));
+                  DroppedItem var17 = new DroppedItem(var1, (double)var2 + var11, (double)var3 + var13, (double)var4 + var15, new fp(var9));
                   var17.c = 10;
-                  var1.a((lw)var17);
+                  var1.a((Entity)var17);
                }
             }
          }
@@ -307,7 +311,7 @@ public class nq {
       }
    }
 
-   public float a(lw var1) {
+   public float a(Entity var1) {
       return this.bj / 5.0F;
    }
 
@@ -429,13 +433,13 @@ public class nq {
       return false;
    }
 
-   public void b(cy var1, int var2, int var3, int var4, lw var5) {}
+   public void b(cy var1, int var2, int var3, int var4, Entity var5) {}
 
    public void d(cy var1, int var2, int var3, int var4, int var5) {}
 
    public void b(cy var1, int var2, int var3, int var4, eb var5) {}
 
-   public void a(cy var1, int var2, int var3, int var4, lw var5, ao var6) {}
+   public void a(cy var1, int var2, int var3, int var4, Entity var5, ao var6) {}
 
    public void a(pk var1, int var2, int var3, int var4) {}
 
@@ -451,7 +455,7 @@ public class nq {
       return false;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, lw var5) {}
+   public void a(cy var1, int var2, int var3, int var4, Entity var5) {}
 
    public boolean c(cy var1, int var2, int var3, int var4, int var5) {
       return false;
@@ -467,7 +471,7 @@ public class nq {
       return true;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, hf var5) {}
+   public void a(cy var1, int var2, int var3, int var4, LivingEntity var5) {}
 
    static {
       for(int var0 = 0; var0 < 256; ++var0) {

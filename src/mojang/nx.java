@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 public class nx {
 
    public int a;
@@ -8,7 +10,7 @@ public class nx {
    public int d;
    public int e;
    public ao f;
-   public lw g;
+   public Entity g;
 
 
    public nx(int var1, int var2, int var3, int var4, ao var5) {
@@ -20,7 +22,7 @@ public class nx {
       this.f = ao.b(var5.a, var5.b, var5.c);
    }
 
-   public nx(lw var1) {
+   public nx(Entity var1) {
       this.a = 1;
       this.g = var1;
       this.f = ao.b(var1.aw, var1.ax, var1.ay);

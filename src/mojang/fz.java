@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.item.DroppedItem;
+import mojang.entity.Entity;
+
 import java.util.Random;
 
 public class fz extends nq {
@@ -47,9 +50,9 @@ public class fz extends nq {
       double var8 = (double)(var1.l.nextFloat() * var7) + (double)(1.0F - var7) * 0.5D;
       double var10 = (double)(var1.l.nextFloat() * var7) + (double)(1.0F - var7) * 0.5D;
       double var12 = (double)(var1.l.nextFloat() * var7) + (double)(1.0F - var7) * 0.5D;
-      eo var14 = new eo(var1, (double)var2 + var8, (double)var3 + var10, (double)var4 + var12, new fp(var6));
+      DroppedItem var14 = new DroppedItem(var1, (double)var2 + var8, (double)var3 + var10, (double)var4 + var12, new fp(var6));
       var14.c = 10;
-      var1.a((lw)var14);
+      var1.a((Entity)var14);
       var1.d(var2, var3, var4, 0);
    }
 

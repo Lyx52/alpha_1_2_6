@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.tags.CompoundTag;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,32 +24,32 @@ public class ji {
       }
    }
 
-   public void a(iq var1) {
-      this.f = var1.e("x");
-      this.g = var1.e("y");
-      this.h = var1.e("z");
+   public void a(CompoundTag var1) {
+      this.f = var1.getInteger("x");
+      this.g = var1.getInteger("y");
+      this.h = var1.getInteger("z");
    }
 
-   public void b(iq var1) {
+   public void b(CompoundTag var1) {
       String var2 = (String)b.get(this.getClass());
       if(var2 == null) {
          throw new RuntimeException(this.getClass() + " is missing a mapping! This is a bug!");
       } else {
-         var1.a("id", var2);
-         var1.a("x", this.f);
-         var1.a("y", this.g);
-         var1.a("z", this.h);
+         var1.putStringTag("id", var2);
+         var1.putIntegerTag("x", this.f);
+         var1.putIntegerTag("y", this.g);
+         var1.putIntegerTag("z", this.h);
       }
    }
 
    public void b() {}
 
    @SuppressWarnings("deprecation")
-   public static ji c(iq var0) {
+   public static ji c(CompoundTag var0) {
       ji var1 = null;
 
       try {
-         Class var2 = (Class)a.get(var0.i("id"));
+         Class var2 = (Class)a.get(var0.getString("id"));
          if(var2 != null) {
             var1 = (ji)var2.newInstance();
          }
@@ -58,7 +60,7 @@ public class ji {
       if(var1 != null) {
          var1.a(var0);
       } else {
-         System.out.println("Skipping TileEntity with id " + var0.i("id"));
+         System.out.println("Skipping TileEntity with id " + var0.getString("id"));
       }
 
       return var1;

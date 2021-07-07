@@ -4,7 +4,7 @@ import mojang.net.minecraft.client.Minecraft;
 
 import java.io.IOException;
 
-public class og extends bp {
+public class og extends GraphicsUserInterface {
 
    private ib a;
    private boolean h = false;
@@ -24,19 +24,19 @@ public class og extends bp {
 
    protected void a(char var1, int var2) {}
 
-   public void a() {
-      this.e.clear();
-      this.e.add(new gh(0, this.c / 2 - 100, this.d / 4 + 120 + 12, "Cancel"));
+   public void initButtons() {
+      this.buttons.clear();
+      this.buttons.add(new Button(0, this.c / 2 - 100, this.d / 4 + 120 + 12, "Cancel"));
    }
 
-   protected void a(gh var1) {
+   protected void a(Button var1) {
       if(var1.f == 0) {
          this.h = true;
          if(this.a != null) {
             this.a.b();
          }
 
-         this.b.a((bp)(new dj()));
+         this.b.a((GraphicsUserInterface)(new dj()));
       }
 
    }

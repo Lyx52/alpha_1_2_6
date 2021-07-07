@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.item.Painting;
+
 public class qe extends dx {
 
    public qe(int var1) {
@@ -26,9 +29,9 @@ public class qe extends dx {
             var8 = 3;
          }
 
-         kp var9 = new kp(var3, var4, var5, var6, var8);
+         Painting var9 = new Painting(var3, var4, var5, var6, var8);
          if(var9.k()) {
-            var3.a((lw)var9);
+            var3.a((Entity)var9);
             --var1.a;
          }
 

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 public interface jv {
 
    void a(int var1, int var2, int var3);
@@ -10,9 +12,9 @@ public interface jv {
 
    void a(String var1, double var2, double var4, double var6, double var8, double var10, double var12);
 
-   void a(lw var1);
+   void a(Entity var1);
 
-   void b(lw var1);
+   void b(Entity var1);
 
    void e();
 

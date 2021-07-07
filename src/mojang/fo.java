@@ -1,5 +1,10 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.tags.BaseTag;
+import mojang.tags.CompoundTag;
+import mojang.tags.ListTag;
+
 public class fo implements hi {
 
    public fp[] a = new fp[37];
@@ -198,47 +203,47 @@ public class fo implements hi {
       return var2;
    }
 
-   public ly a(ly var1) {
+   public ListTag a(ListTag var1) {
       int var2;
-      iq var3;
+      CompoundTag var3;
       for(var2 = 0; var2 < this.a.length; ++var2) {
          if(this.a[var2] != null) {
-            var3 = new iq();
-            var3.a("Slot", (byte)var2);
+            var3 = new CompoundTag();
+            var3.putByteTag("Slot", (byte)var2);
             this.a[var2].a(var3);
-            var1.a((fd)var3);
+            var1.a((BaseTag)var3);
          }
       }
 
       for(var2 = 0; var2 < this.b.length; ++var2) {
          if(this.b[var2] != null) {
-            var3 = new iq();
-            var3.a("Slot", (byte)(var2 + 100));
+            var3 = new CompoundTag();
+            var3.putByteTag("Slot", (byte)(var2 + 100));
             this.b[var2].a(var3);
-            var1.a((fd)var3);
+            var1.a((BaseTag)var3);
          }
       }
 
       for(var2 = 0; var2 < this.c.length; ++var2) {
          if(this.c[var2] != null) {
-            var3 = new iq();
-            var3.a("Slot", (byte)(var2 + 80));
+            var3 = new CompoundTag();
+            var3.putByteTag("Slot", (byte)(var2 + 80));
             this.c[var2].a(var3);
-            var1.a((fd)var3);
+            var1.a((BaseTag)var3);
          }
       }
 
       return var1;
    }
 
-   public void b(ly var1) {
+   public void b(ListTag var1) {
       this.a = new fp[36];
       this.b = new fp[4];
       this.c = new fp[4];
 
       for(int var2 = 0; var2 < var1.c(); ++var2) {
-         iq var3 = (iq)var1.a(var2);
-         int var4 = var3.c("Slot") & 255;
+         CompoundTag var3 = (CompoundTag)var1.a(var2);
+         int var4 = var3.getByte("Slot") & 255;
          if(var4 >= 0 && var4 < this.a.length) {
             this.a[var4] = new fp(var3);
          }
@@ -281,7 +286,7 @@ public class fo implements hi {
       return 64;
    }
 
-   public int a(lw var1) {
+   public int a(Entity var1) {
       fp var2 = this.c(this.d);
       return var2 != null?var2.a(var1):1;
    }

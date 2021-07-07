@@ -1,6 +1,9 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
 import mojang.net.minecraft.client.Minecraft;
+import mojang.tags.CompoundTag;
 
 import java.io.IOException;
 
@@ -79,33 +82,33 @@ public class bq extends eb {
       this.a.a(var1, var2);
    }
 
-   public void a(iq var1) {
+   public void a(CompoundTag var1) {
       super.a(var1);
-      var1.a("Score", this.g);
+      var1.putIntegerTag("Score", this.g);
    }
 
-   public void b(iq var1) {
+   public void b(CompoundTag var1) {
       super.b(var1);
-      this.g = var1.e("Score");
+      this.g = var1.getInteger("Score");
    }
 
    public void a(hi var1) {
-      this.bx.a((bp)(new er(this.e, var1)));
+      this.bx.a((GraphicsUserInterface)(new er(this.e, var1)));
    }
 
    public void a(qc var1) {
-      this.bx.a((bp)(new pv(var1)));
+      this.bx.a((GraphicsUserInterface)(new pv(var1)));
    }
 
    public void m() {
-      this.bx.a((bp)(new jc(this.e)));
+      this.bx.a((GraphicsUserInterface)(new jc(this.e)));
    }
 
    public void a(lt var1) {
-      this.bx.a((bp)(new jj(this.e, var1)));
+      this.bx.a((GraphicsUserInterface)(new jj(this.e, var1)));
    }
 
-   public void b(lw var1, int var2) {
+   public void b(Entity var1, int var2) {
       this.bx.h.a((pp)(new cm(this.bx.e, var1, this, -0.5F)));
    }
 
@@ -113,11 +116,11 @@ public class bq extends eb {
       return this.e.f();
    }
 
-   public void a_(lw var1) {
+   public void a_(Entity var1) {
       if(!var1.a((eb)this)) {
          fp var2 = this.w();
-         if(var2 != null && var1 instanceof hf) {
-            var2.b((hf)var1);
+         if(var2 != null && var1 instanceof LivingEntity) {
+            var2.b((LivingEntity)var1);
             if(var2.a <= 0) {
                var2.a((eb)this);
                this.x();

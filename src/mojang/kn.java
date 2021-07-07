@@ -1,26 +1,26 @@
 package mojang;
 
-public class kn extends bp {
+public class kn extends GraphicsUserInterface {
 
-   private bp a;
+   private GraphicsUserInterface a;
    private String h;
    private String i;
    private int j;
 
 
-   public kn(bp var1, String var2, String var3, int var4) {
+   public kn(GraphicsUserInterface var1, String var2, String var3, int var4) {
       this.a = var1;
       this.h = var2;
       this.i = var3;
       this.j = var4;
    }
 
-   public void a() {
-      this.e.add(new r(0, this.c / 2 - 155 + 0, this.d / 6 + 96, "Yes"));
-      this.e.add(new r(1, this.c / 2 - 155 + 160, this.d / 6 + 96, "No"));
+   public void initButtons() {
+      this.buttons.add(new TexturePackButton(0, this.c / 2 - 155 + 0, this.d / 6 + 96, "Yes"));
+      this.buttons.add(new TexturePackButton(1, this.c / 2 - 155 + 160, this.d / 6 + 96, "No"));
    }
 
-   protected void a(gh var1) {
+   protected void a(Button var1) {
       this.a.a(var1.f == 0, this.j);
    }
 

@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public abstract class aq {
@@ -11,7 +12,7 @@ public abstract class aq {
    protected float d = 1.0F;
 
 
-   public abstract void a(lw var1, double var2, double var4, double var6, float var8, float var9);
+   public abstract void a(Entity var1, double var2, double var4, double var6, float var8, float var9);
 
    protected void a(String var1) {
       fu var2 = this.b.e;
@@ -23,7 +24,7 @@ public abstract class aq {
       var3.b(var3.a(var1, var2));
    }
 
-   private void a(lw var1, double var2, double var4, double var6, float var8) {
+   private void a(Entity var1, double var2, double var4, double var6, float var8) {
       GL11.glDisable(2896);
       int var9 = nq.ar.bg;
       int var10 = (var9 & 15) << 4;
@@ -63,7 +64,7 @@ public abstract class aq {
       GL11.glEnable(2896);
    }
 
-   private void c(lw var1, double var2, double var4, double var6, float var8, float var9) {
+   private void c(Entity var1, double var2, double var4, double var6, float var8, float var9) {
       GL11.glEnable(3042);
       GL11.glBlendFunc(770, 771);
       fu var10 = this.b.e;
@@ -209,8 +210,8 @@ public abstract class aq {
       this.b = var1;
    }
 
-   public void b(lw var1, double var2, double var4, double var6, float var8, float var9) {
-      if(this.b.k.i && this.c > 0.0F) {
+   public void b(Entity var1, double var2, double var4, double var6, float var8, float var9) {
+      if(this.b.k.fancyGraphics && this.c > 0.0F) {
          double var10 = this.b.a(var1.aw, var1.ax, var1.ay);
          float var12 = (float)((1.0D - var10 / 256.0D) * (double)this.d);
          if(var12 > 0.0F) {

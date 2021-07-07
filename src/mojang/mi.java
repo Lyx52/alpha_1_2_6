@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.vehicle.Minecart;
 import org.lwjgl.opengl.GL11;
 
 public class mi extends aq {
@@ -12,9 +14,9 @@ public class mi extends aq {
       this.a = new im();
    }
    @Override
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
 
-      qd var1 = (qd)var0;
+      Minecart var1 = (Minecart)var0;
       GL11.glPushMatrix();
       double var10 = var1.aV + (var1.aw - var1.aV) * (double)var9;
       double var12 = var1.aW + (var1.ax - var1.aW) * (double)var9;

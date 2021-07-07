@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.io.IOException;
 
 public class ps extends eb {
@@ -27,7 +29,7 @@ public class ps extends eb {
       this.ao = 10.0D;
    }
 
-   public boolean a(lw var1, int var2) {
+   public boolean a(Entity var1, int var2) {
       return true;
    }
 

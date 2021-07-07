@@ -2,7 +2,7 @@ package mojang;
 
 import java.io.IOException;
 
-public class du extends bp {
+public class du extends GraphicsUserInterface {
 
    private ib a;
    private int h = 0;
@@ -14,8 +14,8 @@ public class du extends bp {
 
    protected void a(char var1, int var2) {}
 
-   public void a() {
-      this.e.clear();
+   public void initButtons() {
+      this.buttons.clear();
    }
 
    public void g() throws IOException {
@@ -30,7 +30,7 @@ public class du extends bp {
 
    }
 
-   protected void a(gh var1) {}
+   protected void a(Button var1) {}
 
    public void a(int var1, int var2, float var3) {
       this.b(0);

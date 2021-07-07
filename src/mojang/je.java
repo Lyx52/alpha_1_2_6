@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.util.Random;
 
 public class je extends nq {
@@ -82,7 +84,7 @@ public class je extends nq {
       }
    }
 
-   public void a(cy var1, int var2, int var3, int var4, lw var5) {
-      var5.a((lw)null, 1);
+   public void a(cy var1, int var2, int var3, int var4, Entity var5) {
+      var5.a((Entity)null, 1);
    }
 }

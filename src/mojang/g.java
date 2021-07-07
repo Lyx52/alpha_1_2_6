@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.monster.Creeper;
 import org.lwjgl.opengl.GL11;
 
 public class g extends ec {
@@ -8,7 +9,7 @@ public class g extends ec {
       super(new fg(), 0.5F);
    }
 
-   protected void a(dq var1, float var2) {
+   protected void a(Creeper var1, float var2) {
       float var4 = var1.b(var2);
       float var5 = 1.0F + fi.a(var4 * 100.0F) * var4 * 0.01F;
       if(var4 < 0.0F) {
@@ -26,7 +27,7 @@ public class g extends ec {
       GL11.glScalef(var6, var7, var6);
    }
 
-   protected int a(dq var1, float var2, float var3) {
+   protected int a(Creeper var1, float var2, float var3) {
       float var5 = var1.b(var3);
       if((int)(var5 * 10.0F) % 2 == 0) {
          return 0;

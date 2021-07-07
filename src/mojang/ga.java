@@ -1,5 +1,9 @@
 package mojang;
 
+import mojang.tags.BaseTag;
+import mojang.tags.CompoundTag;
+import mojang.tags.ListTag;
+
 public class ga extends ji implements hi {
 
    private fp[] a = new fp[36];
@@ -48,14 +52,14 @@ public class ga extends ji implements hi {
       return "Chest";
    }
 
-   public void a(iq var1) {
+   public void a(CompoundTag var1) {
       super.a(var1);
-      ly var2 = var1.l("Items");
+      ListTag var2 = var1.getListTag("Items");
       this.a = new fp[this.c()];
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
-         iq var4 = (iq)var2.a(var3);
-         int var5 = var4.c("Slot") & 255;
+         CompoundTag var4 = (CompoundTag)var2.a(var3);
+         int var5 = var4.getByte("Slot") & 255;
          if(var5 >= 0 && var5 < this.a.length) {
             this.a[var5] = new fp(var4);
          }
@@ -63,20 +67,20 @@ public class ga extends ji implements hi {
 
    }
 
-   public void b(iq var1) {
+   public void b(CompoundTag var1) {
       super.b(var1);
-      ly var2 = new ly();
+      ListTag var2 = new ListTag();
 
       for(int var3 = 0; var3 < this.a.length; ++var3) {
          if(this.a[var3] != null) {
-            iq var4 = new iq();
-            var4.a("Slot", (byte)var3);
+            CompoundTag var4 = new CompoundTag();
+            var4.putByteTag("Slot", (byte)var3);
             this.a[var3].a(var4);
-            var2.a((fd)var4);
+            var2.a((BaseTag)var4);
          }
       }
 
-      var1.a("Items", (fd)var2);
+      var1.putBaseTag("Items", (BaseTag)var2);
    }
 
    public int o_() {

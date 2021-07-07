@@ -1,6 +1,9 @@
 package mojang;
 
 import java.util.Random;
+
+import mojang.entity.item.DroppedItem;
+import mojang.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class af extends aq {
@@ -14,8 +17,8 @@ public class af extends aq {
       this.d = 0.75F;
    }
    @Override
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
-      eo var1 = (eo)var0;
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
+      DroppedItem var1 = (DroppedItem)var0;
 
       this.e.setSeed(187L);
       fp var10 = var1.a;

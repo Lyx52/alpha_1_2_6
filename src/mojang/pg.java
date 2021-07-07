@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
 
 public class pg extends iv {
@@ -30,12 +31,12 @@ public class pg extends iv {
       int var5 = this.a.e.a(var1, var2, var3);
       this.a.e.e(var1, var2, var3);
       boolean var7 = super.b(var1, var2, var3, var4);
-      fp var8 = this.a.g.w();
+      fp var8 = this.a.playerName.w();
       if(var8 != null) {
          var8.a(var5, var1, var2, var3);
          if(var8.a == 0) {
-            var8.a((eb)this.a.g);
-            this.a.g.x();
+            var8.a((eb)this.a.playerName);
+            this.a.playerName.x();
          }
       }
 
@@ -47,10 +48,10 @@ public class pg extends iv {
       this.k.a((gk)(new gc(0, var1, var2, var3, var4)));
       int var5 = this.a.e.a(var1, var2, var3);
       if(var5 > 0 && this.f == 0.0F) {
-         nq.m[var5].b(this.a.e, var1, var2, var3, (eb)this.a.g);
+         nq.m[var5].b(this.a.e, var1, var2, var3, (eb)this.a.playerName);
       }
 
-      if(var5 > 0 && nq.m[var5].a((eb)this.a.g) >= 1.0F) {
+      if(var5 > 0 && nq.m[var5].a((eb)this.a.playerName) >= 1.0F) {
          this.b(var1, var2, var3, var4);
       }
 
@@ -79,7 +80,7 @@ public class pg extends iv {
             }
 
             nq var6 = nq.m[var5];
-            this.f += var6.a((eb)this.a.g);
+            this.f += var6.a((eb)this.a.playerName);
             if(this.h % 4.0F == 0.0F && var6 != null) {
                this.a.A.b(var6.bq.d(), (float)var1 + 0.5F, (float)var2 + 0.5F, (float)var3 + 0.5F, (var6.bq.b() + 1.0F) / 8.0F, var6.bq.c() * 0.5F);
             }
@@ -131,7 +132,7 @@ public class pg extends iv {
    }
 
    private void e() {
-      fp var1 = this.a.g.e.a();
+      fp var1 = this.a.playerName.e.a();
       int var2 = 0;
       if(var1 != null) {
          var2 = var1.c;
@@ -160,13 +161,13 @@ public class pg extends iv {
       return new mp(this.a, var1, this.a.i, this.k);
    }
 
-   public void b(eb var1, lw var2) {
+   public void b(eb var1, Entity var2) {
       this.e();
       this.k.a((gk)(new a(var1.an, var2.an, 1)));
       var1.c(var2);
    }
 
-   public void a(eb var1, lw var2) {
+   public void a(eb var1, Entity var2) {
       this.e();
       this.k.a((gk)(new a(var1.an, var2.an, 0)));
       var1.a_(var2);

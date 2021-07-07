@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.LivingEntity;
+
 import java.util.Random;
 
 public class mj extends lh {
@@ -110,7 +112,7 @@ public class mj extends lh {
       return new lt();
    }
 
-   public void a(cy var1, int var2, int var3, int var4, hf var5) {
+   public void a(cy var1, int var2, int var3, int var4, LivingEntity var5) {
       int var6 = fi.b((double)(var5.aC * 4.0F / 360.0F) + 0.5D) & 3;
       if(var6 == 0) {
          var1.b(var2, var3, var4, 2);

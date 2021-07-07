@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.vehicle.Boat;
+import mojang.entity.Entity;
+
 public class nw extends dx {
 
    public nw(int var1) {
@@ -32,7 +35,7 @@ public class nw extends dx {
             int var26 = var24.c;
             int var27 = var24.d;
             if(!var2.z) {
-               var2.a((lw)(new dp(var2, (double)((float)var25 + 0.5F), (double)((float)var26 + 1.5F), (double)((float)var27 + 0.5F))));
+               var2.a((Entity)(new Boat(var2, (double)((float)var25 + 0.5F), (double)((float)var26 + 1.5F), (double)((float)var27 + 0.5F))));
             }
 
             --var1.a;

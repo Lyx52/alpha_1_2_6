@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -373,7 +375,7 @@ public class ha {
       return var5;
    }
 
-   public void a(lw var1) {
+   public void a(Entity var1) {
       if(!this.q) {
          this.r = true;
          int var2 = fi.b(var1.aw / 16.0D);
@@ -400,11 +402,11 @@ public class ha {
       }
    }
 
-   public void b(lw var1) {
+   public void b(Entity var1) {
       this.a(var1, var1.bp);
    }
 
-   public void a(lw var1, int var2) {
+   public void a(Entity var1, int var2) {
       if(var2 < 0) {
          var2 = 0;
       }
@@ -497,7 +499,7 @@ public class ha {
       this.o = true;
    }
 
-   public void a(lw var1, co var2, List var3) {
+   public void a(Entity var1, co var2, List var3) {
       int var4 = fi.b((var2.b - 2.0D) / 16.0D);
       int var5 = fi.b((var2.e + 2.0D) / 16.0D);
       if(var4 < 0) {
@@ -512,7 +514,7 @@ public class ha {
          List var7 = this.m[var6];
 
          for(int var8 = 0; var8 < var7.size(); ++var8) {
-            lw var9 = (lw)var7.get(var8);
+            Entity var9 = (Entity)var7.get(var8);
             if(var9 != var1 && var9.aG.a(var2)) {
                var3.add(var9);
             }
@@ -536,7 +538,7 @@ public class ha {
          List var7 = this.m[var6];
 
          for(int var8 = 0; var8 < var7.size(); ++var8) {
-            lw var9 = (lw)var7.get(var8);
+            Entity var9 = (Entity)var7.get(var8);
             if(var1.isAssignableFrom(var9.getClass()) && var9.aG.a(var2)) {
                var3.add(var9);
             }

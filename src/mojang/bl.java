@@ -1,5 +1,9 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+import mojang.tags.CompoundTag;
+
 public class bl extends ji {
 
    public int a = -1;
@@ -39,7 +43,7 @@ public class bl extends ji {
             byte var7 = 4;
 
             for(int var8 = 0; var8 < var7; ++var8) {
-               hf var9 = (hf)((hf)fq.a(this.b, this.e));
+               LivingEntity var9 = (LivingEntity)((LivingEntity)fq.a(this.b, this.e));
                if(var9 == null) {
                   return;
                }
@@ -56,7 +60,7 @@ public class bl extends ji {
                   double var15 = (double)this.h + (this.e.l.nextDouble() - this.e.l.nextDouble()) * 4.0D;
                   var9.c(var11, var13, var15, this.e.l.nextFloat() * 360.0F, 0.0F);
                   if(var9.a()) {
-                     this.e.a((lw)var9);
+                     this.e.a((Entity)var9);
 
                      for(int var17 = 0; var17 < 20; ++var17) {
                         var1 = (double)this.f + 0.5D + ((double)this.e.l.nextFloat() - 0.5D) * 2.0D;
@@ -81,15 +85,15 @@ public class bl extends ji {
       this.a = 200 + this.e.l.nextInt(600);
    }
 
-   public void a(iq var1) {
+   public void a(CompoundTag var1) {
       super.a(var1);
-      this.b = var1.i("EntityId");
-      this.a = var1.d("Delay");
+      this.b = var1.getString("EntityId");
+      this.a = var1.getShort("Delay");
    }
 
-   public void b(iq var1) {
+   public void b(CompoundTag var1) {
       super.b(var1);
-      var1.a("EntityId", this.b);
-      var1.a("Delay", (short)this.a);
+      var1.putStringTag("EntityId", this.b);
+      var1.putShortTag("Delay", (short)this.a);
    }
 }

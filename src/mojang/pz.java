@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.monster.Giant;
 import org.lwjgl.opengl.GL11;
 
 public class pz extends ec {
@@ -12,7 +13,7 @@ public class pz extends ec {
       this.a = var3;
    }
 
-   protected void a(ip var1, float var2) {
+   protected void a(Giant var1, float var2) {
       GL11.glScalef(this.a, this.a, this.a);
    }
 }

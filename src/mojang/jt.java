@@ -12,9 +12,9 @@ public class jt extends iv {
    public void b(eb var1) {
       for(int var2 = 0; var2 < 9; ++var2) {
          if(var1.e.a[var2] == null) {
-            this.a.g.e.a[var2] = new fp(((nq)ea.a.get(var2)).bh);
+            this.a.playerName.e.a[var2] = new fp(((nq)ea.a.get(var2)).bh);
          } else {
-            this.a.g.e.a[var2].a = 1;
+            this.a.playerName.e.a[var2].a = 1;
          }
       }
 

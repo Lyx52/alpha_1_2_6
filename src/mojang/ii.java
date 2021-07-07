@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,7 +14,7 @@ public class ii extends gk {
 
    public ii() {}
 
-   public ii(lw var1, int var2) {
+   public ii(Entity var1, int var2) {
       this.a = var1.an;
       this.b = var2;
    }

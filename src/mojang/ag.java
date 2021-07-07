@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.animal.Cow;
+
 public class ag extends dx {
 
    private int a;
@@ -93,7 +95,7 @@ public class ag extends dx {
                   return new fp(au);
                }
             }
-         } else if(this.a == 0 && var24.g instanceof as) {
+         } else if(this.a == 0 && var24.g instanceof Cow) {
             return new fp(aE);
          }
 

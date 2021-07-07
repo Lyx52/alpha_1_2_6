@@ -1,9 +1,17 @@
 package mojang;
 
+import mojang.entity.*;
+import mojang.entity.item.DroppedItem;
+import mojang.entity.monster.Monster;
+import mojang.entity.projectile.Arrow;
+import mojang.tags.BaseTag;
+import mojang.tags.CompoundTag;
+import mojang.tags.ListTag;
+
 import java.io.IOException;
 import java.util.List;
 
-public class eb extends hf {
+public class eb extends LivingEntity {
 
    public fo e = new fo(this);
    public byte f = 0;
@@ -26,7 +34,7 @@ public class eb extends hf {
       this.C = "humanoid";
       this.B = 180.0F;
       this.bf = 20;
-      this.z = "/mojang/mob/char.png";
+      this.image = "/mojang/mob/char.png";
    }
 
    public void s() throws IOException {
@@ -82,17 +90,17 @@ public class eb extends hf {
       this.i += (var1 - this.i) * 0.4F;
       this.R += (var2 - this.R) * 0.8F;
       if(this.J > 0) {
-         List var3 = this.as.b((lw)this, this.aG.b(1.0D, 0.0D, 1.0D));
+         List var3 = this.as.b((Entity)this, this.aG.b(1.0D, 0.0D, 1.0D));
          if(var3 != null) {
             for(int var4 = 0; var4 < var3.size(); ++var4) {
-               this.i((lw)var3.get(var4));
+               this.i((Entity)var3.get(var4));
             }
          }
       }
 
    }
 
-   private void i(lw var1) {
+   private void i(Entity var1) {
       var1.b(this);
    }
 
@@ -100,7 +108,7 @@ public class eb extends hf {
       return this.g;
    }
 
-   public void b(lw var1) {
+   public void b(Entity var1) {
       super.b(var1);
       this.a(0.2F, 0.2F);
       this.b(this.aw, this.ax, this.ay);
@@ -120,7 +128,7 @@ public class eb extends hf {
       this.aO = 0.1F;
    }
 
-   public void c(lw var1, int var2) {
+   public void c(Entity var1, int var2) {
       this.g += var2;
    }
 
@@ -130,7 +138,7 @@ public class eb extends hf {
 
    public void a(fp var1, boolean var2) {
       if(var1 != null) {
-         eo var3 = new eo(this.as, this.aw, this.ax - 0.30000001192092896D + (double)this.v(), this.ay, var1);
+         DroppedItem var3 = new DroppedItem(this.as, this.aw, this.ax - 0.30000001192092896D + (double)this.v(), this.ay, var1);
          var3.c = 40;
          float var4 = 0.1F;
          float var5;
@@ -157,8 +165,8 @@ public class eb extends hf {
       }
    }
 
-   protected void a(eo var1) {
-      this.as.a((lw)var1);
+   protected void a(DroppedItem var1) {
+      this.as.a((Entity)var1);
    }
 
    public float a(nq var1) {
@@ -178,35 +186,35 @@ public class eb extends hf {
       return this.e.b(var1);
    }
 
-   public void b(iq var1) {
+   public void b(CompoundTag var1) {
       super.b(var1);
-      ly var2 = var1.l("Inventory");
+      ListTag var2 = var1.getListTag("Inventory");
       this.e.b(var2);
-      this.m = var1.e("Dimension");
+      this.m = var1.getInteger("Dimension");
    }
 
-   public void a(iq var1) {
+   public void a(CompoundTag var1) {
       super.a(var1);
-      var1.a("Inventory", (fd)this.e.a(new ly()));
-      var1.a("Dimension", this.m);
+      var1.putBaseTag("Inventory", (BaseTag)this.e.a(new ListTag()));
+      var1.putIntegerTag("Dimension", this.m);
    }
 
    public void a(hi var1) {}
 
    public void m() {}
 
-   public void b(lw var1, int var2) {}
+   public void b(Entity var1, int var2) {}
 
    public float v() {
       return 0.12F;
    }
 
-   public boolean a(lw var1, int var2) {
+   public boolean a(Entity var1, int var2) {
       this.ag = 0;
       if(this.J <= 0) {
          return false;
       } else {
-         if(var1 instanceof ef || var1 instanceof lv) {
+         if(var1 instanceof Monster || var1 instanceof Arrow) {
             if(this.as.k == 0) {
                var2 = 0;
             }
@@ -237,7 +245,7 @@ public class eb extends hf {
 
    public void a(qc var1) {}
 
-   public void a_(lw var1) {
+   public void a_(Entity var1) {
       var1.a(this);
    }
 
@@ -258,13 +266,13 @@ public class eb extends hf {
       this.j = true;
    }
 
-   public void c(lw var1) {
+   public void c(Entity var1) {
       int var2 = this.e.a(var1);
       if(var2 > 0) {
          var1.a(this, var2);
          fp var3 = this.w();
-         if(var3 != null && var1 instanceof hf) {
-            var3.a((hf)var1);
+         if(var3 != null && var1 instanceof LivingEntity) {
+            var3.a((LivingEntity)var1);
             if(var3.a <= 0) {
                var3.a(this);
                this.x();

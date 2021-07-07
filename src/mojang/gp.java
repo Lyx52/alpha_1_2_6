@@ -34,7 +34,7 @@ public class gp extends ad {
 
    public void a() {
       double var1 = 0.0D;
-      if(this.g.e != null && this.g.g != null) {
+      if(this.g.e != null && this.g.playerName != null) {
          float var3 = this.g.e.b(1.0F);
          var1 = (double)(-var3 * 3.1415927F * 2.0F);
          if(this.g.e.q.c) {

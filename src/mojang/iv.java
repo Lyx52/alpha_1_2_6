@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
 
 public class iv {
@@ -76,11 +77,11 @@ public class iv {
       return new bq(this.a, var1, this.a.i, var1.q.g);
    }
 
-   public void a(eb var1, lw var2) {
+   public void a(eb var1, Entity var2) {
       var1.a_(var2);
    }
 
-   public void b(eb var1, lw var2) {
+   public void b(eb var1, Entity var2) {
       var1.c(var2);
    }
 }

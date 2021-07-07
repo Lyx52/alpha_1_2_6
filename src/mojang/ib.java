@@ -6,8 +6,15 @@ import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.util.Random;
+
+import mojang.entity.*;
+import mojang.entity.item.DroppedItem;
+import mojang.entity.item.PrimedTNT;
+import mojang.entity.projectile.Arrow;
+import mojang.entity.projectile.Snowball;
+import mojang.entity.vehicle.Boat;
+import mojang.entity.vehicle.Minecart;
 import mojang.net.minecraft.client.Minecraft;
 
 public class ib extends mo {
@@ -38,8 +45,8 @@ public class ib extends mo {
       this.f = new hv(this, var1.d, var1.e);
       this.f.z = true;
       this.e.a((cy)this.f);
-      this.e.a((bp)(new du(this)));
-      this.e.g.an = var1.a;
+      this.e.a((GraphicsUserInterface)(new du(this)));
+      this.e.playerName.an = var1.a;
       System.out.println("clientEntityId: " + var1.a);
    }
 
@@ -47,7 +54,7 @@ public class ib extends mo {
       double var2 = (double)var1.b / 32.0D;
       double var4 = (double)var1.c / 32.0D;
       double var6 = (double)var1.d / 32.0D;
-      eo var8 = new eo(this.f, var2, var4, var6, new fp(var1.h, var1.i));
+      DroppedItem var8 = new DroppedItem(this.f, var2, var4, var6, new fp(var1.h, var1.i));
       var8.az = (double)var1.e / 128.0D;
       var8.aA = (double)var1.f / 128.0D;
       var8.aB = (double)var1.g / 128.0D;
@@ -63,15 +70,15 @@ public class ib extends mo {
       double var6 = (double)var1.d / 32.0D;
       Object var8 = null;
       if(var1.e == 10) {
-         var8 = new qd(this.f, var2, var4, var6, 0);
+         var8 = new Minecart(this.f, var2, var4, var6, 0);
       }
 
       if(var1.e == 11) {
-         var8 = new qd(this.f, var2, var4, var6, 1);
+         var8 = new Minecart(this.f, var2, var4, var6, 1);
       }
 
       if(var1.e == 12) {
-         var8 = new qd(this.f, var2, var4, var6, 2);
+         var8 = new Minecart(this.f, var2, var4, var6, 2);
       }
 
       if(var1.e == 90) {
@@ -79,35 +86,35 @@ public class ib extends mo {
       }
 
       if(var1.e == 60) {
-         var8 = new lv(this.f, var2, var4, var6);
+         var8 = new Arrow(this.f, var2, var4, var6);
       }
 
       if(var1.e == 61) {
-         var8 = new at(this.f, var2, var4, var6);
+         var8 = new Snowball(this.f, var2, var4, var6);
       }
 
       if(var1.e == 1) {
-         var8 = new dp(this.f, var2, var4, var6);
+         var8 = new Boat(this.f, var2, var4, var6);
       }
 
       if(var1.e == 50) {
-         var8 = new kr(this.f, var2, var4, var6);
+         var8 = new PrimedTNT(this.f, var2, var4, var6);
       }
 
       if(var8 != null) {
-         ((lw)var8).br = var1.b;
-         ((lw)var8).bs = var1.c;
-         ((lw)var8).bt = var1.d;
-         ((lw)var8).aC = 0.0F;
-         ((lw)var8).aD = 0.0F;
-         ((lw)var8).an = var1.a;
-         this.f.a(var1.a, (lw)var8);
+         ((Entity)var8).br = var1.b;
+         ((Entity)var8).bs = var1.c;
+         ((Entity)var8).bt = var1.d;
+         ((Entity)var8).aC = 0.0F;
+         ((Entity)var8).aD = 0.0F;
+         ((Entity)var8).an = var1.a;
+         this.f.a(var1.a, (Entity)var8);
       }
 
    }
 
    public void a(dv var1) {
-      lw var2 = this.a(var1.a);
+      Entity var2 = this.a(var1.a);
       if(var2 != null) {
          var2.a((double)var1.b / 8000.0D, (double)var1.c / 8000.0D, (double)var1.d / 8000.0D);
       }
@@ -135,7 +142,7 @@ public class ib extends mo {
    }
 
    public void a(ky var1) {
-      lw var2 = this.a(var1.a);
+      Entity var2 = this.a(var1.a);
       if(var2 != null) {
          var2.br = var1.b;
          var2.bs = var1.c;
@@ -150,7 +157,7 @@ public class ib extends mo {
    }
 
    public void a(nh var1) {
-      lw var2 = this.a(var1.a);
+      Entity var2 = this.a(var1.a);
       if(var2 != null) {
          var2.br += var1.b;
          var2.bs += var1.c;
@@ -169,7 +176,7 @@ public class ib extends mo {
    }
 
    public void a(fa var1) {
-      bq var2 = this.e.g;
+      bq var2 = this.e.playerName;
       double var3 = var2.aw;
       double var5 = var2.ax;
       double var7 = var2.ay;
@@ -195,11 +202,11 @@ public class ib extends mo {
       var1.d = var2.ax;
       this.d.a((gk)var1);
       if(!this.g) {
-         this.e.g.at = this.e.g.aw;
-         this.e.g.au = this.e.g.ax;
-         this.e.g.av = this.e.g.ay;
+         this.e.playerName.at = this.e.playerName.aw;
+         this.e.playerName.au = this.e.playerName.ax;
+         this.e.playerName.av = this.e.playerName.ay;
          this.g = true;
-         this.e.a((bp)null);
+         this.e.a((GraphicsUserInterface)null);
       }
 
    }
@@ -240,14 +247,14 @@ public class ib extends mo {
       this.d.a("Got kicked");
       this.c = true;
       this.e.a((cy)null);
-      this.e.a((bp)(new ct("Disconnected by server", var1.a)));
+      this.e.a((GraphicsUserInterface)(new ct("Disconnected by server", var1.a)));
    }
 
    public void a(String var1) {
       if(!this.c) {
          this.c = true;
          this.e.a((cy)null);
-         this.e.a((bp)(new ct("Connection lost", var1)));
+         this.e.a((GraphicsUserInterface)(new ct("Connection lost", var1)));
       }
    }
 
@@ -258,22 +265,22 @@ public class ib extends mo {
    }
 
    public void a(bu var1) {
-      lw var2 = this.a(var1.a);
-      Object var3 = (hf)this.a(var1.b);
+      Entity var2 = this.a(var1.a);
+      Object var3 = (LivingEntity)this.a(var1.b);
       if(var3 == null) {
-         var3 = this.e.g;
+         var3 = this.e.playerName;
       }
 
       if(var2 != null) {
          this.f.a(var2, "random.pop", 0.2F, ((this.b.nextFloat() - this.b.nextFloat()) * 0.7F + 1.0F) * 2.0F);
-         this.e.h.a((pp)(new cm(this.e.e, var2, (lw)var3, -0.5F)));
+         this.e.h.a((pp)(new cm(this.e.e, var2, (Entity)var3, -0.5F)));
          this.f.c(var1.a);
       }
 
    }
 
    public void a(eq var1) {
-      lw var2 = this.a(var1.a);
+      Entity var2 = this.a(var1.a);
       if(var2 != null) {
          eb var3 = (eb)var2;
          int var4 = var1.b;
@@ -291,7 +298,7 @@ public class ib extends mo {
    }
 
    public void a(ii var1) {
-      lw var2 = this.a(var1.a);
+      Entity var2 = this.a(var1.a);
       if(var2 != null) {
          if(var1.b == 1) {
             eb var3 = (eb)var2;
@@ -316,7 +323,7 @@ public class ib extends mo {
    }
 
    public void a(mt var1) {
-      this.e.g.e.a(new fp(var1.a, var1.b, var1.c));
+      this.e.playerName.e.a(new fp(var1.a, var1.b, var1.c));
    }
 
    public void a(hw var1) {
@@ -352,7 +359,7 @@ public class ib extends mo {
       double var6 = (double)var1.e / 32.0D;
       float var8 = (float)(var1.f * 360) / 256.0F;
       float var9 = (float)(var1.g * 360) / 256.0F;
-      hf var10 = (hf)fq.a(var1.b, this.e.e);
+      LivingEntity var10 = (LivingEntity)fq.a(var1.b, this.e.e);
       var10.br = var1.c;
       var10.bs = var1.d;
       var10.bt = var1.e;
@@ -367,7 +374,7 @@ public class ib extends mo {
    }
 
    public void a(p var1) {
-      bq var2 = this.e.g;
+      bq var2 = this.e.playerName;
       if(var1.a == -1) {
          var2.e.a = var1.b;
       }
@@ -383,9 +390,9 @@ public class ib extends mo {
    }
 
    public void a(py var1) {
-      if(var1.e.e("x") == var1.a) {
-         if(var1.e.e("y") == var1.b) {
-            if(var1.e.e("z") == var1.c) {
+      if(var1.e.getInteger("x") == var1.a) {
+         if(var1.e.getInteger("y") == var1.b) {
+            if(var1.e.getInteger("z") == var1.c) {
                ji var2 = this.f.b(var1.a, var1.b, var1.c);
                if(var2 != null) {
                   try {
@@ -410,30 +417,30 @@ public class ib extends mo {
 
    public void a(io var1) {
       Object var2 = this.a(var1.a);
-      lw var3 = this.a(var1.b);
-      if(var1.a == this.e.g.an) {
-         var2 = this.e.g;
+      Entity var3 = this.a(var1.b);
+      if(var1.a == this.e.playerName.an) {
+         var2 = this.e.playerName;
       }
 
       if(var2 != null) {
-         ((lw)var2).h(var3);
+         ((Entity)var2).h(var3);
       }
    }
 
    public void a(fs var1) {
-      lw var2 = this.a(var1.a);
+      Entity var2 = this.a(var1.a);
       if(var2 != null) {
          var2.a(var1.b);
       }
 
    }
 
-   private lw a(int var1) {
-      return (lw)(var1 == this.e.g.an?this.e.g:this.f.b(var1));
+   private Entity a(int var1) {
+      return (Entity)(var1 == this.e.playerName.an?this.e.playerName :this.f.b(var1));
    }
 
    public void a(cq var1) {
-      this.e.g.a_(var1.a);
+      this.e.playerName.a_(var1.a);
    }
 
    public void a(jk var1) throws IOException {
@@ -441,7 +448,7 @@ public class ib extends mo {
    }
 
    public void a(lc var1) {
-      ks var2 = new ks(this.e.e, (lw)null, var1.a, var1.b, var1.c, var1.d);
+      ks var2 = new ks(this.e.e, (Entity)null, var1.a, var1.b, var1.c, var1.d);
       var2.g = var1.e;
       var2.b();
    }

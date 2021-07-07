@@ -99,7 +99,7 @@ public class ls {
          }
 
          boolean var24 = var9 >= 16;
-         if(var1.g) {
+         if(var1.anaglyph3D) {
             var15 = (var11 * 30 + var12 * 59 + var22 * 11) / 100;
             var16 = (var11 * 30 + var12 * 70) / 100;
             int var17 = (var11 * 30 + var22 * 70) / 100;

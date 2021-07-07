@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.item.DroppedItem;
+import mojang.entity.Entity;
+
 import java.util.Random;
 
 public class ig extends ok {
@@ -92,9 +95,9 @@ public class ig extends ok {
                float var8 = var1.l.nextFloat() * var7 + (1.0F - var7) * 0.5F;
                float var9 = var1.l.nextFloat() * var7 + (1.0F - var7) * 0.5F;
                float var10 = var1.l.nextFloat() * var7 + (1.0F - var7) * 0.5F;
-               eo var11 = new eo(var1, (double)((float)var2 + var8), (double)((float)var3 + var9), (double)((float)var4 + var10), new fp(dx.Q));
+               DroppedItem var11 = new DroppedItem(var1, (double)((float)var2 + var8), (double)((float)var3 + var9), (double)((float)var4 + var10), new fp(dx.Q));
                var11.c = 10;
-               var1.a((lw)var11);
+               var1.a((Entity)var11);
             }
          }
       }

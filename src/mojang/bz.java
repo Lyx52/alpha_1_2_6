@@ -3,6 +3,8 @@ package mojang;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import mojang.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class bz {
@@ -44,7 +46,7 @@ public class bz {
 
    }
 
-   public void a(lw var1, float var2) {
+   public void a(Entity var1, float var2) {
       float var3 = fi.b(var1.aC * 3.1415927F / 180.0F);
       float var4 = fi.a(var1.aC * 3.1415927F / 180.0F);
       float var5 = -var4 * fi.a(var1.aD * 3.1415927F / 180.0F);
@@ -84,7 +86,7 @@ public class bz {
 
    }
 
-   public void b(lw var1, float var2) {
+   public void b(Entity var1, float var2) {
       byte var3 = 3;
       if(this.b[var3].size() != 0) {
          is var4 = is.a;

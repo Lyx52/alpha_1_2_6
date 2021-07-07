@@ -53,10 +53,10 @@ public class ae extends ad {
       double var20 = 0.0D;
       double var21;
       double var22;
-      if(this.g.e != null && this.g.g != null) {
-         var21 = (double)this.g.e.m - this.g.g.aw;
-         var22 = (double)this.g.e.o - this.g.g.ay;
-         var20 = (double)(this.g.g.aC - 90.0F) * 3.141592653589793D / 180.0D - Math.atan2(var22, var21);
+      if(this.g.e != null && this.g.playerName != null) {
+         var21 = (double)this.g.e.m - this.g.playerName.aw;
+         var22 = (double)this.g.e.o - this.g.playerName.ay;
+         var20 = (double)(this.g.playerName.aC - 90.0F) * 3.141592653589793D / 180.0D - Math.atan2(var22, var21);
          if(this.g.e.q.c) {
             var20 = Math.random() * 3.1415927410125732D * 2.0D;
          }

@@ -1,10 +1,11 @@
 package mojang;
 
+import mojang.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class jw extends aq {
    @Override
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
       hj var1 = (hj)var0;
       GL11.glPushMatrix();
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);

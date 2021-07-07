@@ -8,7 +8,7 @@ import mojang.net.minecraft.client.Minecraft;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-public class nl extends nb {
+public class nl extends GUIComponent {
 
    private static af d = new af();
    private List e = new ArrayList();
@@ -33,23 +33,23 @@ public class nl extends nb {
       ls var8 = this.g.o;
       this.g.r.b();
       GL11.glEnable(3042);
-      if(this.g.y.i) {
-         this.a(this.g.g.a(var1), var6, var7);
+      if(this.g.y.fancyGraphics) {
+         this.a(this.g.playerName.a(var1), var6, var7);
       }
 
-      fp var9 = this.g.g.e.d(3);
+      fp var9 = this.g.playerName.e.d(3);
       if(!this.g.y.y && var9 != null && var9.c == nq.ba.bh) {
          this.a(var6, var7);
       }
 
-      float var10 = this.g.g.d + (this.g.g.c - this.g.g.d) * var1;
+      float var10 = this.g.playerName.d + (this.g.playerName.c - this.g.playerName.d) * var1;
       if(var10 > 0.0F) {
          this.b(var10, var6, var7);
       }
 
       GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
       GL11.glBindTexture(3553, this.g.n.a("/mojang/gui/gui.png"));
-      fo var11 = this.g.g.e;
+      fo var11 = this.g.playerName.e;
       this.k = -90.0F;
       this.b(var6 / 2 - 91, var7 - 22, 0, 0, 182, 22);
       this.b(var6 / 2 - 91 - 1 + var11.d * 20, var7 - 22 - 1, 0, 22, 24, 22);
@@ -58,19 +58,19 @@ public class nl extends nb {
       GL11.glBlendFunc(775, 769);
       this.b(var6 / 2 - 7, var7 / 2 - 7, 0, 0, 16, 16);
       GL11.glDisable(3042);
-      boolean var12 = this.g.g.bj / 3 % 2 == 1;
-      if(this.g.g.bj < 10) {
+      boolean var12 = this.g.playerName.bj / 3 % 2 == 1;
+      if(this.g.playerName.bj < 10) {
          var12 = false;
       }
 
-      int var13 = this.g.g.J;
-      int var14 = this.g.g.K;
+      int var13 = this.g.playerName.J;
+      int var14 = this.g.playerName.K;
       this.f.setSeed((long)(this.h * 312871));
       int var15;
       int var16;
       int var17;
       if(this.g.b.d()) {
-         var15 = this.g.g.n();
+         var15 = this.g.playerName.n();
 
          int var18;
          for(var16 = 0; var16 < 10; ++var16) {
@@ -120,9 +120,9 @@ public class nl extends nb {
             }
          }
 
-         if(this.g.g.a(hb.f)) {
-            var16 = (int)Math.ceil((double)(this.g.g.bk - 2) * 10.0D / 300.0D);
-            var17 = (int)Math.ceil((double)this.g.g.bk * 10.0D / 300.0D) - var16;
+         if(this.g.playerName.a(hb.f)) {
+            var16 = (int)Math.ceil((double)(this.g.playerName.bk - 2) * 10.0D / 300.0D);
+            var17 = (int)Math.ceil((double)this.g.playerName.bk * 10.0D / 300.0D) - var16;
 
             for(var18 = 0; var18 < var16 + var17; ++var18) {
                if(var18 < var16) {
@@ -163,9 +163,9 @@ public class nl extends nb {
          this.b(var8, var23, var6 - var8.a(var23) - 2, 2, 14737632);
          var23 = "Allocated memory: " + var29 * 100L / var24 + "% (" + var29 / 1024L / 1024L + "MB)";
          this.b(var8, var23, var6 - var8.a(var23) - 2, 12, 14737632);
-         this.b(var8, "x: " + this.g.g.aw, 2, 64, 14737632);
-         this.b(var8, "y: " + this.g.g.ax, 2, 72, 14737632);
-         this.b(var8, "z: " + this.g.g.ay, 2, 80, 14737632);
+         this.b(var8, "x: " + this.g.playerName.aw, 2, 64, 14737632);
+         this.b(var8, "y: " + this.g.playerName.ax, 2, 72, 14737632);
+         this.b(var8, "z: " + this.g.playerName.ay, 2, 80, 14737632);
       } else {
          var8.a("Minecraft Alpha v1.2.6", 2, 2, 16777215);
       }
@@ -314,7 +314,7 @@ public class nl extends nb {
    }
 
    private void a(int var1, int var2, int var3, float var4) {
-      fp var5 = this.g.g.e.a[var1];
+      fp var5 = this.g.playerName.e.a[var1];
       if(var5 != null) {
          float var6 = (float)var5.b - var4;
          if(var6 > 0.0F) {

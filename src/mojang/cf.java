@@ -1,6 +1,9 @@
 package mojang;
 
 import java.util.Random;
+
+import mojang.entity.Entity;
+import mojang.entity.item.Painting;
 import org.lwjgl.opengl.GL11;
 
 public class cf extends aq {
@@ -8,8 +11,8 @@ public class cf extends aq {
    private Random a = new Random();
 
    @Override
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
-      kp var1 = (kp)var0;
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
+      Painting var1 = (Painting)var0;
       this.a.setSeed(187L);
       GL11.glPushMatrix();
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);
@@ -24,7 +27,7 @@ public class cf extends aq {
       GL11.glPopMatrix();
    }
 
-   private void a(kp var1, int var2, int var3, int var4, int var5) {
+   private void a(Painting var1, int var2, int var3, int var4, int var5) {
       float var6 = (float)(-var2) / 2.0F;
       float var7 = (float)(-var3) / 2.0F;
       float var8 = -0.5F;
@@ -91,7 +94,7 @@ public class cf extends aq {
 
    }
 
-   private void a(kp var1, float var2, float var3) {
+   private void a(Painting var1, float var2, float var3) {
       int var4 = fi.b(var1.aw);
       int var5 = fi.b(var1.ax + (double)(var3 / 16.0F));
       int var6 = fi.b(var1.ay);

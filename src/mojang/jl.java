@@ -2,27 +2,27 @@ package mojang;
 
 import java.io.IOException;
 
-public class jl extends bp {
+public class jl extends GraphicsUserInterface {
 
    private int a = 0;
    private int h = 0;
 
 
-   public void a() {
+   public void initButtons() {
       this.a = 0;
-      this.e.clear();
-      this.e.add(new gh(1, this.c / 2 - 100, this.d / 4 + 48, "Save and quit to title"));
+      this.buttons.clear();
+      this.buttons.add(new Button(1, this.c / 2 - 100, this.d / 4 + 48, "Save and quit to title"));
       if(this.b.j()) {
-         ((gh)this.e.get(0)).e = "Disconnect";
+         ((Button)this.buttons.get(0)).e = "Disconnect";
       }
 
-      this.e.add(new gh(4, this.c / 2 - 100, this.d / 4 + 24, "Back to game"));
-      this.e.add(new gh(0, this.c / 2 - 100, this.d / 4 + 96, "Options..."));
+      this.buttons.add(new Button(4, this.c / 2 - 100, this.d / 4 + 24, "Back to game"));
+      this.buttons.add(new Button(0, this.c / 2 - 100, this.d / 4 + 96, "Options..."));
    }
 
-   protected void a(gh var1) {
+   protected void a(Button var1) {
       if(var1.f == 0) {
-         this.b.a((bp)(new bf(this, this.b.y)));
+         this.b.a((GraphicsUserInterface)(new bf(this, this.b.y)));
       }
 
       if(var1.f == 1) {
@@ -31,11 +31,11 @@ public class jl extends bp {
          }
 
          this.b.a((cy)null);
-         this.b.a((bp)(new dj()));
+         this.b.a((GraphicsUserInterface)(new dj()));
       }
 
       if(var1.f == 4) {
-         this.b.a((bp)null);
+         this.b.a((GraphicsUserInterface)null);
          this.b.e();
       }
 

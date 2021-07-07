@@ -1,5 +1,9 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+import mojang.tags.CompoundTag;
+
 public final class fp {
 
    public int a;
@@ -41,7 +45,7 @@ public final class fp {
       this.d = var3;
    }
 
-   public fp(iq var1) {
+   public fp(CompoundTag var1) {
       this.a = 0;
       this.b(var1);
    }
@@ -71,17 +75,17 @@ public final class fp {
       return this.a().a(this, var1, var2);
    }
 
-   public iq a(iq var1) {
-      var1.a("id", (short)this.c);
-      var1.a("Count", (byte)this.a);
-      var1.a("Damage", (short)this.d);
+   public CompoundTag a(CompoundTag var1) {
+      var1.putShortTag("id", (short)this.c);
+      var1.putByteTag("Count", (byte)this.a);
+      var1.putShortTag("Damage", (short)this.d);
       return var1;
    }
 
-   public void b(iq var1) {
-      this.c = var1.d("id");
-      this.a = var1.c("Count");
-      this.d = var1.d("Damage");
+   public void b(CompoundTag var1) {
+      this.c = var1.getShort("id");
+      this.a = var1.getByte("Count");
+      this.d = var1.getShort("Damage");
    }
 
    public int c() {
@@ -105,7 +109,7 @@ public final class fp {
 
    }
 
-   public void a(hf var1) {
+   public void a(LivingEntity var1) {
       dx.c[this.c].a(this, var1);
    }
 
@@ -113,7 +117,7 @@ public final class fp {
       dx.c[this.c].a(this, var1, var2, var3, var4);
    }
 
-   public int a(lw var1) {
+   public int a(Entity var1) {
       return dx.c[this.c].a(var1);
    }
 
@@ -123,7 +127,7 @@ public final class fp {
 
    public void a(eb var1) {}
 
-   public void b(hf var1) {
+   public void b(LivingEntity var1) {
       dx.c[this.c].b(this, var1);
    }
 

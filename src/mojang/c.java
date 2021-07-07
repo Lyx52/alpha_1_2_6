@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.item.DroppedItem;
+import mojang.entity.Entity;
+
 import java.util.Random;
 
 public class c extends lh {
@@ -145,12 +148,12 @@ public class c extends lh {
                }
 
                var7.a -= var11;
-               eo var12 = new eo(var1, (double)((float)var2 + var8), (double)((float)var3 + var9), (double)((float)var4 + var10), new fp(var7.c, var11, var7.d));
+               DroppedItem var12 = new DroppedItem(var1, (double)((float)var2 + var8), (double)((float)var3 + var9), (double)((float)var4 + var10), new fp(var7.c, var11, var7.d));
                float var13 = 0.05F;
                var12.az = (double)((float)this.a.nextGaussian() * var13);
                var12.aA = (double)((float)this.a.nextGaussian() * var13 + 0.2F);
                var12.aB = (double)((float)this.a.nextGaussian() * var13);
-               var1.a((lw)var12);
+               var1.a((Entity)var12);
             }
          }
       }

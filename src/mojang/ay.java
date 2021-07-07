@@ -1,12 +1,12 @@
 package mojang;
 
-public class ay extends bp {
+public class ay extends GraphicsUserInterface {
 
    private String a;
    private String h;
 
 
-   public void a() {}
+   public void initButtons() {}
 
    public void a(int var1, int var2, float var3) {
       this.a(0, 0, this.c, this.d, -12574688, -11530224);

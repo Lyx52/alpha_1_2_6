@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.item.FallingSand;
+
 import java.util.Random;
 
 public class dw extends nq {
@@ -25,13 +28,13 @@ public class dw extends nq {
 
    private void h(cy var1, int var2, int var3, int var4) {
       if(b_(var1, var2, var3 - 1, var4) && var3 >= 0) {
-         gb var8 = new gb(var1, (float)var2 + 0.5F, (float)var3 + 0.5F, (float)var4 + 0.5F, this.bh);
+         FallingSand var8 = new FallingSand(var1, (float)var2 + 0.5F, (float)var3 + 0.5F, (float)var4 + 0.5F, this.bh);
          if(a) {
             while(!var8.aN) {
                var8.e_();
             }
          } else {
-            var1.a((lw)var8);
+            var1.a((Entity)var8);
          }
       }
 

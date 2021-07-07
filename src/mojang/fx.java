@@ -1,13 +1,15 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.util.Comparator;
 
 public class fx implements Comparator {
 
-   private lw a;
+   private Entity a;
 
 
-   public fx(lw var1) {
+   public fx(Entity var1) {
       this.a = var1;
    }
 

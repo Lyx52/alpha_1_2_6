@@ -3,7 +3,7 @@ package mojang;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-public class pv extends bp {
+public class pv extends GraphicsUserInterface {
 
    protected String a = "Edit sign message:";
    private qc h;
@@ -15,10 +15,10 @@ public class pv extends bp {
       this.h = var1;
    }
 
-   public void a() {
-      this.e.clear();
+   public void initButtons() {
+      this.buttons.clear();
       Keyboard.enableRepeatEvents(true);
-      this.e.add(new gh(0, this.c / 2 - 100, this.d / 4 + 120, "Done"));
+      this.buttons.add(new Button(0, this.c / 2 - 100, this.d / 4 + 120, "Done"));
    }
 
    public void h() {
@@ -29,11 +29,11 @@ public class pv extends bp {
       ++this.i;
    }
 
-   protected void a(gh var1) {
+   protected void a(Button var1) {
       if(var1.g) {
          if(var1.f == 0) {
             this.h.h();
-            this.b.a((bp)null);
+            this.b.a((GraphicsUserInterface)null);
          }
 
       }

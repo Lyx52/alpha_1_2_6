@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.util.Random;
 
 public class km extends il {
@@ -124,7 +126,7 @@ public class km extends il {
       this.bg = this.b + (var1?0:1);
    }
 
-   public void b(cy var1, int var2, int var3, int var4, lw var5) {
+   public void b(cy var1, int var2, int var3, int var4, Entity var5) {
       super.b(var1, var2, var3, var4, var5);
    }
 }

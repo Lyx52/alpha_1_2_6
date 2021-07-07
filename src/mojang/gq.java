@@ -12,16 +12,16 @@ public class gq {
 
    private static final String[] A = new String[]{"FAR", "NORMAL", "SHORT", "TINY"};
    private static final String[] B = new String[]{"Peaceful", "Easy", "Normal", "Hard"};
-   public float a = 1.0F;
-   public float b = 1.0F;
-   public float c = 0.5F;
-   public boolean d = false;
-   public int e = 0;
-   public boolean f = true;
-   public boolean g = false;
-   public boolean h = false;
-   public boolean i = true;
-   public String j = "Default";
+   public float musicVolume = 1.0F;
+   public float soundVolume = 1.0F;
+   public float mouseSensitivity = 0.5F;
+   public boolean invertYMouse = false;
+   public int viewDistance = 0;
+   public boolean bobView = true;
+   public boolean anaglyph3D = false;
+   public boolean vsync = false;
+   public boolean fancyGraphics = true;
+   public String skinURL = "Default";
    public ke k = new ke("Forward", 17);
    public ke l = new ke("Left", 30);
    public ke m = new ke("Back", 31);
@@ -34,30 +34,30 @@ public class gq {
    public ke t = new ke("Sneak", 42);
    public ke[] u;
    protected Minecraft v;
-   private File C;
+   private File configFile;
    public int w;
-   public int x;
+   public int gameDifficulty;
    public boolean y;
-   public String z;
+   public String lastServer;
 
 
    public gq(Minecraft var1, File var2) {
       this.u = new ke[]{this.k, this.l, this.m, this.n, this.o, this.t, this.q, this.p, this.r, this.s};
       this.w = 10;
-      this.x = 2;
+      this.gameDifficulty = 2;
       this.y = false;
-      this.z = "";
+      this.lastServer = "";
       this.v = var1;
-      this.C = new File(var2, "options.txt");
+      this.configFile = new File(var2, "options.txt");
       this.a();
    }
 
    public gq() {
       this.u = new ke[]{this.k, this.l, this.m, this.n, this.o, this.t, this.q, this.p, this.r, this.s};
       this.w = 10;
-      this.x = 2;
+      this.gameDifficulty = 2;
       this.y = false;
-      this.z = "";
+      this.lastServer = "";
    }
 
    public String a(int var1) {
@@ -71,49 +71,49 @@ public class gq {
 
    public void a(int var1, float var2) {
       if(var1 == 0) {
-         this.a = var2;
+         this.musicVolume = var2;
          this.v.A.a();
       }
 
       if(var1 == 1) {
-         this.b = var2;
+         this.soundVolume = var2;
          this.v.A.a();
       }
 
       if(var1 == 3) {
-         this.c = var2;
+         this.mouseSensitivity = var2;
       }
 
    }
 
    public void b(int var1, int var2) {
       if(var1 == 2) {
-         this.d = !this.d;
+         this.invertYMouse = !this.invertYMouse;
       }
 
       if(var1 == 4) {
-         this.e = this.e + var2 & 3;
+         this.viewDistance = this.viewDistance + var2 & 3;
       }
 
       if(var1 == 5) {
-         this.f = !this.f;
+         this.bobView = !this.bobView;
       }
 
       if(var1 == 6) {
-         this.g = !this.g;
+         this.anaglyph3D = !this.anaglyph3D;
          this.v.n.b();
       }
 
       if(var1 == 7) {
-         this.h = !this.h;
+         this.vsync = !this.vsync;
       }
 
       if(var1 == 8) {
-         this.x = this.x + var2 & 3;
+         this.gameDifficulty = this.gameDifficulty + var2 & 3;
       }
 
       if(var1 == 9) {
-         this.i = !this.i;
+         this.fancyGraphics = !this.fancyGraphics;
          this.v.f.a();
       }
 
@@ -125,70 +125,70 @@ public class gq {
    }
 
    public float c(int var1) {
-      return var1 == 0?this.a:(var1 == 1?this.b:(var1 == 3?this.c:0.0F));
+      return var1 == 0?this.musicVolume :(var1 == 1?this.soundVolume :(var1 == 3?this.mouseSensitivity :0.0F));
    }
 
    public String d(int var1) {
-      return var1 == 0?"Music: " + (this.a > 0.0F?(int)(this.a * 100.0F) + "%":"OFF"):(var1 == 1?"Sound: " + (this.b > 0.0F?(int)(this.b * 100.0F) + "%":"OFF"):(var1 == 2?"Invert mouse: " + (this.d?"ON":"OFF"):(var1 == 3?(this.c == 0.0F?"Sensitivity: *yawn*":(this.c == 1.0F?"Sensitivity: HYPERSPEED!!!":"Sensitivity: " + (int)(this.c * 200.0F) + "%")):(var1 == 4?"Render distance: " + A[this.e]:(var1 == 5?"View bobbing: " + (this.f?"ON":"OFF"):(var1 == 6?"3d anaglyph: " + (this.g?"ON":"OFF"):(var1 == 7?"Limit framerate: " + (this.h?"ON":"OFF"):(var1 == 8?"Difficulty: " + B[this.x]:(var1 == 9?"Graphics: " + (this.i?"FANCY":"FAST"):"")))))))));
+      return var1 == 0 ? "Music: " + (this.musicVolume > 0.0F?(int)(this.musicVolume * 100.0F) + "%":"OFF") : (var1 == 1 ? "Sound: " + (this.soundVolume > 0.0F ? (int)(this.soundVolume * 100.0F) + "%":"OFF"):(var1 == 2?"Invert mouse: " + (this.invertYMouse ?"ON":"OFF"):(var1 == 3?(this.mouseSensitivity == 0.0F?"Sensitivity: *yawn*":(this.mouseSensitivity == 1.0F?"Sensitivity: HYPERSPEED!!!":"Sensitivity: " + (int)(this.mouseSensitivity * 200.0F) + "%")):(var1 == 4?"Render distance: " + A[this.viewDistance]:(var1 == 5?"View bobbing: " + (this.bobView ?"ON":"OFF"):(var1 == 6?"3d anaglyph: " + (this.anaglyph3D ?"ON":"OFF"):(var1 == 7?"Limit framerate: " + (this.vsync ?"ON":"OFF"):(var1 == 8?"Difficulty: " + B[this.gameDifficulty]:(var1 == 9?"Graphics: " + (this.fancyGraphics ?"FANCY":"FAST"):"")))))))));
    }
 
    public void a() {
       try {
-         if(!this.C.exists()) {
+         if(!this.configFile.exists()) {
             return;
          }
 
-         BufferedReader var1 = new BufferedReader(new FileReader(this.C));
-         String var2 = "";
+         BufferedReader configReader = new BufferedReader(new FileReader(this.configFile));
+         String readLine = "";
 
-         while((var2 = var1.readLine()) != null) {
-            String[] var3 = var2.split(":");
+         while((readLine = configReader.readLine()) != null) {
+            String[] var3 = readLine.split(":");
             if(var3[0].equals("music")) {
-               this.a = this.a(var3[1]);
+               this.musicVolume = this.a(var3[1]);
             }
 
             if(var3[0].equals("sound")) {
-               this.b = this.a(var3[1]);
+               this.soundVolume = this.a(var3[1]);
             }
 
             if(var3[0].equals("mouseSensitivity")) {
-               this.c = this.a(var3[1]);
+               this.mouseSensitivity = this.a(var3[1]);
             }
 
             if(var3[0].equals("invertYMouse")) {
-               this.d = var3[1].equals("true");
+               this.invertYMouse = var3[1].equals("true");
             }
 
             if(var3[0].equals("viewDistance")) {
-               this.e = Integer.parseInt(var3[1]);
+               this.viewDistance = Integer.parseInt(var3[1]);
             }
 
             if(var3[0].equals("bobView")) {
-               this.f = var3[1].equals("true");
+               this.bobView = var3[1].equals("true");
             }
 
             if(var3[0].equals("anaglyph3d")) {
-               this.g = var3[1].equals("true");
+               this.anaglyph3D = var3[1].equals("true");
             }
 
             if(var3[0].equals("limitFramerate")) {
-               this.h = var3[1].equals("true");
+               this.vsync = var3[1].equals("true");
             }
 
             if(var3[0].equals("difficulty")) {
-               this.x = Integer.parseInt(var3[1]);
+               this.gameDifficulty = Integer.parseInt(var3[1]);
             }
 
             if(var3[0].equals("fancyGraphics")) {
-               this.i = var3[1].equals("true");
+               this.fancyGraphics = var3[1].equals("true");
             }
 
             if(var3[0].equals("skin")) {
-               this.j = var3[1];
+               this.skinURL = var3[1];
             }
 
             if(var3[0].equals("lastServer")) {
-               this.z = var3[1];
+               this.lastServer = var3.length > 2 ? var3[1] : "";
             }
 
             for(int var4 = 0; var4 < this.u.length; ++var4) {
@@ -198,10 +198,10 @@ public class gq {
             }
          }
 
-         var1.close();
-      } catch (Exception var5) {
+         configReader.close();
+      } catch (Exception configException) {
          System.out.println("Failed to load options");
-         var5.printStackTrace();
+         configException.printStackTrace();
       }
 
    }
@@ -212,25 +212,25 @@ public class gq {
 
    public void b() {
       try {
-         PrintWriter var1 = new PrintWriter(new FileWriter(this.C));
-         var1.println("music:" + this.a);
-         var1.println("sound:" + this.b);
-         var1.println("invertYMouse:" + this.d);
-         var1.println("mouseSensitivity:" + this.c);
-         var1.println("viewDistance:" + this.e);
-         var1.println("bobView:" + this.f);
-         var1.println("anaglyph3d:" + this.g);
-         var1.println("limitFramerate:" + this.h);
-         var1.println("difficulty:" + this.x);
-         var1.println("fancyGraphics:" + this.i);
-         var1.println("skin:" + this.j);
-         var1.println("lastServer:" + this.z);
+         PrintWriter configWriter = new PrintWriter(new FileWriter(this.configFile));
+         configWriter.println("music:" + this.musicVolume);
+         configWriter.println("sound:" + this.soundVolume);
+         configWriter.println("invertYMouse:" + this.invertYMouse);
+         configWriter.println("mouseSensitivity:" + this.mouseSensitivity);
+         configWriter.println("viewDistance:" + this.viewDistance);
+         configWriter.println("bobView:" + this.bobView);
+         configWriter.println("anaglyph3d:" + this.anaglyph3D);
+         configWriter.println("limitFramerate:" + this.vsync);
+         configWriter.println("difficulty:" + this.gameDifficulty);
+         configWriter.println("fancyGraphics:" + this.fancyGraphics);
+         configWriter.println("skin:" + this.skinURL);
+         configWriter.println("lastServer:" + this.lastServer);
 
          for(int var2 = 0; var2 < this.u.length; ++var2) {
-            var1.println("key_" + this.u[var2].a + ":" + this.u[var2].b);
+            configWriter.println("key_" + this.u[var2].a + ":" + this.u[var2].b);
          }
 
-         var1.close();
+         configWriter.close();
       } catch (Exception var3) {
          System.out.println("Failed to save options");
          var3.printStackTrace();

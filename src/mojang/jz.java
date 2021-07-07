@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.monster.Ghast;
 import org.lwjgl.opengl.GL11;
 
 public class jz extends ec {
@@ -8,7 +9,7 @@ public class jz extends ec {
       super(new hc(), 0.5F);
    }
 
-   protected void a(am var1, float var2) {
+   protected void a(Ghast var1, float var2) {
       float var4 = ((float)var1.e + (float)(var1.f - var1.e) * var2) / 20.0F;
       if(var4 < 0.0F) {
          var4 = 0.0F;

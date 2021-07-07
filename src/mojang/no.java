@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.util.Random;
 
 public class no {
@@ -7,14 +9,14 @@ public class no {
    private Random a = new Random();
 
 
-   public void a(cy var1, lw var2) {
+   public void a(cy var1, Entity var2) {
       if(!this.b(var1, var2)) {
          this.c(var1, var2);
          this.b(var1, var2);
       }
    }
 
-   public boolean b(cy var1, lw var2) {
+   public boolean b(cy var1, Entity var2) {
       short var3 = 128;
       double var4 = -1.0D;
       int var6 = 0;
@@ -78,7 +80,7 @@ public class no {
       }
    }
 
-   public boolean c(cy var1, lw var2) {
+   public boolean c(cy var1, Entity var2) {
       byte var3 = 16;
       double var4 = -1.0D;
       int var6 = fi.b(var2.aw);

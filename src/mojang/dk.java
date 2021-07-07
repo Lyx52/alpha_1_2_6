@@ -7,9 +7,9 @@ import org.lwjgl.Sys;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-public class dk extends bp {
+public class dk extends GraphicsUserInterface {
 
-   protected bp a;
+   protected GraphicsUserInterface a;
    private int h = 0;
    private int i = 32;
    private int j;
@@ -20,7 +20,7 @@ public class dk extends bp {
    private String p;
 
 
-   public dk(bp var1) {
+   public dk(GraphicsUserInterface var1) {
       this.j = this.d - 55 + 4;
       this.l = 0;
       this.m = this.c;
@@ -30,9 +30,9 @@ public class dk extends bp {
       this.a = var1;
    }
 
-   public void a() {
-      this.e.add(new r(5, this.c / 2 - 154, this.d - 48, "Open texture pack folder"));
-      this.e.add(new r(6, this.c / 2 + 4, this.d - 48, "Done"));
+   public void initButtons() {
+      this.buttons.add(new TexturePackButton(5, this.c / 2 - 154, this.d - 48, "Open texture pack folder"));
+      this.buttons.add(new TexturePackButton(6, this.c / 2 + 4, this.d - 48, "Done"));
       this.b.C.a();
       this.p = (new File(this.b.D, "texturepacks")).getAbsolutePath();
       this.i = 32;
@@ -41,7 +41,7 @@ public class dk extends bp {
       this.m = this.c;
    }
 
-   protected void a(gh var1) {
+   protected void a(Button var1) {
       if(var1.g) {
          if(var1.f == 5) {
             Sys.openURL("file://" + this.p);

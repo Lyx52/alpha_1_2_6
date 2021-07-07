@@ -25,13 +25,13 @@ public class jg extends iv {
       int var5 = this.a.e.a(var1, var2, var3);
       int var6 = this.a.e.e(var1, var2, var3);
       boolean var7 = super.b(var1, var2, var3, var4);
-      fp var8 = this.a.g.w();
-      boolean var9 = this.a.g.b(nq.m[var5]);
+      fp var8 = this.a.playerName.w();
+      boolean var9 = this.a.playerName.b(nq.m[var5]);
       if(var8 != null) {
          var8.a(var5, var1, var2, var3);
          if(var8.a == 0) {
-            var8.a((eb)this.a.g);
-            this.a.g.x();
+            var8.a((eb)this.a.playerName);
+            this.a.playerName.x();
          }
       }
 
@@ -45,10 +45,10 @@ public class jg extends iv {
    public void a(int var1, int var2, int var3, int var4) {
       int var5 = this.a.e.a(var1, var2, var3);
       if(var5 > 0 && this.f == 0.0F) {
-         nq.m[var5].b(this.a.e, var1, var2, var3, (eb)this.a.g);
+         nq.m[var5].b(this.a.e, var1, var2, var3, (eb)this.a.playerName);
       }
 
-      if(var5 > 0 && nq.m[var5].a((eb)this.a.g) >= 1.0F) {
+      if(var5 > 0 && nq.m[var5].a((eb)this.a.playerName) >= 1.0F) {
          this.b(var1, var2, var3, var4);
       }
 
@@ -70,7 +70,7 @@ public class jg extends iv {
             }
 
             nq var6 = nq.m[var5];
-            this.f += var6.a((eb)this.a.g);
+            this.f += var6.a((eb)this.a.playerName);
             if(this.h % 4.0F == 0.0F && var6 != null) {
                this.a.A.b(var6.bq.d(), (float)var1 + 0.5F, (float)var2 + 0.5F, (float)var3 + 0.5F, (var6.bq.b() + 1.0F) / 8.0F, var6.bq.c() * 0.5F);
             }

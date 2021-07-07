@@ -1,11 +1,13 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.projectile.Snowball;
 import org.lwjgl.opengl.GL11;
 
 public class fb extends aq {
 
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
-      at var1 = (at)var0;
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
+      Snowball var1 = (Snowball)var0;
 
       GL11.glPushMatrix();
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 public class dm {
 
    private pk a;
@@ -12,15 +14,15 @@ public class dm {
       this.a = var1;
    }
 
-   public bt a(lw var1, lw var2, float var3) {
+   public bt a(Entity var1, Entity var2, float var3) {
       return this.a(var1, var2.aw, var2.aG.b, var2.ay, var3);
    }
 
-   public bt a(lw var1, int var2, int var3, int var4, float var5) {
+   public bt a(Entity var1, int var2, int var3, int var4, float var5) {
       return this.a(var1, (double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F), var5);
    }
 
-   private bt a(lw var1, double var2, double var4, double var6, float var8) {
+   private bt a(Entity var1, double var2, double var4, double var6, float var8) {
       this.b.a();
       this.c.a();
       b var9 = this.a(fi.b(var1.aG.a), fi.b(var1.aG.b), fi.b(var1.aG.c));
@@ -30,7 +32,7 @@ public class dm {
       return var12;
    }
 
-   private bt a(lw var1, b var2, b var3, b var4, float var5) {
+   private bt a(Entity var1, b var2, b var3, b var4, float var5) {
       var2.f = 0.0F;
       var2.g = var2.a(var3);
       var2.h = var2.g;
@@ -75,7 +77,7 @@ public class dm {
       }
    }
 
-   private int b(lw var1, b var2, b var3, b var4, float var5) {
+   private int b(Entity var1, b var2, b var3, b var4, float var5) {
       int var6 = 0;
       byte var7 = 0;
       if(this.a(var1, var2.a, var2.b + 1, var2.c, var3) > 0) {
@@ -105,7 +107,7 @@ public class dm {
       return var6;
    }
 
-   private b a(lw var1, int var2, int var3, int var4, b var5, int var6) {
+   private b a(Entity var1, int var2, int var3, int var4, b var5, int var6) {
       b var7 = null;
       if(this.a(var1, var2, var3, var4, var5) > 0) {
          var7 = this.a(var2, var3, var4);
@@ -150,7 +152,7 @@ public class dm {
       return var5;
    }
 
-   private int a(lw var1, int var2, int var3, int var4, b var5) {
+   private int a(Entity var1, int var2, int var3, int var4, b var5) {
       for(int var6 = var2; var6 < var2 + var5.a; ++var6) {
          for(int var7 = var3; var7 < var3 + var5.b; ++var7) {
             for(int var8 = var4; var8 < var4 + var5.c; ++var8) {

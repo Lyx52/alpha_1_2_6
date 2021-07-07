@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.monster.Slime;
 import org.lwjgl.opengl.GL11;
 
 public class ht extends ec {
@@ -12,7 +13,7 @@ public class ht extends ec {
       this.a = var2;
    }
 
-   protected boolean a(ns var1, int var2) {
+   protected boolean a(Slime var1, int var2) {
       if(var2 == 0) {
          this.a(this.a);
          GL11.glEnable(2977);
@@ -29,7 +30,7 @@ public class ht extends ec {
       }
    }
 
-   protected void a(ns var1, float var2) {
+   protected void a(Slime var1, float var2) {
       float var3 = (var1.b + (var1.a - var1.b) * var2) / ((float)var1.c * 0.5F + 1.0F);
       float var4 = 1.0F / (var3 + 1.0F);
       float var5 = (float)var1.c;

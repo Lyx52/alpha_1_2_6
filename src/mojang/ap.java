@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+
 import java.util.List;
 import java.util.Random;
 
@@ -59,7 +62,7 @@ public class ap extends nq {
       }
    }
 
-   public void a(cy var1, int var2, int var3, int var4, lw var5) {
+   public void a(cy var1, int var2, int var3, int var4, Entity var5) {
       if(!var1.z) {
          if(var1.e(var2, var3, var4) != 1) {
             this.h(var1, var2, var3, var4);
@@ -73,11 +76,11 @@ public class ap extends nq {
       float var7 = 0.125F;
       List var8 = null;
       if(this.a == lg.a) {
-         var8 = var1.b((lw)null, co.b((double)((float)var2 + var7), (double)var3, (double)((float)var4 + var7), (double)((float)(var2 + 1) - var7), (double)var3 + 0.25D, (double)((float)(var4 + 1) - var7)));
+         var8 = var1.b((Entity)null, co.b((double)((float)var2 + var7), (double)var3, (double)((float)var4 + var7), (double)((float)(var2 + 1) - var7), (double)var3 + 0.25D, (double)((float)(var4 + 1) - var7)));
       }
 
       if(this.a == lg.b) {
-         var8 = var1.a(hf.class, co.b((double)((float)var2 + var7), (double)var3, (double)((float)var4 + var7), (double)((float)(var2 + 1) - var7), (double)var3 + 0.25D, (double)((float)(var4 + 1) - var7)));
+         var8 = var1.a(LivingEntity.class, co.b((double)((float)var2 + var7), (double)var3, (double)((float)var4 + var7), (double)((float)(var2 + 1) - var7), (double)var3 + 0.25D, (double)((float)(var4 + 1) - var7)));
       }
 
       if(this.a == lg.c) {

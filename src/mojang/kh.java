@@ -1,6 +1,6 @@
 package mojang;
 
-public class kh extends bp {
+public class kh extends GraphicsUserInterface {
 
    private int a = 0;
 
@@ -9,15 +9,15 @@ public class kh extends bp {
       ++this.a;
    }
 
-   public void a() {
-      this.e.clear();
-      this.e.add(new gh(0, this.c / 2 - 100, this.d / 4 + 120 + 12, "Back to title screen"));
+   public void initButtons() {
+      this.buttons.clear();
+      this.buttons.add(new Button(0, this.c / 2 - 100, this.d / 4 + 120 + 12, "Back to title screen"));
    }
 
-   protected void a(gh var1) {
+   protected void a(Button var1) {
       if(var1.g) {
          if(var1.f == 0) {
-            this.b.a((bp)(new dj()));
+            this.b.a((GraphicsUserInterface)(new dj()));
          }
 
       }

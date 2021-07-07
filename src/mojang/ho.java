@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.util.Comparator;
 
 public class ho implements Comparator {
@@ -19,8 +21,8 @@ public class ho implements Comparator {
       } else if(var4 && !var3) {
          return -1;
       } else {
-         double var5 = (double)var1.a((lw)this.a);
-         double var7 = (double)var2.a((lw)this.a);
+         double var5 = (double)var1.a((Entity)this.a);
+         double var7 = (double)var2.a((Entity)this.a);
          return var5 < var7?1:(var5 > var7?-1:(var1.w < var2.w?1:-1));
       }
    }

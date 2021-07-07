@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.GL11;
 
@@ -126,7 +127,7 @@ public class ku {
 
    public void a(float var1) {
       float var2 = this.d + (this.c - this.d) * var1;
-      bq var3 = this.a.g;
+      bq var3 = this.a.playerName;
       GL11.glPushMatrix();
       GL11.glRotatef(var3.aF + (var3.aD - var3.aF) * var1, 1.0F, 0.0F, 0.0F);
       GL11.glRotatef(var3.aE + (var3.aC - var3.aE) * var1, 0.0F, 1.0F, 0.0F);
@@ -182,14 +183,14 @@ public class ku {
          var9 = fi.a(fi.c(var7) * 3.1415927F);
          GL11.glRotatef(var9 * 70.0F, 0.0F, 1.0F, 0.0F);
          GL11.glRotatef(-var8 * 20.0F, 0.0F, 0.0F, 1.0F);
-         GL11.glBindTexture(3553, this.a.n.a(this.a.g.bl, this.a.g.A()));
+         GL11.glBindTexture(3553, this.a.n.a(this.a.playerName.bl, this.a.playerName.A()));
          GL11.glTranslatef(-1.0F, 3.6F, 3.5F);
          GL11.glRotatef(120.0F, 0.0F, 0.0F, 1.0F);
          GL11.glRotatef(200.0F, 1.0F, 0.0F, 0.0F);
          GL11.glRotatef(-135.0F, 0.0F, 1.0F, 0.0F);
          GL11.glScalef(1.0F, 1.0F, 1.0F);
          GL11.glTranslatef(5.6F, 0.0F, 0.0F);
-         aq var10 = mn.a.a((lw)this.a.g);
+         aq var10 = mn.a.a((Entity)this.a.playerName);
          ce var11 = (ce)var10;
          var9 = 1.0F;
          GL11.glScalef(var9, var9, var9);
@@ -204,16 +205,16 @@ public class ku {
    public void b(float var1) {
       GL11.glDisable(3008);
       int var2;
-      if(this.a.g.bg > 0 || this.a.g.bv) {
+      if(this.a.playerName.bg > 0 || this.a.playerName.bv) {
          var2 = this.a.n.a("/mojang/terrain.png");
          GL11.glBindTexture(3553, var2);
          this.d(var1);
       }
 
-      if(this.a.g.O()) {
-         var2 = fi.b(this.a.g.aw);
-         int var3 = fi.b(this.a.g.ax);
-         int var4 = fi.b(this.a.g.ay);
+      if(this.a.playerName.O()) {
+         var2 = fi.b(this.a.playerName.aw);
+         int var3 = fi.b(this.a.playerName.ax);
+         int var4 = fi.b(this.a.playerName.ay);
          int var5 = this.a.n.a("/mojang/terrain.png");
          GL11.glBindTexture(3553, var5);
          int var6 = this.a.e.a(var2, var3, var4);
@@ -222,7 +223,7 @@ public class ku {
          }
       }
 
-      if(this.a.g.a(hb.f)) {
+      if(this.a.playerName.a(hb.f)) {
          var2 = this.a.n.a("/mojang/misc/water.png");
          GL11.glBindTexture(3553, var2);
          this.c(var1);
@@ -233,7 +234,7 @@ public class ku {
 
    private void a(float var1, int var2) {
       is var3 = is.a;
-      this.a.g.a(var1);
+      this.a.playerName.a(var1);
       float var4 = 0.1F;
       GL11.glColor4f(var4, var4, var4, 0.5F);
       GL11.glPushMatrix();
@@ -259,7 +260,7 @@ public class ku {
 
    private void c(float var1) {
       is var2 = is.a;
-      float var3 = this.a.g.a(var1);
+      float var3 = this.a.playerName.a(var1);
       GL11.glColor4f(var3, var3, var3, 0.5F);
       GL11.glEnable(3042);
       GL11.glBlendFunc(770, 771);
@@ -270,8 +271,8 @@ public class ku {
       float var7 = -1.0F;
       float var8 = 1.0F;
       float var9 = -0.5F;
-      float var10 = -this.a.g.aC / 64.0F;
-      float var11 = this.a.g.aD / 64.0F;
+      float var10 = -this.a.playerName.aC / 64.0F;
+      float var11 = this.a.playerName.aD / 64.0F;
       var2.b();
       var2.a((double)var5, (double)var7, (double)var9, (double)(var4 + var10), (double)(var4 + var11));
       var2.a((double)var6, (double)var7, (double)var9, (double)(0.0F + var10), (double)(var4 + var11));
@@ -321,7 +322,7 @@ public class ku {
 
    public void a() {
       this.d = this.c;
-      bq var1 = this.a.g;
+      bq var1 = this.a.playerName;
       fp var2 = var1.e.a();
       float var4 = 0.4F;
       float var5 = var2 == this.b?1.0F:0.0F;

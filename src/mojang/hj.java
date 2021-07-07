@@ -1,9 +1,13 @@
 package mojang;
 
+import mojang.entity.item.DroppedItem;
+import mojang.entity.Entity;
+import mojang.tags.CompoundTag;
+
 import java.io.IOException;
 import java.util.List;
 
-public class hj extends lw {
+public class hj extends Entity {
 
    private int d;
    private int e;
@@ -15,7 +19,7 @@ public class hj extends lw {
    private int i;
    private int j;
    private int k;
-   public lw c;
+   public Entity c;
    private int l;
    private double m;
    private double n;
@@ -193,13 +197,13 @@ public class hj extends lw {
             var2 = mojang.ao.b(var3.f.a, var3.f.b, var3.f.c);
          }
 
-         lw var4 = null;
-         List var5 = this.as.b((lw)this, this.aG.a(this.az, this.aA, this.aB).b(1.0D, 1.0D, 1.0D));
+         Entity var4 = null;
+         List var5 = this.as.b((Entity)this, this.aG.a(this.az, this.aA, this.aB).b(1.0D, 1.0D, 1.0D));
          double var6 = 0.0D;
 
          double var13;
          for(int var8 = 0; var8 < var5.size(); ++var8) {
-            lw var9 = (lw)var5.get(var8);
+            Entity var9 = (Entity)var5.get(var8);
             if(var9.n_() && (var9 != this.b || this.j >= 5)) {
                float var10 = 0.3F;
                co var11 = var9.aG.b((double)var10, (double)var10, (double)var10);
@@ -313,22 +317,22 @@ public class hj extends lw {
       }
    }
 
-   public void a(iq var1) {
-      var1.a("xTile", (short)this.d);
-      var1.a("yTile", (short)this.e);
-      var1.a("zTile", (short)this.f);
-      var1.a("inTile", (byte)this.g);
-      var1.a("shake", (byte)this.a);
-      var1.a("inGround", (byte)(this.h?1:0));
+   public void a(CompoundTag var1) {
+      var1.putShortTag("xTile", (short)this.d);
+      var1.putShortTag("yTile", (short)this.e);
+      var1.putShortTag("zTile", (short)this.f);
+      var1.putByteTag("inTile", (byte)this.g);
+      var1.putByteTag("shake", (byte)this.a);
+      var1.putByteTag("inGround", (byte)(this.h?1:0));
    }
 
-   public void b(iq var1) {
-      this.d = var1.d("xTile");
-      this.e = var1.d("yTile");
-      this.f = var1.d("zTile");
-      this.g = var1.c("inTile") & 255;
-      this.a = var1.c("shake") & 255;
-      this.h = var1.c("inGround") == 1;
+   public void b(CompoundTag var1) {
+      this.d = var1.getShort("xTile");
+      this.e = var1.getShort("yTile");
+      this.f = var1.getShort("zTile");
+      this.g = var1.getByte("inTile") & 255;
+      this.a = var1.getByte("shake") & 255;
+      this.h = var1.getByte("inGround") == 1;
    }
 
    public float i_() {
@@ -348,7 +352,7 @@ public class hj extends lw {
          this.c.aB += var6 * var10;
          var1 = 3;
       } else if(this.k > 0) {
-         eo var13 = new eo(this.as, this.aw, this.ax, this.ay, new fp(dx.aS.aW));
+         DroppedItem var13 = new DroppedItem(this.as, this.aw, this.ax, this.ay, new fp(dx.aS.aW));
          double var3 = this.b.aw - this.aw;
          double var5 = this.b.ax - this.ax;
          double var7 = this.b.ay - this.ay;
@@ -357,7 +361,7 @@ public class hj extends lw {
          var13.az = var3 * var11;
          var13.aA = var5 * var11 + (double)fi.a(var9) * 0.08D;
          var13.aB = var7 * var11;
-         this.as.a((lw)var13);
+         this.as.a((Entity)var13);
          var1 = 1;
       }
 

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.item.DroppedItem;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -19,7 +21,7 @@ public class id extends gk {
 
    public id() {}
 
-   public id(eo var1) {
+   public id(DroppedItem var1) {
       this.a = var1.an;
       this.h = var1.a.c;
       this.i = var1.a.a;

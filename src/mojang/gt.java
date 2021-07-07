@@ -1,5 +1,8 @@
 package mojang;
 
+import mojang.entity.item.DroppedItem;
+import mojang.entity.Entity;
+
 public class gt extends dx {
 
    public gt(int var1, int var2) {
@@ -29,9 +32,9 @@ public class gt extends dx {
                   float var14 = var3.l.nextFloat() * var13 + (1.0F - var13) * 0.5F;
                   float var15 = 1.2F;
                   float var16 = var3.l.nextFloat() * var13 + (1.0F - var13) * 0.5F;
-                  eo var17 = new eo(var3, (double)((float)var4 + var14), (double)((float)var5 + var15), (double)((float)var6 + var16), new fp(Q));
+                  DroppedItem var17 = new DroppedItem(var3, (double)((float)var4 + var14), (double)((float)var5 + var15), (double)((float)var6 + var16), new fp(Q));
                   var17.c = 10;
-                  var3.a((lw)var17);
+                  var3.a((Entity)var17);
                }
             }
 

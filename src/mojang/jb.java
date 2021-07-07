@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.item.PrimedTNT;
 import org.lwjgl.opengl.GL11;
 
 public class jb extends aq {
@@ -11,8 +13,8 @@ public class jb extends aq {
       this.c = 0.5F;
    }
 
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
-      kr var1 = (kr)var0;
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
+      PrimedTNT var1 = (PrimedTNT)var0;
 
       GL11.glPushMatrix();
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);

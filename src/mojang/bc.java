@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.LivingEntity;
+
 public class bc extends dx {
 
    private int a;
@@ -47,7 +49,7 @@ public class bc extends dx {
             nq var8 = nq.m[this.a];
             if(var3.d(var4, var5, var6, this.a)) {
                nq.m[this.a].d(var3, var4, var5, var6, var7);
-               nq.m[this.a].a(var3, var4, var5, var6, (hf)var2);
+               nq.m[this.a].a(var3, var4, var5, var6, (LivingEntity)var2);
                var3.a((double)((float)var4 + 0.5F), (double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), var8.bq.d(), (var8.bq.b() + 1.0F) / 2.0F, var8.bq.c() * 0.8F);
                --var1.a;
             }

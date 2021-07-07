@@ -36,20 +36,20 @@ class oy extends Thread {
             return;
          }
 
-         this.a.a((bp)(new ct("Failed to connect to the server", "Unknown host \'" + this.b + "\'")));
+         this.a.a((GraphicsUserInterface)(new ct("Failed to connect to the server", "Unknown host \'" + this.b + "\'")));
       } catch (ConnectException var3) {
          if(og.a(this.d)) {
             return;
          }
 
-         this.a.a((bp)(new ct("Failed to connect to the server", var3.getMessage())));
+         this.a.a((GraphicsUserInterface)(new ct("Failed to connect to the server", var3.getMessage())));
       } catch (Exception var4) {
          if(og.a(this.d)) {
             return;
          }
 
          var4.printStackTrace();
-         this.a.a((bp)(new ct("Failed to connect to the server", var4.toString())));
+         this.a.a((GraphicsUserInterface)(new ct("Failed to connect to the server", var4.toString())));
       }
 
    }

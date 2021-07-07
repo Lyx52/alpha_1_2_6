@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.util.Random;
 
 public class oa extends nq {
@@ -44,7 +46,7 @@ public class oa extends nq {
 
    }
 
-   public void b(cy var1, int var2, int var3, int var4, lw var5) {
+   public void b(cy var1, int var2, int var3, int var4, Entity var5) {
       if(var1.l.nextInt(4) == 0) {
          var1.d(var2, var3, var4, v.bh);
       }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.lwjgl.opengl.GL11;
 
-public abstract class ex extends bp {
+public abstract class ex extends GraphicsUserInterface {
 
    private static af j = new af();
    protected int a = 176;
@@ -40,7 +40,7 @@ public abstract class ex extends bp {
          }
       }
 
-      fo var10 = this.b.g.e;
+      fo var10 = this.b.playerName.e;
       if(var10.e != null) {
          GL11.glTranslatef(0.0F, 0.0F, 32.0F);
          j.a(this.g, this.b.n, var10.e, var1 - var4 - 8, var2 - var5 - 8);
@@ -96,7 +96,7 @@ public abstract class ex extends bp {
    protected void a(int var1, int var2, int var3) {
       if(var3 == 0 || var3 == 1) {
          dz var4 = this.a(var1, var2);
-         fo var5 = this.b.g.e;
+         fo var5 = this.b.playerName.e;
          int var7;
          if(var4 != null) {
             fp var6 = var4.b();
@@ -181,7 +181,7 @@ public abstract class ex extends bp {
             int var9 = (this.c - this.a) / 2;
             var7 = (this.d - this.h) / 2;
             if(var1 < var9 || var2 < var7 || var1 >= var9 + this.a || var2 >= var7 + this.a) {
-               bq var8 = this.b.g;
+               bq var8 = this.b.playerName;
                if(var3 == 0) {
                   var8.a(var5.e);
                   var5.e = null;
@@ -208,16 +208,16 @@ public abstract class ex extends bp {
 
    protected void a(char var1, int var2) {
       if(var2 == 1 || var2 == this.b.y.p.b) {
-         this.b.a((bp)null);
+         this.b.a((GraphicsUserInterface)null);
       }
 
    }
 
    public void h() {
-      if(this.b.g != null) {
-         fo var1 = this.b.g.e;
+      if(this.b.playerName != null) {
+         fo var1 = this.b.playerName.e;
          if(var1.e != null) {
-            this.b.g.a(var1.e);
+            this.b.playerName.a(var1.e);
             var1.e = null;
          }
 

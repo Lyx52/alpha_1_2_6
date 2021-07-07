@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -14,12 +16,12 @@ public class ks {
    public double b;
    public double c;
    public double d;
-   public lw e;
+   public Entity e;
    public float f;
    public Set g = new HashSet();
 
 
-   public ks(cy var1, lw var2, double var3, double var5, double var7, float var9) {
+   public ks(cy var1, Entity var2, double var3, double var5, double var7, float var9) {
       this.i = var1;
       this.e = var2;
       this.f = var9;
@@ -87,7 +89,7 @@ public class ks {
       ao var31 = ao.b(this.b, this.c, this.d);
 
       for(int var11 = 0; var11 < var9.size(); ++var11) {
-         lw var33 = (lw)var9.get(var11);
+         Entity var33 = (Entity)var9.get(var11);
          double var13 = var33.f(this.b, this.c, this.d) / (double)this.f;
          if(var13 <= 1.0D) {
             var15 = var33.aw - this.b;

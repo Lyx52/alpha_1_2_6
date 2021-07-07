@@ -1,9 +1,13 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.LivingEntity;
+import mojang.tags.CompoundTag;
+
 import java.io.IOException;
 import java.util.List;
 
-public class az extends lw {
+public class az extends Entity {
 
    private int e = -1;
    private int f = -1;
@@ -11,7 +15,7 @@ public class az extends lw {
    private int h = 0;
    private boolean i = false;
    public int a = 0;
-   private hf j;
+   private LivingEntity j;
    private int k;
    private int l = 0;
    public double b;
@@ -30,7 +34,7 @@ public class az extends lw {
       return var1 < var3 * var3;
    }
 
-   public az(cy var1, hf var2, double var3, double var5, double var7) {
+   public az(cy var1, LivingEntity var2, double var3, double var5, double var7) {
       super(var1);
       this.j = var2;
       this.a(1.0F, 1.0F);
@@ -84,12 +88,12 @@ public class az extends lw {
          var2 = mojang.ao.b(var3.f.a, var3.f.b, var3.f.c);
       }
 
-      lw var4 = null;
-      List var5 = this.as.b((lw)this, this.aG.a(this.az, this.aA, this.aB).b(1.0D, 1.0D, 1.0D));
+      Entity var4 = null;
+      List var5 = this.as.b((Entity)this, this.aG.a(this.az, this.aA, this.aB).b(1.0D, 1.0D, 1.0D));
       double var6 = 0.0D;
 
       for(int var8 = 0; var8 < var5.size(); ++var8) {
-         lw var9 = (lw)var5.get(var8);
+         Entity var9 = (Entity)var5.get(var8);
          if(var9.n_() && (var9 != this.j || this.l >= 25)) {
             float var10 = 0.3F;
             co var11 = var9.aG.b((double)var10, (double)var10, (double)var10);
@@ -113,7 +117,7 @@ public class az extends lw {
             ;
          }
 
-         this.as.a((lw)null, this.aw, this.ax, this.ay, 1.0F, true);
+         this.as.a((Entity)null, this.aw, this.ax, this.ay, 1.0F, true);
          this.J();
       }
 
@@ -161,22 +165,22 @@ public class az extends lw {
       this.b(this.aw, this.ax, this.ay);
    }
 
-   public void a(iq var1) {
-      var1.a("xTile", (short)this.e);
-      var1.a("yTile", (short)this.f);
-      var1.a("zTile", (short)this.g);
-      var1.a("inTile", (byte)this.h);
-      var1.a("shake", (byte)this.a);
-      var1.a("inGround", (byte)(this.i?1:0));
+   public void a(CompoundTag var1) {
+      var1.putShortTag("xTile", (short)this.e);
+      var1.putShortTag("yTile", (short)this.f);
+      var1.putShortTag("zTile", (short)this.g);
+      var1.putByteTag("inTile", (byte)this.h);
+      var1.putByteTag("shake", (byte)this.a);
+      var1.putByteTag("inGround", (byte)(this.i?1:0));
    }
 
-   public void b(iq var1) {
-      this.e = var1.d("xTile");
-      this.f = var1.d("yTile");
-      this.g = var1.d("zTile");
-      this.h = var1.c("inTile") & 255;
-      this.a = var1.c("shake") & 255;
-      this.i = var1.c("inGround") == 1;
+   public void b(CompoundTag var1) {
+      this.e = var1.getShort("xTile");
+      this.f = var1.getShort("yTile");
+      this.g = var1.getShort("zTile");
+      this.h = var1.getByte("inTile") & 255;
+      this.a = var1.getByte("shake") & 255;
+      this.i = var1.getByte("inGround") == 1;
    }
 
    public boolean n_() {
@@ -187,7 +191,7 @@ public class az extends lw {
       return 1.0F;
    }
 
-   public boolean a(lw var1, int var2) {
+   public boolean a(Entity var1, int var2) {
       this.M();
       if(var1 != null) {
          ao var3 = var1.I();

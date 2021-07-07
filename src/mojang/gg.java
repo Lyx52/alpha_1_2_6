@@ -1,5 +1,14 @@
 package mojang;
 
+import mojang.entity.animal.Chicken;
+import mojang.entity.animal.Cow;
+import mojang.entity.animal.Pig;
+import mojang.entity.animal.Sheep;
+import mojang.entity.monster.Creeper;
+import mojang.entity.monster.Skeleton;
+import mojang.entity.monster.Spider;
+import mojang.entity.monster.Zombie;
+
 import java.awt.Color;
 
 public class gg {
@@ -30,8 +39,8 @@ public class gg {
       this.o = (byte)nq.u.bh;
       this.p = (byte)nq.v.bh;
       this.q = 5169201;
-      this.r = new Class[]{be.class, nt.class, dh.class, dq.class};
-      this.s = new Class[]{bx.class, op.class, ou.class, as.class};
+      this.r = new Class[]{Spider.class, Zombie.class, Skeleton.class, Creeper.class};
+      this.s = new Class[]{Sheep.class, Pig.class, Chicken.class, Cow.class};
    }
 
    public static void a() {

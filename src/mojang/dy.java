@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.entity.item.FallingSand;
 import org.lwjgl.opengl.GL11;
 
 public class dy extends aq {
@@ -11,8 +13,8 @@ public class dy extends aq {
       this.c = 0.5F;
    }
 
-   public void a(lw var0, double var2, double var4, double var6, float var8, float var9) {
-      gb var1 = (gb)var0;
+   public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
+      FallingSand var1 = (FallingSand)var0;
 
       GL11.glPushMatrix();
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);

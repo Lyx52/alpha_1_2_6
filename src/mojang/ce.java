@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.LivingEntity;
 import org.lwjgl.opengl.GL11;
 
 public class ce extends ec {
@@ -49,7 +50,7 @@ public class ce extends ec {
          var11 -= 0.125D;
       }
 
-      super.a((hf)var1, var2, var11, var6, var8, var9);
+      super.a((LivingEntity)var1, var2, var11, var6, var8, var9);
       this.g.j = this.h.j = this.a.j = false;
       this.g.i = this.h.i = this.a.i = false;
       float var13 = 1.6F;

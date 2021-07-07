@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.monster.Spider;
 import org.lwjgl.opengl.GL11;
 
 public class ql extends ec {
@@ -9,11 +10,11 @@ public class ql extends ec {
       this.a((gm)(new lm()));
    }
 
-   protected float a(be var1) {
+   protected float a(Spider var1) {
       return 180.0F;
    }
 
-   protected boolean a(be var1, int var2) {
+   protected boolean a(Spider var1, int var2) {
       if(var2 != 0) {
          return false;
       } else if(var2 != 0) {

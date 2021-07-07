@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.entity.LivingEntity;
 import org.lwjgl.opengl.GL11;
 
 public class m extends ec {
@@ -12,7 +13,7 @@ public class m extends ec {
       this.a = var1;
    }
 
-   protected void b(hf var1, float var2) {
+   protected void b(LivingEntity var1, float var2) {
       fp var3 = var1.l();
       if(var3 != null) {
          GL11.glPushMatrix();

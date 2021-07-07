@@ -32,7 +32,7 @@ public class jc extends ex {
 
    public void h() {
       super.h();
-      this.j.a((eb)this.b.g);
+      this.j.a((eb)this.b.playerName);
    }
 
    protected void j() {

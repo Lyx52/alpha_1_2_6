@@ -1,9 +1,12 @@
 package mojang;
 
+import mojang.entity.animal.Animal;
+import mojang.entity.NullInterface;
+
 public enum gy {
 
-   a("monster", 0, cz.class, 100),
-   b("creature", 1, ak.class, 20);
+   a("monster", 0, NullInterface.class, 100),
+   b("creature", 1, Animal.class, 20);
    public final Class c;
    public final int d;
    // $FF: synthetic field

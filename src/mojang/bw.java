@@ -3,6 +3,8 @@ package mojang;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
+import mojang.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class bw {
@@ -173,7 +175,7 @@ public class bw {
       }
    }
 
-   public float a(lw var1) {
+   public float a(Entity var1) {
       float var2 = (float)(var1.aw - (double)this.q);
       float var3 = (float)(var1.ax - (double)this.r);
       float var4 = (float)(var1.ay - (double)this.s);

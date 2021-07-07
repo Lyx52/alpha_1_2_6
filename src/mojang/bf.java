@@ -1,32 +1,32 @@
 package mojang;
 
-public class bf extends bp {
+public class bf extends GraphicsUserInterface {
 
-   private bp h;
+   private GraphicsUserInterface h;
    protected String a = "Options";
    private gq i;
 
 
-   public bf(bp var1, gq var2) {
+   public bf(GraphicsUserInterface var1, gq var2) {
       this.h = var1;
       this.i = var2;
    }
 
-   public void a() {
+   public void initButtons() {
       for(int var1 = 0; var1 < this.i.w; ++var1) {
          int var2 = this.i.b(var1);
          if(var2 == 0) {
-            this.e.add(new r(var1, this.c / 2 - 155 + var1 % 2 * 160, this.d / 6 + 24 * (var1 >> 1), this.i.d(var1)));
+            this.buttons.add(new TexturePackButton(var1, this.c / 2 - 155 + var1 % 2 * 160, this.d / 6 + 24 * (var1 >> 1), this.i.d(var1)));
          } else {
-            this.e.add(new oh(var1, this.c / 2 - 155 + var1 % 2 * 160, this.d / 6 + 24 * (var1 >> 1), var1, this.i.d(var1), this.i.c(var1)));
+            this.buttons.add(new oh(var1, this.c / 2 - 155 + var1 % 2 * 160, this.d / 6 + 24 * (var1 >> 1), var1, this.i.d(var1), this.i.c(var1)));
          }
       }
 
-      this.e.add(new gh(100, this.c / 2 - 100, this.d / 6 + 120 + 12, "Controls..."));
-      this.e.add(new gh(200, this.c / 2 - 100, this.d / 6 + 168, "Done"));
+      this.buttons.add(new Button(100, this.c / 2 - 100, this.d / 6 + 120 + 12, "Controls..."));
+      this.buttons.add(new Button(200, this.c / 2 - 100, this.d / 6 + 168, "Done"));
    }
 
-   protected void a(gh var1) {
+   protected void a(Button var1) {
       if(var1.g) {
          if(var1.f < 100) {
             this.i.b(var1.f, 1);
@@ -35,7 +35,7 @@ public class bf extends bp {
 
          if(var1.f == 100) {
             this.b.y.b();
-            this.b.a((bp)(new nm(this, this.i)));
+            this.b.a((GraphicsUserInterface)(new nm(this, this.i)));
          }
 
          if(var1.f == 200) {

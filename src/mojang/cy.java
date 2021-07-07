@@ -1,5 +1,9 @@
 package mojang;
 
+import mojang.entity.Entity;
+import mojang.tags.BaseTag;
+import mojang.tags.CompoundTag;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -46,7 +50,7 @@ public class cy implements pk {
    public File s;
    public File t;
    public long u;
-   private iq H;
+   private CompoundTag H;
    public long v;
    public final String w;
    public boolean x;
@@ -59,7 +63,7 @@ public class cy implements pk {
    public boolean z;
 
 
-   public static iq a(File var0, String var1) {
+   public static CompoundTag a(File var0, String var1) {
       File var2 = new File(var0, "saves");
       File var3 = new File(var2, var1);
       if(!var3.exists()) {
@@ -68,8 +72,8 @@ public class cy implements pk {
          File var4 = new File(var3, "level.dat");
          if(var4.exists()) {
             try {
-               iq var5 = ab.a((InputStream)(new FileInputStream(var4)));
-               iq var6 = var5.k("Data");
+               CompoundTag var5 = ab.a((InputStream)(new FileInputStream(var4)));
+               CompoundTag var6 = var5.getMapTag("Data");
                return var6;
             } catch (Exception var7) {
                var7.printStackTrace();
@@ -245,17 +249,17 @@ public class cy implements pk {
       this.p = !var18.exists();
       if(var18.exists()) {
          try {
-            iq var8 = ab.a((InputStream)(new FileInputStream(var18)));
-            iq var9 = var8.k("Data");
-            this.u = var9.f("RandomSeed");
-            this.m = var9.e("SpawnX");
-            this.n = var9.e("SpawnY");
-            this.o = var9.e("SpawnZ");
-            this.e = var9.f("Time");
-            this.v = var9.f("SizeOnDisk");
-            if(var9.b("Player")) {
-               this.H = var9.k("Player");
-               int var10 = this.H.e("Dimension");
+            CompoundTag var8 = ab.a((InputStream)(new FileInputStream(var18)));
+            CompoundTag var9 = var8.getMapTag("Data");
+            this.u = var9.getLong("RandomSeed");
+            this.m = var9.getInteger("SpawnX");
+            this.n = var9.getInteger("SpawnY");
+            this.o = var9.getInteger("SpawnZ");
+            this.e = var9.getLong("Time");
+            this.v = var9.getLong("SizeOnDisk");
+            if(var9.hasKey("Player")) {
+               this.H = var9.getMapTag("Player");
+               int var10 = this.H.getInteger("Dimension");
                if(var10 == -1) {
                   var17 = new om();
                }
@@ -327,7 +331,7 @@ public class cy implements pk {
             this.H = null;
          }
 
-         this.a((lw)var1);
+         this.a((Entity)var1);
       } catch (Exception var3) {
          var3.printStackTrace();
       }
@@ -351,28 +355,28 @@ public class cy implements pk {
 
    private void p() {
       this.n();
-      iq var1 = new iq();
-      var1.a("RandomSeed", this.u);
-      var1.a("SpawnX", this.m);
-      var1.a("SpawnY", this.n);
-      var1.a("SpawnZ", this.o);
-      var1.a("Time", this.e);
-      var1.a("SizeOnDisk", this.v);
-      var1.a("LastPlayed", System.currentTimeMillis());
+      CompoundTag var1 = new CompoundTag();
+      var1.putLongTag("RandomSeed", this.u);
+      var1.putIntegerTag("SpawnX", this.m);
+      var1.putIntegerTag("SpawnY", this.n);
+      var1.putIntegerTag("SpawnZ", this.o);
+      var1.putLongTag("Time", this.e);
+      var1.putLongTag("SizeOnDisk", this.v);
+      var1.putLongTag("LastPlayed", System.currentTimeMillis());
       eb var2 = null;
       if(this.d.size() > 0) {
          var2 = (eb)this.d.get(0);
       }
 
-      iq var3;
+      CompoundTag var3;
       if(var2 != null) {
-         var3 = new iq();
+         var3 = new CompoundTag();
          var2.d(var3);
-         var1.a("Player", var3);
+         var1.putCompoundTag("Player", var3);
       }
 
-      var3 = new iq();
-      var3.a("Data", (fd)var1);
+      var3 = new CompoundTag();
+      var3.putBaseTag("Data", (BaseTag)var1);
 
       try {
          File var4 = new File(this.t, "level.dat_new");
@@ -892,7 +896,7 @@ public class cy implements pk {
       }
    }
 
-   public void a(lw var1, String var2, float var3, float var4) {
+   public void a(Entity var1, String var2, float var3, float var4) {
       for(int var5 = 0; var5 < this.r.size(); ++var5) {
          ((jv)this.r.get(var5)).a(var2, var1.aw, var1.ax - (double)var1.aO, var1.ay, var3, var4);
       }
@@ -920,7 +924,7 @@ public class cy implements pk {
 
    }
 
-   public boolean a(lw var1) {
+   public boolean a(Entity var1) {
       int var2 = fi.b(var1.aw / 16.0D);
       int var3 = fi.b(var1.ay / 16.0D);
       boolean var4 = false;
@@ -943,21 +947,21 @@ public class cy implements pk {
       }
    }
 
-   protected void b(lw var1) {
+   protected void b(Entity var1) {
       for(int var2 = 0; var2 < this.r.size(); ++var2) {
          ((jv)this.r.get(var2)).a(var1);
       }
 
    }
 
-   protected void c(lw var1) {
+   protected void c(Entity var1) {
       for(int var2 = 0; var2 < this.r.size(); ++var2) {
          ((jv)this.r.get(var2)).b(var1);
       }
 
    }
 
-   public void d(lw var1) {
+   public void d(Entity var1) {
       var1.J();
       if(var1 instanceof eb) {
          this.d.remove((eb)var1);
@@ -973,7 +977,7 @@ public class cy implements pk {
       this.r.remove(var1);
    }
 
-   public List a(lw var1, co var2) {
+   public List a(Entity var1, co var2) {
       this.I.clear();
       int var3 = fi.b(var2.a);
       int var4 = fi.b(var2.d + 1.0D);
@@ -999,12 +1003,12 @@ public class cy implements pk {
       List var15 = this.b(var1, var2.b(var14, var14, var14));
 
       for(int var16 = 0; var16 < var15.size(); ++var16) {
-         co var13 = ((lw)var15.get(var16)).e();
+         co var13 = ((Entity)var15.get(var16)).e();
          if(var13 != null && var13.a(var2)) {
             this.I.add(var13);
          }
 
-         var13 = var1.a((lw)var15.get(var16));
+         var13 = var1.a((Entity)var15.get(var16));
          if(var13 != null && var13.a(var2)) {
             this.I.add(var13);
          }
@@ -1027,7 +1031,7 @@ public class cy implements pk {
       return (int)(var3 * 11.0F);
    }
 
-   public ao a(lw var1, float var2) {
+   public ao a(Entity var1, float var2) {
       float var3 = this.b(var2);
       float var4 = fi.b(var3 * 3.1415927F * 2.0F) * 2.0F + 0.5F;
       if(var4 < 0.0F) {
@@ -1148,11 +1152,11 @@ public class cy implements pk {
       this.b.removeAll(this.B);
 
       int var1;
-      lw var2;
+      Entity var2;
       int var3;
       int var4;
       for(var1 = 0; var1 < this.B.size(); ++var1) {
-         var2 = (lw)this.B.get(var1);
+         var2 = (Entity)this.B.get(var1);
          var3 = var2.bo;
          var4 = var2.bq;
          if(var2.bn && this.g(var3, var4)) {
@@ -1161,13 +1165,13 @@ public class cy implements pk {
       }
 
       for(var1 = 0; var1 < this.B.size(); ++var1) {
-         this.c((lw)this.B.get(var1));
+         this.c((Entity)this.B.get(var1));
       }
 
       this.B.clear();
 
       for(var1 = 0; var1 < this.b.size(); ++var1) {
-         var2 = (lw)this.b.get(var1);
+         var2 = (Entity)this.b.get(var1);
          if(var2.ar != null) {
             if(!var2.ar.aN && var2.ar.aq == var2) {
                continue;
@@ -1200,11 +1204,11 @@ public class cy implements pk {
 
    }
 
-   public void e(lw var1) throws IOException {
+   public void e(Entity var1) throws IOException {
       this.a(var1, true);
    }
 
-   public void a(lw var1, boolean var2) throws IOException {
+   public void a(Entity var1, boolean var2) throws IOException {
       int var3 = fi.b(var1.aw);
       int var4 = fi.b(var1.ay);
       byte var5 = 16;
@@ -1271,10 +1275,10 @@ public class cy implements pk {
    }
 
    public boolean a(co var1) {
-      List var2 = this.b((lw)null, var1);
+      List var2 = this.b((Entity)null, var1);
 
       for(int var3 = 0; var3 < var2.size(); ++var3) {
-         lw var4 = (lw)var2.get(var3);
+         Entity var4 = (Entity)var2.get(var3);
          if(!var4.aN && var4.ap) {
             return false;
          }
@@ -1338,7 +1342,7 @@ public class cy implements pk {
       return false;
    }
 
-   public boolean a(co var1, hb var2, lw var3) {
+   public boolean a(co var1, hb var2, Entity var3) {
       int var4 = fi.b(var1.a);
       int var5 = fi.b(var1.d + 1.0D);
       int var6 = fi.b(var1.b);
@@ -1426,11 +1430,11 @@ public class cy implements pk {
       return false;
    }
 
-   public ks a(lw var1, double var2, double var4, double var6, float var8) {
+   public ks a(Entity var1, double var2, double var4, double var6, float var8) {
       return this.a(var1, var2, var4, var6, var8, false);
    }
 
-   public ks a(lw var1, double var2, double var4, double var6, float var8, boolean var9) {
+   public ks a(Entity var1, double var2, double var4, double var6, float var8, boolean var9) {
       ks var10 = new ks(this, var1, var2, var4, var6, var8);
       var10.a = var9;
       var10.a();
@@ -1495,7 +1499,7 @@ public class cy implements pk {
 
    }
 
-   public lw a(Class var1) {
+   public Entity a(Class var1) {
       return null;
    }
 
@@ -1746,7 +1750,7 @@ public class cy implements pk {
 
    }
 
-   public List b(lw var1, co var2) {
+   public List b(Entity var1, co var2) {
       this.M.clear();
       int var3 = fi.b((var2.a - 2.0D) / 16.0D);
       int var4 = fi.b((var2.d + 2.0D) / 16.0D);
@@ -1801,7 +1805,7 @@ public class cy implements pk {
       int var2 = 0;
 
       for(int var3 = 0; var3 < this.b.size(); ++var3) {
-         lw var4 = (lw)this.b.get(var3);
+         Entity var4 = (Entity)this.b.get(var3);
          if(var1.isAssignableFrom(var4.getClass())) {
             ++var2;
          }
@@ -1814,7 +1818,7 @@ public class cy implements pk {
       this.b.addAll(var1);
 
       for(int var2 = 0; var2 < var1.size(); ++var2) {
-         this.b((lw)var1.get(var2));
+         this.b((Entity)var1.get(var2));
       }
 
    }
@@ -1842,7 +1846,7 @@ public class cy implements pk {
       return var9 != null && !this.a(var9)?false:(var7 != nq.A && var7 != nq.B && var7 != nq.C && var7 != nq.D && var7 != nq.ar && var7 != nq.aS?var1 > 0 && var7 == null && var8.a(this, var2, var3, var4):true);
    }
 
-   public bt a(lw var1, lw var2, float var3) {
+   public bt a(Entity var1, Entity var2, float var3) {
       int var4 = fi.b(var1.aw);
       int var5 = fi.b(var1.ax);
       int var6 = fi.b(var1.ay);
@@ -1857,7 +1861,7 @@ public class cy implements pk {
       return (new dm(var14)).a(var1, var2, var3);
    }
 
-   public bt a(lw var1, int var2, int var3, int var4, float var5) {
+   public bt a(Entity var1, int var2, int var3, int var4, float var5) {
       int var6 = fi.b(var1.aw);
       int var7 = fi.b(var1.ax);
       int var8 = fi.b(var1.ay);
@@ -1894,7 +1898,7 @@ public class cy implements pk {
       return this.k(var1, var2 - 1, var3, 0)?true:(this.k(var1, var2 + 1, var3, 1)?true:(this.k(var1, var2, var3 - 1, 2)?true:(this.k(var1, var2, var3 + 1, 3)?true:(this.k(var1 - 1, var2, var3, 4)?true:this.k(var1 + 1, var2, var3, 5)))));
    }
 
-   public eb a(lw var1, double var2) {
+   public eb a(Entity var1, double var2) {
       return this.a(var1.aw, var1.ax, var1.ay, var2);
    }
 
@@ -1983,7 +1987,7 @@ public class cy implements pk {
       this.e = var1;
    }
 
-   public void f(lw var1) {
+   public void f(Entity var1) {
       int var2 = fi.b(var1.aw / 16.0D);
       int var3 = fi.b(var1.ay / 16.0D);
       byte var4 = 2;
@@ -2004,17 +2008,17 @@ public class cy implements pk {
       return true;
    }
 
-   public void a(lw var1, byte var2) {}
+   public void a(Entity var1, byte var2) {}
 
    public void o() {
       this.b.removeAll(this.B);
 
       int var1;
-      lw var2;
+      Entity var2;
       int var3;
       int var4;
       for(var1 = 0; var1 < this.B.size(); ++var1) {
-         var2 = (lw)this.B.get(var1);
+         var2 = (Entity)this.B.get(var1);
          var3 = var2.bo;
          var4 = var2.bq;
          if(var2.bn && this.g(var3, var4)) {
@@ -2023,13 +2027,13 @@ public class cy implements pk {
       }
 
       for(var1 = 0; var1 < this.B.size(); ++var1) {
-         this.c((lw)this.B.get(var1));
+         this.c((Entity)this.B.get(var1));
       }
 
       this.B.clear();
 
       for(var1 = 0; var1 < this.b.size(); ++var1) {
-         var2 = (lw)this.b.get(var1);
+         var2 = (Entity)this.b.get(var1);
          if(var2.ar != null) {
             if(!var2.ar.aN && var2.ar.aq == var2) {
                continue;

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.tags.CompoundTag;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -10,7 +12,7 @@ public class py extends gk {
    public int b;
    public int c;
    public byte[] d;
-   public iq e;
+   public CompoundTag e;
 
 
    public py() {
@@ -22,7 +24,7 @@ public class py extends gk {
       this.a = var1;
       this.b = var2;
       this.c = var3;
-      this.e = new iq();
+      this.e = new CompoundTag();
       var4.b(this.e);
 
       try {

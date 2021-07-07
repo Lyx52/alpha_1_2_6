@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/lwjgl_util-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/asm-all-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/lwjgl-2.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jinput-2.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jinput-platform-2.0.5-natives-windows.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/lwjgl-platform-2.9.0-natives-windows.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/launchwrapper-1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jutils-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

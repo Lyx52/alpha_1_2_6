@@ -157,7 +157,7 @@ public class lt extends ji implements hi {
          return false;
       } else {
          int var1 = this.d(this.a[0].a().aW);
-         return var1 < 0?false:(this.a[2] == null?true:(this.a[2].c != var1?false:(this.a[2].a < this.o_() && this.a[2].a < this.a[2].c()?true:this.a[2].a < dx.c[var1].c())));
+         return var1 < 0?false:(this.a[2] == null?true:(this.a[2].c != var1?false:(this.a[2].a < this.o_() && this.a[2].a < this.a[2].c()?true:this.a[2].a < Item.itemIds[var1].c())));
       }
    }
 
@@ -179,7 +179,7 @@ public class lt extends ji implements hi {
    }
 
    private int d(int var1) {
-      return var1 == nq.H.bh?dx.m.aW:(var1 == nq.G.bh?dx.n.aW:(var1 == nq.aw.bh?dx.l.aW:(var1 == nq.E.bh?nq.M.bh:(var1 == dx.ao.aW?dx.ap.aW:(var1 == dx.aS.aW?dx.aT.aW:(var1 == nq.w.bh?nq.t.bh:(var1 == dx.aG.aW?dx.aF.aW:-1)))))));
+      return var1 == nq.H.bh? Item.m.aW:(var1 == nq.G.bh? Item.n.aW:(var1 == nq.aw.bh? Item.l.aW:(var1 == nq.E.bh?nq.M.bh:(var1 == Item.ao.aW? Item.ap.aW:(var1 == Item.aS.aW? Item.aT.aW:(var1 == nq.w.bh?nq.t.bh:(var1 == Item.aG.aW? Item.aF.aW:-1)))))));
    }
 
    private int a(fp var1) {
@@ -187,7 +187,7 @@ public class lt extends ji implements hi {
          return 0;
       } else {
          int var2 = var1.a().aW;
-         return var2 < 256 && nq.m[var2].bs == hb.c?300:(var2 == dx.B.aW?100:(var2 == dx.k.aW?1600:(var2 == dx.aw.aW?20000:0)));
+         return var2 < 256 && nq.m[var2].bs == hb.c?300:(var2 == Item.B.aW?100:(var2 == Item.k.aW?1600:(var2 == Item.aw.aW?20000:0)));
       }
    }
 }

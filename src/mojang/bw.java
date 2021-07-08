@@ -5,11 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class bw {
 
-   public cy a;
+   public World a;
    private int C = -1;
    private static is D = is.a;
    public static int b = 0;
@@ -43,7 +44,7 @@ public class bw {
    private List F;
 
 
-   public bw(cy var1, List var2, int var3, int var4, int var5, int var6, int var7) {
+   public bw(World var1, List var2, int var3, int var4, int var5, int var6, int var7) {
       this.a = var1;
       this.F = var2;
       this.f = this.g = this.h = var6;

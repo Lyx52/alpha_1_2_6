@@ -1,5 +1,6 @@
 package mojang;
 
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class bk {
@@ -1004,7 +1005,7 @@ public class bk {
       return 1.0F - var6 / (float)var5;
    }
 
-   public void a(nq var1, cy var2, int var3, int var4, int var5) {
+   public void a(nq var1, World var2, int var3, int var4, int var5) {
       float var6 = 0.5F;
       float var7 = 1.0F;
       float var8 = 0.8F;

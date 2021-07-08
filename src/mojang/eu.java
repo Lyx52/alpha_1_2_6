@@ -1,6 +1,8 @@
 package mojang;
 
-public class eu extends dx {
+import mojang.world.World;
+
+public class eu extends Item {
 
    private hb a;
 
@@ -12,7 +14,7 @@ public class eu extends dx {
       this.aX = 1;
    }
 
-   public boolean a(fp var1, eb var2, cy var3, int var4, int var5, int var6, int var7) {
+   public boolean a(fp var1, eb var2, World var3, int var4, int var5, int var6, int var7) {
       if(var7 != 1) {
          return false;
       } else {

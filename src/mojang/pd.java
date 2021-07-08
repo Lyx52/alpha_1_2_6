@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 public class pd extends nq {
 
    protected pd(int var1) {
@@ -7,7 +9,7 @@ public class pd extends nq {
       this.bg = 48;
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       byte var5 = 2;
 
       for(int var6 = var2 - var5; var6 <= var2 + var5; ++var6) {
@@ -22,7 +24,7 @@ public class pd extends nq {
 
    }
 
-   public void b(cy var1, int var2, int var3, int var4) {
+   public void b(World var1, int var2, int var3, int var4) {
       byte var5 = 2;
 
       for(int var6 = var2 - var5; var6 <= var2 + var5; ++var6) {

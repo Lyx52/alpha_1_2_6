@@ -7,7 +7,7 @@ public class pa {
 
 
    public pa() {
-      this.b = new Object[][]{{nq.x, nq.w, dx.m, dx.l, dx.n}, {dx.p, dx.t, dx.o, dx.x, dx.E}};
+      this.b = new Object[][]{{nq.x, nq.w, Item.m, Item.l, Item.n}, {Item.p, Item.t, Item.o, Item.x, Item.E}};
    }
 
    public void a(en var1) {
@@ -15,12 +15,12 @@ public class pa {
          Object var3 = this.b[0][var2];
 
          for(int var4 = 0; var4 < this.b.length - 1; ++var4) {
-            dx var5 = (dx)this.b[var4 + 1][var2];
-            var1.a(new fp(var5), new Object[]{this.a[var4], Character.valueOf('#'), dx.B, Character.valueOf('X'), var3});
+            Item var5 = (Item)this.b[var4 + 1][var2];
+            var1.a(new fp(var5), new Object[]{this.a[var4], Character.valueOf('#'), Item.B, Character.valueOf('X'), var3});
          }
       }
 
-      var1.a(new fp(dx.i, 1), new Object[]{" #X", "# X", " #X", Character.valueOf('X'), dx.I, Character.valueOf('#'), dx.B});
-      var1.a(new fp(dx.j, 4), new Object[]{"X", "#", "Y", Character.valueOf('Y'), dx.J, Character.valueOf('X'), dx.an, Character.valueOf('#'), dx.B});
+      var1.a(new fp(Item.i, 1), new Object[]{" #X", "# X", " #X", Character.valueOf('X'), Item.I, Character.valueOf('#'), Item.B});
+      var1.a(new fp(Item.j, 4), new Object[]{"X", "#", "Y", Character.valueOf('Y'), Item.J, Character.valueOf('X'), Item.an, Character.valueOf('#'), Item.B});
    }
 }

@@ -3,7 +3,7 @@ package mojang;
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
 
-public class kg extends dx {
+public class kg extends Item {
 
    private int a;
 

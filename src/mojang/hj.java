@@ -3,6 +3,7 @@ package mojang;
 import mojang.entity.item.DroppedItem;
 import mojang.entity.Entity;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,7 +32,7 @@ public class hj extends Entity {
    private double t;
 
 
-   public hj(cy var1) {
+   public hj(World var1) {
       super(var1);
       this.d = -1;
       this.e = -1;
@@ -51,12 +52,12 @@ public class hj extends Entity {
       return var1 < var3 * var3;
    }
 
-   public hj(cy var1, double var2, double var4, double var6) {
+   public hj(World var1, double var2, double var4, double var6) {
       this(var1);
       this.b(var2, var4, var6);
    }
 
-   public hj(cy var1, eb var2) {
+   public hj(World var1, eb var2) {
       super(var1);
       this.d = -1;
       this.e = -1;
@@ -145,7 +146,7 @@ public class hj extends Entity {
       } else {
          if(!this.as.z) {
             fp var1 = this.b.w();
-            if(this.b.aN || !this.b.E() || var1 == null || var1.a() != dx.aP || this.f(this.b) > 1024.0D) {
+            if(this.b.aN || !this.b.E() || var1 == null || var1.a() != Item.aP || this.f(this.b) > 1024.0D) {
                this.J();
                this.b.n = null;
                return;
@@ -352,7 +353,7 @@ public class hj extends Entity {
          this.c.aB += var6 * var10;
          var1 = 3;
       } else if(this.k > 0) {
-         DroppedItem var13 = new DroppedItem(this.as, this.aw, this.ax, this.ay, new fp(dx.aS.aW));
+         DroppedItem var13 = new DroppedItem(this.as, this.aw, this.ax, this.ay, new fp(Item.aS.aW));
          double var3 = this.b.aw - this.aw;
          double var5 = this.b.ax - this.ax;
          double var7 = this.b.ay - this.ay;

@@ -5,17 +5,18 @@ import java.util.List;
 import java.util.Random;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class bz {
 
-   protected cy a;
+   protected World a;
    private List[] b = new List[4];
-   private fu c;
+   private Texture c;
    private Random d = new Random();
 
 
-   public bz(cy var1, fu var2) {
+   public bz(World var1, Texture var2) {
       if(var1 != null) {
          this.a = var1;
       }
@@ -60,15 +61,15 @@ public class bz {
          if(this.b[var8].size() != 0) {
             int var9 = 0;
             if(var8 == 0) {
-               var9 = this.c.a("/mojang/particles.png");
+               var9 = this.c.loadTexture("/mojang/particles.png");
             }
 
             if(var8 == 1) {
-               var9 = this.c.a("/mojang/terrain.png");
+               var9 = this.c.loadTexture("/mojang/terrain.png");
             }
 
             if(var8 == 2) {
-               var9 = this.c.a("/mojang/gui/items.png");
+               var9 = this.c.loadTexture("/mojang/assets/gui/items.png");
             }
 
             GL11.glBindTexture(3553, var9);
@@ -99,7 +100,7 @@ public class bz {
       }
    }
 
-   public void a(cy var1) {
+   public void a(World var1) {
       this.a = var1;
 
       for(int var2 = 0; var2 < 4; ++var2) {

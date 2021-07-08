@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.io.IOException;
 
 public class gs implements bd {
@@ -8,13 +10,13 @@ public class gs implements bd {
    private bd d;
    private ai e;
    private ha[] f = new ha[1024];
-   private cy g;
+   private World g;
    int a = -999999999;
    int b = -999999999;
    private ha h;
 
 
-   public gs(cy var1, ai var2, bd var3) {
+   public gs(World var1, ai var2, bd var3) {
       this.c = new ha(var1, new byte['\u8000'], 0, 0);
       this.c.q = true;
       this.c.p = true;
@@ -94,7 +96,7 @@ public class gs implements bd {
          try {
             ha var3 = this.e.a(this.g, var1, var2);
             if(var3 != null) {
-               var3.s = this.g.e;
+               var3.s = this.g.lastTime;
             }
 
             return var3;
@@ -119,7 +121,7 @@ public class gs implements bd {
    private void b(ha var1) {
       if(this.e != null) {
          try {
-            var1.s = this.g.e;
+            var1.s = this.g.lastTime;
             this.e.a(this.g, var1);
          } catch (IOException var3) {
             var3.printStackTrace();

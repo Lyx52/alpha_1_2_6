@@ -2,15 +2,16 @@ package mojang;
 
 import mojang.entity.Entity;
 import mojang.entity.item.Painting;
+import mojang.world.World;
 
-public class qe extends dx {
+public class qe extends Item {
 
    public qe(int var1) {
       super(var1);
       this.aY = 64;
    }
 
-   public boolean a(fp var1, eb var2, cy var3, int var4, int var5, int var6, int var7) {
+   public boolean a(fp var1, eb var2, World var3, int var4, int var5, int var6, int var7) {
       if(var7 == 0) {
          return false;
       } else if(var7 == 1) {

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 public class mr extends ok {
 
    protected mr(int var1, int var2) {
@@ -12,7 +14,7 @@ public class mr extends ok {
       return o[var1];
    }
 
-   public boolean g(cy var1, int var2, int var3, int var4) {
+   public boolean g(World var1, int var2, int var3, int var4) {
       return var1.j(var2, var3, var4) <= 13 && this.b(var1.a(var2, var3 - 1, var4));
    }
 }

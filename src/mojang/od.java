@@ -91,7 +91,7 @@ public class od extends d {
       if(this.g != null) {
          var1.n.b(this.f);
       } else {
-         GL11.glBindTexture(3553, var1.n.a("/mojang/gui/unknown_pack.png"));
+         GL11.glBindTexture(3553, var1.n.loadTexture("/mojang/assets/gui/unknown_pack.png"));
       }
 
    }

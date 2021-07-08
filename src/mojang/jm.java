@@ -39,7 +39,7 @@ public class jm extends d {
       if(this.f != null) {
          var1.n.b(this.e);
       } else {
-         GL11.glBindTexture(3553, var1.n.a("/mojang/gui/unknown_pack.png"));
+         GL11.glBindTexture(3553, var1.n.loadTexture("/mojang/assets/gui/unknown_pack.png"));
       }
 
    }

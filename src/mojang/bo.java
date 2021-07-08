@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,9 +16,9 @@ public class bo extends ob {
       return var1 == 1? av.a(var1, var2):super.a(var1, var2);
    }
 
-   private boolean a(cy var1, int var2, int var3, int var4, boolean var5) {
+   private boolean a(World var1, int var2, int var3, int var4, boolean var5) {
       if(var5) {
-         b.add(new pn(var2, var3, var4, var1.e));
+         b.add(new pn(var2, var3, var4, var1.lastTime));
       }
 
       int var6 = 0;
@@ -44,7 +46,7 @@ public class bo extends ob {
       return 2;
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       if(var1.e(var2, var3, var4) == 0) {
          super.e(var1, var2, var3, var4);
       }
@@ -60,7 +62,7 @@ public class bo extends ob {
 
    }
 
-   public void b(cy var1, int var2, int var3, int var4) {
+   public void b(World var1, int var2, int var3, int var4) {
       if(this.a) {
          var1.g(var2, var3 - 1, var4, this.bh);
          var1.g(var2, var3 + 1, var4, this.bh);
@@ -81,15 +83,15 @@ public class bo extends ob {
       }
    }
 
-   private boolean h(cy var1, int var2, int var3, int var4) {
+   private boolean h(World var1, int var2, int var3, int var4) {
       int var5 = var1.e(var2, var3, var4);
       return var5 == 5 && var1.k(var2, var3 - 1, var4, 0)?true:(var5 == 3 && var1.k(var2, var3, var4 - 1, 2)?true:(var5 == 4 && var1.k(var2, var3, var4 + 1, 3)?true:(var5 == 1 && var1.k(var2 - 1, var3, var4, 4)?true:var5 == 2 && var1.k(var2 + 1, var3, var4, 5))));
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       boolean var6 = this.h(var1, var2, var3, var4);
 
-      while(b.size() > 0 && var1.e - ((pn)b.get(0)).d > 100L) {
+      while(b.size() > 0 && var1.lastTime - ((pn)b.get(0)).d > 100L) {
          b.remove(0);
       }
 
@@ -113,12 +115,12 @@ public class bo extends ob {
 
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
       var1.h(var2, var3, var4, this.bh);
    }
 
-   public boolean c(cy var1, int var2, int var3, int var4, int var5) {
+   public boolean c(World var1, int var2, int var3, int var4, int var5) {
       return var5 == 0?this.c((pk)var1, var2, var3, var4, var5):false;
    }
 
@@ -130,7 +132,7 @@ public class bo extends ob {
       return true;
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Random var5) {
+   public void b(World var1, int var2, int var3, int var4, Random var5) {
       if(this.a) {
          int var6 = var1.e(var2, var3, var4);
          double var7 = (double)((float)var2 + 0.5F) + (double)(var5.nextFloat() - 0.5F) * 0.2D;

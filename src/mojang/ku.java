@@ -20,13 +20,13 @@ public class ku {
    public void a(fp var1) {
       GL11.glPushMatrix();
       if(var1.c < 256 && bk.a(nq.m[var1.c].g())) {
-         GL11.glBindTexture(3553, this.a.n.a("/mojang/terrain.png"));
+         GL11.glBindTexture(3553, this.a.n.loadTexture("/mojang/terrain.png"));
          this.e.a(nq.m[var1.c]);
       } else {
          if(var1.c < 256) {
-            GL11.glBindTexture(3553, this.a.n.a("/mojang/terrain.png"));
+            GL11.glBindTexture(3553, this.a.n.loadTexture("/mojang/terrain.png"));
          } else {
-            GL11.glBindTexture(3553, this.a.n.a("/mojang/gui/items.png"));
+            GL11.glBindTexture(3553, this.a.n.loadTexture("/mojang/assets/gui/items.png"));
          }
 
          is var2 = is.a;
@@ -133,11 +133,11 @@ public class ku {
       GL11.glRotatef(var3.aE + (var3.aC - var3.aE) * var1, 0.0F, 1.0F, 0.0F);
       l.b();
       GL11.glPopMatrix();
-      float var4 = this.a.e.c(fi.b(var3.aw), fi.b(var3.ax), fi.b(var3.ay));
+      float var4 = this.a.world.c(fi.b(var3.aw), fi.b(var3.ax), fi.b(var3.ay));
       GL11.glColor4f(var4, var4, var4, 1.0F);
       fp var5 = this.b;
       if(var3.n != null) {
-         var5 = new fp(dx.B.aW);
+         var5 = new fp(Item.B.aW);
       }
 
       float var6;
@@ -206,7 +206,7 @@ public class ku {
       GL11.glDisable(3008);
       int var2;
       if(this.a.playerName.bg > 0 || this.a.playerName.bv) {
-         var2 = this.a.n.a("/mojang/terrain.png");
+         var2 = this.a.n.loadTexture("/mojang/terrain.png");
          GL11.glBindTexture(3553, var2);
          this.d(var1);
       }
@@ -215,16 +215,16 @@ public class ku {
          var2 = fi.b(this.a.playerName.aw);
          int var3 = fi.b(this.a.playerName.ax);
          int var4 = fi.b(this.a.playerName.ay);
-         int var5 = this.a.n.a("/mojang/terrain.png");
+         int var5 = this.a.n.loadTexture("/mojang/terrain.png");
          GL11.glBindTexture(3553, var5);
-         int var6 = this.a.e.a(var2, var3, var4);
+         int var6 = this.a.world.a(var2, var3, var4);
          if(nq.m[var6] != null) {
             this.a(var1, nq.m[var6].a(2));
          }
       }
 
       if(this.a.playerName.a(hb.f)) {
-         var2 = this.a.n.a("/mojang/misc/water.png");
+         var2 = this.a.n.loadTexture("/mojang/assets/misc/water.png");
          GL11.glBindTexture(3553, var2);
          this.c(var1);
       }

@@ -9,6 +9,6 @@ public class hk extends nq {
    }
 
    public int a(int var1, Random var2) {
-      return dx.aR.aW;
+      return Item.aR.aW;
    }
 }

@@ -9,10 +9,10 @@ class ms {
    int e;
    int f;
    // $FF: synthetic field
-   final hv g;
+   final ServerWorld g;
 
 
-   public ms(hv var1, int var2, int var3, int var4, int var5, int var6) {
+   public ms(ServerWorld var1, int var2, int var3, int var4, int var5, int var6) {
       this.g = var1;
       this.a = var2;
       this.b = var3;

@@ -2,6 +2,7 @@ package mojang;
 
 import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
+import mojang.world.World;
 
 public class pg extends iv {
 
@@ -27,9 +28,9 @@ public class pg extends iv {
    }
 
    public boolean b(int var1, int var2, int var3, int var4) {
-      this.k.a((gk)(new gc(3, var1, var2, var3, var4)));
-      int var5 = this.a.e.a(var1, var2, var3);
-      this.a.e.e(var1, var2, var3);
+      this.k.a((BasePacket)(new gc(3, var1, var2, var3, var4)));
+      int var5 = this.a.world.a(var1, var2, var3);
+      this.a.world.e(var1, var2, var3);
       boolean var7 = super.b(var1, var2, var3, var4);
       fp var8 = this.a.playerName.w();
       if(var8 != null) {
@@ -45,10 +46,10 @@ public class pg extends iv {
 
    public void a(int var1, int var2, int var3, int var4) {
       this.j = true;
-      this.k.a((gk)(new gc(0, var1, var2, var3, var4)));
-      int var5 = this.a.e.a(var1, var2, var3);
+      this.k.a((BasePacket)(new gc(0, var1, var2, var3, var4)));
+      int var5 = this.a.world.a(var1, var2, var3);
       if(var5 > 0 && this.f == 0.0F) {
-         nq.m[var5].b(this.a.e, var1, var2, var3, (eb)this.a.playerName);
+         nq.m[var5].b(this.a.world, var1, var2, var3, (eb)this.a.playerName);
       }
 
       if(var5 > 0 && nq.m[var5].a((eb)this.a.playerName) >= 1.0F) {
@@ -60,7 +61,7 @@ public class pg extends iv {
    public void a() {
       if(this.j) {
          this.j = false;
-         this.k.a((gk)(new gc(2, 0, 0, 0, 0)));
+         this.k.a((BasePacket)(new gc(2, 0, 0, 0, 0)));
          this.f = 0.0F;
          this.i = 0;
       }
@@ -69,12 +70,12 @@ public class pg extends iv {
    public void c(int var1, int var2, int var3, int var4) {
       this.j = true;
       this.e();
-      this.k.a((gk)(new gc(1, var1, var2, var3, var4)));
+      this.k.a((BasePacket)(new gc(1, var1, var2, var3, var4)));
       if(this.i > 0) {
          --this.i;
       } else {
          if(var1 == this.c && var2 == this.d && var3 == this.e) {
-            int var5 = this.a.e.a(var1, var2, var3);
+            int var5 = this.a.world.a(var1, var2, var3);
             if(var5 == 0) {
                return;
             }
@@ -121,7 +122,7 @@ public class pg extends iv {
       return 4.0F;
    }
 
-   public void a(cy var1) {
+   public void a(World var1) {
       super.a(var1);
    }
 
@@ -140,36 +141,36 @@ public class pg extends iv {
 
       if(var2 != this.l) {
          this.l = var2;
-         this.k.a((gk)(new eq(0, this.l)));
+         this.k.a((BasePacket)(new eq(0, this.l)));
       }
 
    }
 
-   public boolean a(eb var1, cy var2, fp var3, int var4, int var5, int var6, int var7) {
+   public boolean a(eb var1, World var2, fp var3, int var4, int var5, int var6, int var7) {
       this.e();
-      this.k.a((gk)(new ed(var3 != null?var3.c:-1, var4, var5, var6, var7)));
+      this.k.a((BasePacket)(new ed(var3 != null?var3.c:-1, var4, var5, var6, var7)));
       return super.a(var1, var2, var3, var4, var5, var6, var7);
    }
 
-   public boolean a(eb var1, cy var2, fp var3) {
+   public boolean a(eb var1, World var2, fp var3) {
       this.e();
-      this.k.a((gk)(new ed(var3 != null?var3.c:-1, -1, -1, -1, 255)));
+      this.k.a((BasePacket)(new ed(var3 != null?var3.c:-1, -1, -1, -1, 255)));
       return super.a(var1, var2, var3);
    }
 
-   public eb b(cy var1) {
+   public eb b(World var1) {
       return new mp(this.a, var1, this.a.i, this.k);
    }
 
    public void b(eb var1, Entity var2) {
       this.e();
-      this.k.a((gk)(new a(var1.an, var2.an, 1)));
+      this.k.a((BasePacket)(new a(var1.an, var2.an, 1)));
       var1.c(var2);
    }
 
    public void a(eb var1, Entity var2) {
       this.e();
-      this.k.a((gk)(new a(var1.an, var2.an, 0)));
+      this.k.a((BasePacket)(new a(var1.an, var2.an, 0)));
       var1.a_(var2);
    }
 }

@@ -1,17 +1,19 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.entity.EntityTypes;
 import mojang.entity.LivingEntity;
+import mojang.world.World;
 
 import java.util.List;
 import java.util.Random;
 
 public class ap extends nq {
 
-   private lg a;
+   private EntityTypes a;
 
 
-   protected ap(int var1, int var2, lg var3) {
+   protected ap(int var1, int var2, EntityTypes var3) {
       super(var1, var2, hb.d);
       this.a = var3;
       this.b(true);
@@ -23,7 +25,7 @@ public class ap extends nq {
       return 20;
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return null;
    }
 
@@ -35,13 +37,13 @@ public class ap extends nq {
       return false;
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       return var1.g(var2, var3 - 1, var4);
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {}
+   public void e(World var1, int var2, int var3, int var4) {}
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       boolean var6 = false;
       if(!var1.g(var2, var3 - 1, var4)) {
          var6 = true;
@@ -54,7 +56,7 @@ public class ap extends nq {
 
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       if(!var1.z) {
          if(var1.e(var2, var3, var4) != 0) {
             this.h(var1, var2, var3, var4);
@@ -62,7 +64,7 @@ public class ap extends nq {
       }
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Entity var5) {
+   public void a(World var1, int var2, int var3, int var4, Entity var5) {
       if(!var1.z) {
          if(var1.e(var2, var3, var4) != 1) {
             this.h(var1, var2, var3, var4);
@@ -70,20 +72,20 @@ public class ap extends nq {
       }
    }
 
-   private void h(cy var1, int var2, int var3, int var4) {
+   private void h(World var1, int var2, int var3, int var4) {
       boolean var5 = var1.e(var2, var3, var4) == 1;
       boolean var6 = false;
       float var7 = 0.125F;
       List var8 = null;
-      if(this.a == lg.a) {
+      if(this.a == EntityTypes.EVERYTHING) {
          var8 = var1.b((Entity)null, co.b((double)((float)var2 + var7), (double)var3, (double)((float)var4 + var7), (double)((float)(var2 + 1) - var7), (double)var3 + 0.25D, (double)((float)(var4 + 1) - var7)));
       }
 
-      if(this.a == lg.b) {
+      if(this.a == EntityTypes.MOBS) {
          var8 = var1.a(LivingEntity.class, co.b((double)((float)var2 + var7), (double)var3, (double)((float)var4 + var7), (double)((float)(var2 + 1) - var7), (double)var3 + 0.25D, (double)((float)(var4 + 1) - var7)));
       }
 
-      if(this.a == lg.c) {
+      if(this.a == EntityTypes.PLAYERS) {
          var8 = var1.a(eb.class, co.b((double)((float)var2 + var7), (double)var3, (double)((float)var4 + var7), (double)((float)(var2 + 1) - var7), (double)var3 + 0.25D, (double)((float)(var4 + 1) - var7)));
       }
 
@@ -113,7 +115,7 @@ public class ap extends nq {
 
    }
 
-   public void b(cy var1, int var2, int var3, int var4) {
+   public void b(World var1, int var2, int var3, int var4) {
       int var5 = var1.e(var2, var3, var4);
       if(var5 > 0) {
          var1.g(var2, var3, var4, this.bh);
@@ -138,7 +140,7 @@ public class ap extends nq {
       return var1.e(var2, var3, var4) > 0;
    }
 
-   public boolean c(cy var1, int var2, int var3, int var4, int var5) {
+   public boolean c(World var1, int var2, int var3, int var4, int var5) {
       return var1.e(var2, var3, var4) == 0?false:var5 == 1;
    }
 

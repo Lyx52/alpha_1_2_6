@@ -2,8 +2,9 @@ package mojang;
 
 import mojang.entity.Entity;
 import mojang.entity.vehicle.Minecart;
+import mojang.world.World;
 
-public class lb extends dx {
+public class lb extends Item {
 
    public int a;
 
@@ -14,7 +15,7 @@ public class lb extends dx {
       this.a = var2;
    }
 
-   public boolean a(fp var1, eb var2, cy var3, int var4, int var5, int var6, int var7) {
+   public boolean a(fp var1, eb var2, World var3, int var4, int var5, int var6, int var7) {
       int var8 = var3.a(var4, var5, var6);
       if(var8 == nq.aG.bh) {
          if(!var3.z) {

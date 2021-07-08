@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.io.File;
@@ -12,6 +11,10 @@ import java.io.IOException;
 
 import mojang.*;
 import mojang.entity.Entity;
+import mojang.gui.*;
+import mojang.world.Dimension;
+import mojang.world.OverworldDimension;
+import mojang.world.World;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Controllers;
 import org.lwjgl.input.Keyboard;
@@ -29,34 +32,34 @@ public abstract class Minecraft implements Runnable {
    public int d;
    private bm O;
    private kc P = new kc(20.0F);
-   public cy e;
+   public World world;
    public f f;
    public bq playerName;
    public bz h;
    public ea i = null;
-   public String j;
+   public String developerURL;
    public Canvas k;
    public boolean l = true;
    public volatile boolean m = false;
-   public fu n;
+   public Texture n;
    public ls o;
    public GraphicsUserInterface p = null;
    public hu q = new hu(this);
    public kb r = new kb(this);
-   private bn Q;
+   private ResourceDownloadThread Q;
    private int R = 0;
    private int S = 0;
    private int T;
    private int U;
    public String s = null;
    public int t = 0;
-   public nl u;
+   public BaseGUI u;
    public boolean v = false;
    public dc w = new dc(0.0F);
    public nx x = null;
-   public gq y;
+   public OptionsManager y;
    protected MinecraftApplet z;
-   public qg A = new qg();
+   public SoundManager A = new SoundManager();
    public oi B;
    public ff C;
    public File D;
@@ -67,7 +70,7 @@ public abstract class Minecraft implements Runnable {
    private int W;
    private oe X = new oe();
    private ba Y = new ba();
-   private static File Z = null;
+   private static File gameDirectory = null;
    public volatile boolean H = true;
    public String I = "";
    boolean J = false;
@@ -84,14 +87,14 @@ public abstract class Minecraft implements Runnable {
       this.U = var5;
       this.a = var6;
       this.z = var3;
-      new gi(this, "Timer hack thread");
+      new TimerHackThread(this, "Timer hack thread");
       this.k = var2;
       this.c = var4;
       this.d = var5;
       this.a = var6;
    }
 
-   public abstract void a(hr var1);
+   public abstract void throwMinecraftException(MinecraftException exception);
 
    public void a(String var1, int var2) {
       this.V = var1;
@@ -140,11 +143,11 @@ public abstract class Minecraft implements Runnable {
       }
 
       mn.a.f = new ku(this);
-      this.D = b();
-      this.y = new gq(this, this.D);
+      this.D = getGameDirectory();
+      this.y = new OptionsManager(this, this.D);
       this.C = new ff(this, this.D);
-      this.n = new fu(this.C, this.y);
-      this.o = new ls(this.y, "/mojang/font/default.png", this.n);
+      this.n = new Texture(this.C, this.y);
+      this.o = new ls(this.y, "/mojang/assets/font/default.png", this.n);
       this.q();
       Keyboard.create();
       Mouse.create();
@@ -156,7 +159,7 @@ public abstract class Minecraft implements Runnable {
          var4.printStackTrace();
       }
 
-      this.c("Pre startup");
+      this.checkGLError("Pre startup");
       GL11.glEnable(3553);
       GL11.glShadeModel(7425);
       GL11.glClearDepth(1.0D);
@@ -168,7 +171,7 @@ public abstract class Minecraft implements Runnable {
       GL11.glMatrixMode(5889);
       GL11.glLoadIdentity();
       GL11.glMatrixMode(5888);
-      this.c("Startup");
+      this.checkGLError("Startup");
       this.O = new bm();
       this.A.a(this.y);
       this.n.a((ad)this.Y);
@@ -182,21 +185,21 @@ public abstract class Minecraft implements Runnable {
       this.n.a((ad)(new ln(1)));
       this.f = new f(this, this.n);
       GL11.glViewport(0, 0, this.c, this.d);
-      this.h = new bz(this.e, this.n);
+      this.h = new bz(this.world, this.n);
 
       try {
-         this.Q = new bn(this.D, this);
+         this.Q = new ResourceDownloadThread(this.D, this);
          this.Q.start();
       } catch (Exception var3) {
          ;
       }
 
-      this.c("Post startup");
-      this.u = new nl(this);
+      this.checkGLError("Post startup");
+      this.u = new BaseGUI(this);
       if(this.V != null) {
-         this.a((GraphicsUserInterface)(new og(this, this.V, this.W)));
+         this.changeGUI((GraphicsUserInterface)(new ServerConnectionGUI(this, this.V, this.W)));
       } else {
-         this.a((GraphicsUserInterface)(new dj()));
+         this.changeGUI((GraphicsUserInterface)(new MinecraftGUI()));
       }
 
    }
@@ -218,7 +221,7 @@ public abstract class Minecraft implements Runnable {
       GL11.glDisable(2896);
       GL11.glEnable(3553);
       GL11.glDisable(2912);
-      GL11.glBindTexture(3553, this.n.a("/mojang/title/mojang.png"));
+      GL11.glBindTexture(3553, this.n.loadTexture("/mojang/assets/title/mojang.png"));
       var4.b();
       var4.b(16777215);
       var4.a(0.0D, (double)this.d, 0.0D, 0.0D, 0.0D);
@@ -250,57 +253,57 @@ public abstract class Minecraft implements Runnable {
       var9.a();
    }
 
-   public static File b() {
-      if(Z == null) {
-         Z = a("mojang");
+   public static File getGameDirectory() {
+      if(gameDirectory == null) {
+         gameDirectory = createGameDirectory("mojang");
       }
 
-      return Z;
+      return gameDirectory;
    }
 
-   public static File a(String var0) {
-      String var1 = System.getProperty("user.home", ".");
-      File var2;
-      switch(go.a[r().ordinal()]) {
+   public static File createGameDirectory(String applicationName) {
+      String userHomeDirectory = System.getProperty("user.home", ".");
+      File gameDirectory;
+      switch(OS_IDS.type_ids[getOSType().ordinal()]) {
       case 1:
       case 2:
-         var2 = new File(var1, '.' + var0 + '/');
+         gameDirectory = new File(userHomeDirectory, '.' + applicationName + '/');
          break;
       case 3:
-         String var3 = System.getenv("APPDATA");
-         if(var3 != null) {
-            var2 = new File(var3, "." + var0 + '/');
+         String appdata = System.getenv("APPDATA");
+         if(appdata != null) {
+            gameDirectory = new File(appdata, "." + applicationName + '/');
          } else {
-            var2 = new File(var1, '.' + var0 + '/');
+            gameDirectory = new File(userHomeDirectory, '.' + applicationName + '/');
          }
          break;
       case 4:
-         var2 = new File(var1, "Library/Application Support/" + var0);
+         gameDirectory = new File(userHomeDirectory, "Library/Application Support/" + applicationName);
          break;
       default:
-         var2 = new File(var1, var0 + '/');
+         gameDirectory = new File(userHomeDirectory, applicationName + '/');
       }
 
-      if(!var2.exists() && !var2.mkdirs()) {
-         throw new RuntimeException("The working directory could not be created: " + var2);
+      if(!gameDirectory.exists() && !gameDirectory.mkdirs()) {
+         throw new RuntimeException("The working directory could not be created: " + gameDirectory);
       } else {
-         return var2;
+         return gameDirectory;
       }
    }
 
-   private static jp r() {
-      String var0 = System.getProperty("os.name").toLowerCase();
-      return var0.contains("win")?jp.c:(var0.contains("mac")?jp.d:(var0.contains("solaris")?jp.b:(var0.contains("sunos")?jp.b:(var0.contains("linux")?jp.a:(var0.contains("unix")?jp.a:jp.e)))));
+   private static OS_TYPES getOSType() {
+      String osName = System.getProperty("os.name").toLowerCase();
+      return osName.contains("win")? OS_TYPES.WINDOWS :(osName.contains("mac")? OS_TYPES.MACOS :(osName.contains("solaris")? OS_TYPES.SOLARIS :(osName.contains("sunos")? OS_TYPES.SOLARIS :(osName.contains("linux")? OS_TYPES.LINUX :(osName.contains("unix")? OS_TYPES.LINUX : OS_TYPES.UNKOWN)))));
    }
 
-   public void a(GraphicsUserInterface var1) {
+   public void changeGUI(GraphicsUserInterface var1) {
       if(!(this.p instanceof ay)) {
          if(this.p != null) {
             this.p.h();
          }
 
-         if(var1 == null && this.e == null) {
-            var1 = new dj();
+         if(var1 == null && this.world == null) {
+            var1 = new MinecraftGUI();
          } else if(var1 == null && this.playerName.J <= 0) {
             var1 = new bb();
          }
@@ -311,7 +314,7 @@ public abstract class Minecraft implements Runnable {
             kl var2 = new kl(this.c, this.d);
             int var3 = var2.a();
             int var4 = var2.b();
-            ((GraphicsUserInterface)var1).a(this, var3, var4);
+            ((GraphicsUserInterface)var1).initInterface(this, var3, var4);
             this.v = false;
          } else {
             this.e();
@@ -320,7 +323,7 @@ public abstract class Minecraft implements Runnable {
       }
    }
 
-   private void c(String var1) {
+   private void checkGLError(String var1) {
       int var2 = GL11.glGetError();
       if(var2 != 0) {
          String var3 = GLU.gluErrorString(var2);
@@ -347,7 +350,7 @@ public abstract class Minecraft implements Runnable {
 
       try {
          System.out.println("Stopping!");
-         this.a((cy)null);
+         this.setWorld((World)null);
 
          try {
             ds.a();
@@ -372,7 +375,7 @@ public abstract class Minecraft implements Runnable {
          this.a();
       } catch (Exception var15) {
          var15.printStackTrace();
-         this.a(new hr("Failed to start game", var15));
+         this.throwMinecraftException(new MinecraftException("Failed to start game", var15));
          return;
       }
 
@@ -388,7 +391,7 @@ public abstract class Minecraft implements Runnable {
                   this.d();
                }
 
-               if(this.m && this.e != null) {
+               if(this.m && this.world != null) {
                   float var4 = this.P.c;
                   this.P.a();
                   this.P.c = var4;
@@ -403,27 +406,27 @@ public abstract class Minecraft implements Runnable {
 
                   try {
                      this.i();
-                  } catch (np var14) {
-                     this.e = null;
-                     this.a((cy)null);
-                     this.a((GraphicsUserInterface)(new kh()));
+                  } catch (MinecraftRuntimeException var14) {
+                     this.world = null;
+                     this.setWorld((World)null);
+                     this.changeGUI((GraphicsUserInterface)(new kh()));
                   }
                }
 
                long var20 = System.nanoTime() - var19;
-               this.c("Pre render");
+               this.checkGLError("Pre render");
                this.A.a(this.playerName, this.P.c);
                GL11.glEnable(3553);
-               if(this.e != null && !this.e.z) {
+               if(this.world != null && !this.world.z) {
                   while(true) {
-                     if(this.e.g()) {
+                     if(this.world.g()) {
                         continue;
                      }
                   }
                }
 
-               if(this.e != null && this.e.z) {
-                  this.e.g();
+               if(this.world != null && this.world.z) {
+                  this.world.g();
                }
 
                if(this.y.vsync) {
@@ -476,7 +479,7 @@ public abstract class Minecraft implements Runnable {
                   this.a(this.c, this.d);
                }
 
-               this.c("Post render");
+               this.checkGLError("Post render");
                ++var3;
 
                for(this.m = !this.j() && this.p != null && this.p.b(); System.currentTimeMillis() >= var1 + 1000L; var3 = 0) {
@@ -487,10 +490,10 @@ public abstract class Minecraft implements Runnable {
             }
          } catch (pq var16) {
             ;
-         } catch (Throwable var17) {
-            this.e = null;
-            var17.printStackTrace();
-            this.a(new hr("Unexpected error", var17));
+         } catch (Throwable exception) {
+            this.world = null;
+            exception.printStackTrace();
+            this.throwMinecraftException(new MinecraftException("Unexpected error", exception));
          }
 
       } finally {
@@ -502,7 +505,7 @@ public abstract class Minecraft implements Runnable {
       if(Keyboard.isKeyDown(60)) {
          if(!this.J) {
             if(Keyboard.isKeyDown(59)) {
-               this.u.a(em.a(Z, this.c, this.d));
+               this.u.a(em.a(gameDirectory, this.c, this.d));
             }
 
             this.J = true;
@@ -597,7 +600,7 @@ public abstract class Minecraft implements Runnable {
          if(!this.L) {
             this.L = true;
             this.B.a();
-            this.a((GraphicsUserInterface)null);
+            this.changeGUI((GraphicsUserInterface)null);
             this.aa = this.R + 10000;
          }
       }
@@ -616,7 +619,7 @@ public abstract class Minecraft implements Runnable {
 
    public void g() {
       if(this.p == null) {
-         this.a((GraphicsUserInterface)(new jl()));
+         this.changeGUI((GraphicsUserInterface)(new jl()));
       }
    }
 
@@ -661,16 +664,16 @@ public abstract class Minecraft implements Runnable {
             int var4 = this.x.c;
             int var5 = this.x.d;
             int var6 = this.x.e;
-            nq var7 = nq.m[this.e.a(var3, var4, var5)];
+            nq var7 = nq.m[this.world.a(var3, var4, var5)];
             if(var1 == 0) {
-               this.e.i(var3, var4, var5, this.x.e);
+               this.world.i(var3, var4, var5, this.x.e);
                if(var7 != nq.z || this.playerName.f >= 100) {
                   this.b.a(var3, var4, var5, this.x.e);
                }
             } else {
                fp var8 = this.playerName.e.a();
                int var9 = var8 != null?var8.a:0;
-               if(this.b.a(this.playerName, this.e, var8, var3, var4, var5, var6)) {
+               if(this.b.a(this.playerName, this.world, var8, var3, var4, var5, var6)) {
                   var2 = false;
                   this.playerName.z();
                }
@@ -689,7 +692,7 @@ public abstract class Minecraft implements Runnable {
 
          if(var2 && var1 == 1) {
             fp var10 = this.playerName.e.a();
-            if(var10 != null && this.b.a(this.playerName, this.e, var10)) {
+            if(var10 != null && this.b.a(this.playerName, this.world, var10)) {
                this.r.a.c();
             }
          }
@@ -767,14 +770,14 @@ public abstract class Minecraft implements Runnable {
          kl var3 = new kl(var1, var2);
          int var4 = var3.a();
          int var5 = var3.b();
-         this.p.a(this, var4, var5);
+         this.p.initInterface(this, var4, var5);
       }
 
    }
 
    private void t() {
       if(this.x != null) {
-         int var1 = this.e.a(this.x.b, this.x.c, this.x.d);
+         int var1 = this.world.a(this.x.b, this.x.c, this.x.d);
          if(var1 == nq.u.bh) {
             var1 = nq.v.bh;
          }
@@ -799,17 +802,17 @@ public abstract class Minecraft implements Runnable {
          this.playerName.o();
       }
 
-      if(!this.m && this.e != null) {
+      if(!this.m && this.world != null) {
          this.b.c();
       }
 
-      GL11.glBindTexture(3553, this.n.a("/mojang/terrain.png"));
+      GL11.glBindTexture(3553, this.n.loadTexture("/mojang/terrain.png"));
       if(!this.m) {
          this.n.a();
       }
 
       if(this.p == null && this.playerName != null && this.playerName.J <= 0) {
-         this.a((GraphicsUserInterface)null);
+         this.changeGUI((GraphicsUserInterface)null);
       }
 
       if(this.p != null) {
@@ -817,7 +820,7 @@ public abstract class Minecraft implements Runnable {
       }
 
       if(this.p != null) {
-         this.p.d();
+         this.p.updateInput();
          if(this.p != null) {
             this.p.g();
          }
@@ -851,7 +854,7 @@ public abstract class Minecraft implements Runnable {
                      }
                   }
                } else if(this.p != null) {
-                  this.p.e();
+                  this.p.updateMouse();
                }
             }
          }
@@ -867,7 +870,7 @@ public abstract class Minecraft implements Runnable {
                   this.h();
                } else {
                   if(this.p != null) {
-                     this.p.f();
+                     this.p.updateKeyboard();
                   } else {
                      if(Keyboard.getEventKey() == 1) {
                         this.g();
@@ -881,16 +884,16 @@ public abstract class Minecraft implements Runnable {
                         this.y.y = !this.y.y;
                      }
 
-                     if(Keyboard.getEventKey() == this.y.p.b) {
-                        this.a((GraphicsUserInterface)(new ne(this.playerName.e, this.playerName.e.c)));
+                     if(Keyboard.getEventKey() == this.y.ACTION_INVENTORY.keyCode) {
+                        this.changeGUI((GraphicsUserInterface)(new ne(this.playerName.e, this.playerName.e.c)));
                      }
 
-                     if(Keyboard.getEventKey() == this.y.q.b) {
+                     if(Keyboard.getEventKey() == this.y.ACTION_DROP.keyCode) {
                         this.playerName.a(this.playerName.e.a(this.playerName.e.d, 1), false);
                      }
 
-                     if(this.j() && Keyboard.getEventKey() == this.y.r.b) {
-                        this.a((GraphicsUserInterface)(new dr()));
+                     if(this.j() && Keyboard.getEventKey() == this.y.ACTION_CHAT.keyCode) {
+                        this.changeGUI((GraphicsUserInterface)(new ChooseInputGUI()));
                      }
                   }
 
@@ -900,7 +903,7 @@ public abstract class Minecraft implements Runnable {
                      }
                   }
 
-                  if(Keyboard.getEventKey() == this.y.s.b) {
+                  if(Keyboard.getEventKey() == this.y.ACTION_TOGGLE_FOG.keyCode) {
                      this.y.b(4, !Keyboard.isKeyDown(42) && !Keyboard.isKeyDown(54)?1:-1);
                   }
                }
@@ -922,18 +925,18 @@ public abstract class Minecraft implements Runnable {
          this.a(0, this.p == null && Mouse.isButtonDown(0) && this.L);
       }
 
-      if(this.e != null) {
+      if(this.world != null) {
          if(this.playerName != null) {
             ++this.ab;
             if(this.ab == 30) {
                this.ab = 0;
-               this.e.f(this.playerName);
+               this.world.f(this.playerName);
             }
          }
 
-         this.e.k = this.y.gameDifficulty;
-         if(this.e.z) {
-            this.e.k = 3;
+         this.world.k = this.y.gameDifficulty;
+         if(this.world.z) {
+            this.world.k = 3;
          }
 
          if(!this.m) {
@@ -945,15 +948,15 @@ public abstract class Minecraft implements Runnable {
          }
 
          if(!this.m) {
-            this.e.e();
+            this.world.e();
          }
 
          if(!this.m || this.j()) {
-            this.e.i();
+            this.world.i();
          }
 
-         if(!this.m && this.e != null) {
-            this.e.m(fi.b(this.playerName.aw), fi.b(this.playerName.ax), fi.b(this.playerName.ay));
+         if(!this.m && this.world != null) {
+            this.world.m(fi.b(this.playerName.aw), fi.b(this.playerName.ax), fi.b(this.playerName.ay));
          }
 
          if(!this.m) {
@@ -966,23 +969,23 @@ public abstract class Minecraft implements Runnable {
 
    private void u() {
       System.out.println("FORCING RELOAD!");
-      this.A = new qg();
+      this.A = new SoundManager();
       this.A.a(this.y);
       this.Q.a();
    }
 
    public boolean j() {
-      return this.e != null && this.e.z;
+      return this.world != null && this.world.z;
    }
 
-   public void b(String var1) throws IOException {
-      this.a((cy)null);
+   public void changeWorld(String worldName) throws IOException {
+      this.setWorld((World)null);
       System.gc();
-      cy var2 = new cy(new File(b(), "saves"), var1);
-      if(var2.p) {
-         this.a(var2, "Generating level");
+      World world = new World(new File(getGameDirectory(), "saves"), worldName);
+      if(world.needsGeneration) {
+         this.a(world, "Generating level");
       } else {
-         this.a(var2, "Loading level");
+         this.a(world, "Loading level");
       }
 
    }
@@ -994,93 +997,93 @@ public abstract class Minecraft implements Runnable {
          this.playerName.m = -1;
       }
 
-      this.e.d(this.playerName);
+      this.world.d(this.playerName);
       this.playerName.aN = false;
       double var1 = this.playerName.aw;
       double var3 = this.playerName.ay;
       double var5 = 8.0D;
-      cy var7;
+      World var7;
       if(this.playerName.m == -1) {
          var1 /= var5;
          var3 /= var5;
          this.playerName.c(var1, this.playerName.ax, var3, this.playerName.aC, this.playerName.aD);
-         this.e.a(this.playerName, false);
-         var7 = new cy(this.e, new om());
+         this.world.a(this.playerName, false);
+         var7 = new World(this.world, new OverworldDimension());
          this.a(var7, "Entering the Nether", (eb)this.playerName);
       } else {
          var1 *= var5;
          var3 *= var5;
          this.playerName.c(var1, this.playerName.ax, var3, this.playerName.aC, this.playerName.aD);
-         this.e.a(this.playerName, false);
-         var7 = new cy(this.e, new oz());
+         this.world.a(this.playerName, false);
+         var7 = new World(this.world, new Dimension());
          this.a(var7, "Leaving the Nether", (eb)this.playerName);
       }
 
-      this.playerName.as = this.e;
+      this.playerName.as = this.world;
       this.playerName.c(var1, this.playerName.ax, var3, this.playerName.aC, this.playerName.aD);
-      this.e.a(this.playerName, false);
-      (new no()).a(this.e, this.playerName);
+      this.world.a(this.playerName, false);
+      (new no()).a(this.world, this.playerName);
    }
 
-   public void a(cy var1) {
+   public void setWorld(World var1) {
       this.a(var1, "");
    }
 
-   public void a(cy var1, String var2) {
+   public void a(World var1, String var2) {
       this.a(var1, var2, (eb)null);
    }
 
-   public void a(cy var1, String var2, eb var3) {
-      this.q.a(var2);
-      this.q.d("");
+   public void a(World world, String title, eb var3) {
+      this.q.primaryText(title);
+      this.q.secondaryText("");
       this.A.a((String)null, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
-      if(this.e != null) {
-         this.e.a((pu)this.q);
+      if(this.world != null) {
+         this.world.a((pu)this.q);
       }
 
-      this.e = var1;
+      this.world = world;
       System.out.println("Player is " + this.playerName);
-      if(var1 != null) {
-         this.b.a(var1);
+      if(world != null) {
+         this.b.a(world);
          if(!this.j()) {
             if(var3 == null) {
-               this.playerName = (bq)var1.a(bq.class);
+               this.playerName = (bq)world.a(bq.class);
             }
          } else if(this.playerName != null) {
             this.playerName.t();
-            if(var1 != null) {
-               var1.a((Entity)this.playerName);
+            if(world != null) {
+               world.a((Entity)this.playerName);
             }
          }
 
-         if(!var1.z) {
-            this.d(var2);
+         if(!world.z) {
+            this.BuildAndGenerateTerrain(title);
          }
 
          System.out.println("Player is now " + this.playerName);
          if(this.playerName == null) {
-            this.playerName = (bq)this.b.b(var1);
+            this.playerName = (bq)this.b.b(world);
             this.playerName.t();
             this.b.a((eb)this.playerName);
          }
 
          this.playerName.a = new he(this.y);
          if(this.f != null) {
-            this.f.a(var1);
+            this.f.a(world);
          }
 
          if(this.h != null) {
-            this.h.a(var1);
+            this.h.a(world);
          }
 
          this.b.b((eb)this.playerName);
          if(var3 != null) {
-            var1.c();
+            world.c();
          }
 
-         var1.a((eb)this.playerName);
-         if(var1.p) {
-            var1.a((pu)this.q);
+         world.a((eb)this.playerName);
+         if(world.needsGeneration) {
+            world.a((pu)this.q);
          }
       } else {
          this.playerName = null;
@@ -1090,17 +1093,17 @@ public abstract class Minecraft implements Runnable {
       this.N = 0L;
    }
 
-   private void d(String var1) {
-      this.q.a(var1);
-      this.q.d("Building terrain");
+   private void BuildAndGenerateTerrain(String text) {
+      this.q.primaryText(text);
+      this.q.secondaryText("Building terrain");
       short var2 = 128;
       int var3 = 0;
       int var4 = var2 * 2 / 16 + 1;
       var4 *= var4;
 
       for(int var5 = -var2; var5 <= var2; var5 += 16) {
-         int var6 = this.e.m;
-         int var7 = this.e.o;
+         int var6 = this.world.spawnX;
+         int var7 = this.world.spawnZ;
          if(this.playerName != null) {
             var6 = (int)this.playerName.aw;
             var7 = (int)this.playerName.ay;
@@ -1108,32 +1111,32 @@ public abstract class Minecraft implements Runnable {
 
          for(int var8 = -var2; var8 <= var2; var8 += 16) {
             this.q.a(var3++ * 100 / var4);
-            this.e.a(var6 + var5, 64, var7 + var8);
+            this.world.a(var6 + var5, 64, var7 + var8);
 
-            while(this.e.g()) {
+            while(this.world.g()) {
                ;
             }
          }
       }
 
-      this.q.d("Simulating world for a bit");
+      this.q.secondaryText("Simulating world for a bit");
       boolean var9 = true;
-      this.e.l();
+      this.world.l();
    }
 
    public void a(String var1, File var2) {
-      int var3 = var1.indexOf("/");
-      String var4 = var1.substring(0, var3);
-      var1 = var1.substring(var3 + 1);
-      if(var4.equalsIgnoreCase("sound")) {
+      int indexOfSlash = var1.indexOf("/");
+      String directoryName = var1.substring(0, indexOfSlash);
+      var1 = var1.substring(indexOfSlash + 1);
+      if(directoryName.equalsIgnoreCase("sound")) {
          this.A.a(var1, var2);
-      } else if(var4.equalsIgnoreCase("newsound")) {
+      } else if(directoryName.equalsIgnoreCase("newsound")) {
          this.A.a(var1, var2);
-      } else if(var4.equalsIgnoreCase("streaming")) {
+      } else if(directoryName.equalsIgnoreCase("streaming")) {
          this.A.b(var1, var2);
-      } else if(var4.equalsIgnoreCase("music")) {
+      } else if(directoryName.equalsIgnoreCase("music")) {
          this.A.c(var1, var2);
-      } else if(var4.equalsIgnoreCase("newmusic")) {
+      } else if(directoryName.equalsIgnoreCase("newmusic")) {
          this.A.c(var1, var2);
       }
 
@@ -1152,32 +1155,32 @@ public abstract class Minecraft implements Runnable {
    }
 
    public String o() {
-      return "P: " + this.h.b() + ". T: " + this.e.f();
+      return "P: " + this.h.b() + ". T: " + this.world.f();
    }
 
    public void p() throws IOException {
-      if(!this.e.q.d()) {
+      if(!this.world.currentDimension.d()) {
          this.k();
       }
 
-      this.e.b();
-      this.e.o();
+      this.world.b();
+      this.world.o();
       int var1 = 0;
       if(this.playerName != null) {
          var1 = this.playerName.an;
-         this.e.d(this.playerName);
+         this.world.d(this.playerName);
       }
 
-      this.playerName = (bq)this.b.b(this.e);
+      this.playerName = (bq)this.b.b(this.world);
       this.playerName.t();
       this.b.a((eb)this.playerName);
-      this.e.a((eb)this.playerName);
+      this.world.a((eb)this.playerName);
       this.playerName.a = new he(this.y);
       this.playerName.an = var1;
       this.b.b((eb)this.playerName);
-      this.d("Respawning");
+      this.BuildAndGenerateTerrain("Respawning");
       if(this.p instanceof bb) {
-         this.a((GraphicsUserInterface)null);
+         this.changeGUI((GraphicsUserInterface)null);
       }
 
    }
@@ -1192,14 +1195,14 @@ public abstract class Minecraft implements Runnable {
       Canvas var6 = new Canvas();
       var5.setLayout(new BorderLayout());
       var5.add(var6, "Center");
-      var6.setPreferredSize(new Dimension(854, 480));
+      var6.setPreferredSize(new java.awt.Dimension(854, 480));
       var5.pack();
       var5.setLocationRelativeTo((Component)null);
       gj var7 = new gj(var5, var6, (MinecraftApplet)null, 854, 480, var3, var5);
       Thread var8 = new Thread(var7, "Minecraft main thread");
       var8.setPriority(10);
       var7.l = false;
-      var7.j = "www.minecraft.net";
+      var7.developerURL = "www.minecraft.net";
       if(var0 != null && var1 != null) {
          var7.i = new ea(var0, var1);
       } else {

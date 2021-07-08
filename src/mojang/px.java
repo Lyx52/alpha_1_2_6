@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class px implements bd {
@@ -13,7 +15,7 @@ public class px implements bd {
    public nf a;
    public nf b;
    public nf c;
-   private cy p;
+   private World p;
    private double[] q;
    private double[] r = new double[256];
    private double[] s = new double[256];
@@ -29,7 +31,7 @@ public class px implements bd {
    private double[] w;
 
 
-   public px(cy var1, long var2) {
+   public px(World var1, long var2) {
       this.p = var1;
       this.j = new Random(var2);
       this.k = new nf(this.j, 16);
@@ -306,10 +308,10 @@ public class px implements bd {
       int var4 = var2 * 16;
       int var5 = var3 * 16;
       gg var6 = this.p.a().a(var4 + 16, var5 + 16);
-      this.j.setSeed(this.p.u);
+      this.j.setSeed(this.p.worldSeed);
       long var7 = this.j.nextLong() / 2L * 2L + 1L;
       long var9 = this.j.nextLong() / 2L * 2L + 1L;
-      this.j.setSeed((long)var2 * var7 + (long)var3 * var9 ^ this.p.u);
+      this.j.setSeed((long)var2 * var7 + (long)var3 * var9 ^ this.p.worldSeed);
       double var11 = 0.25D;
       int var13;
       int var14;

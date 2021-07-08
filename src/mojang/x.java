@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.Random;
 
@@ -10,7 +11,7 @@ public class x extends fy {
       super(var1, var2, hb.x, false);
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return null;
    }
 
@@ -37,7 +38,7 @@ public class x extends fy {
       return false;
    }
 
-   public boolean a_(cy var1, int var2, int var3, int var4) {
+   public boolean a_(World var1, int var2, int var3, int var4) {
       byte var5 = 0;
       byte var6 = 0;
       if(var1.a(var2 - 1, var3, var4) == ap.bh || var1.a(var2 + 1, var3, var4) == ap.bh) {
@@ -88,7 +89,7 @@ public class x extends fy {
       }
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       byte var6 = 0;
       byte var7 = 1;
       if(var1.a(var2 - 1, var3, var4) == this.bh || var1.a(var2 + 1, var3, var4) == this.bh) {
@@ -135,13 +136,13 @@ public class x extends fy {
       return 1;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Entity var5) {
+   public void a(World var1, int var2, int var3, int var4, Entity var5) {
       if(!var1.z) {
          var5.q();
       }
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Random var5) {
+   public void b(World var1, int var2, int var3, int var4, Random var5) {
       if(var5.nextInt(100) == 0) {
          var1.a((double)var2 + 0.5D, (double)var3 + 0.5D, (double)var4 + 0.5D, "portal.portal", 1.0F, var5.nextFloat() * 0.4F + 0.8F);
       }

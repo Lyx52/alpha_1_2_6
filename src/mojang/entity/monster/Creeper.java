@@ -1,7 +1,7 @@
 package mojang.entity.monster;
 
-import mojang.cy;
-import mojang.dx;
+import mojang.world.World;
+import mojang.Item;
 import mojang.entity.Entity;
 import mojang.tags.CompoundTag;
 
@@ -16,9 +16,9 @@ public class Creeper extends Monster {
    int e = -1;
 
 
-   public Creeper(cy var1) {
+   public Creeper(World var1) {
       super(var1);
-      this.image = "/mojang/mob/creeper.png";
+      this.image = "/mojang/assets/mob/creeper.png";
    }
 
    public void a(CompoundTag var1) {
@@ -102,7 +102,7 @@ public class Creeper extends Monster {
    public void b(Entity var1) {
       super.b(var1);
       if(var1 instanceof Skeleton) {
-         this.b(dx.aU.aW + this.bd.nextInt(2), 1);
+         this.b(Item.MUSIC_DISC_13.aW + this.bd.nextInt(2), 1);
       }
 
    }
@@ -130,6 +130,6 @@ public class Creeper extends Monster {
    }
 
    protected int g_() {
-      return dx.K.aW;
+      return Item.K.aW;
    }
 }

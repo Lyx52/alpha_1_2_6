@@ -3,6 +3,8 @@ package mojang;
 import java.awt.Canvas;
 import java.awt.Component;
 import java.awt.Frame;
+
+import mojang.gui.ErrorPanel;
 import mojang.net.minecraft.client.Minecraft;
 import mojang.net.minecraft.client.MinecraftApplet;
 
@@ -17,9 +19,9 @@ public final class gj extends Minecraft {
       this.a = var7;
    }
 
-   public void a(hr var1) {
+   public void throwMinecraftException(MinecraftException exception) {
       this.a.removeAll();
-      this.a.add(new av(var1), "Center");
+      this.a.add(new ErrorPanel(exception), "Center");
       this.a.validate();
    }
 }

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class qj extends nq {
@@ -25,13 +27,13 @@ public class qj extends nq {
       return this.a;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       if(this == ak) {
          ;
       }
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       if(this != ak) {
          super.e(var1, var2, var3, var4);
       }

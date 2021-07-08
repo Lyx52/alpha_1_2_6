@@ -1,11 +1,13 @@
 package mojang;
 
+import mojang.world.World;
+
 public class db extends pp {
 
    private float a;
 
 
-   public db(cy var1, double var2, double var4, double var6) {
+   public db(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6, 0.0D, 0.0D, 0.0D);
       this.az *= 0.800000011920929D;
       this.aA *= 0.800000011920929D;

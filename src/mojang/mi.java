@@ -76,7 +76,7 @@ public class mi extends aq {
          GL11.glScalef(1.0F / var25, 1.0F / var25, 1.0F / var25);
       }
 
-      this.a("/mojang/item/cart.png");
+      this.a("/mojang/assets/item/cart.png");
       GL11.glScalef(-1.0F, -1.0F, 1.0F);
       this.a.b(0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
       GL11.glPopMatrix();

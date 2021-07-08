@@ -3,7 +3,7 @@ package mojang;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
-public class hl extends gk {
+public class hl extends BasePacket {
 
    public void a(mo var1) {}
 

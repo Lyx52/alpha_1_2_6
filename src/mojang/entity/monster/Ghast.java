@@ -3,6 +3,7 @@ package mojang.entity.monster;
 import mojang.*;
 import mojang.entity.Entity;
 import mojang.entity.NullInterface;
+import mojang.world.World;
 
 public class Ghast extends ot implements NullInterface {
 
@@ -16,9 +17,9 @@ public class Ghast extends ot implements NullInterface {
    public int f = 0;
 
 
-   public Ghast(cy var1) {
+   public Ghast(World var1) {
       super(var1);
-      this.image = "/mojang/mob/ghast.png";
+      this.image = "/mojang/assets/mob/ghast.png";
       this.a(4.0F, 4.0F);
       this.bm = true;
    }
@@ -96,7 +97,7 @@ public class Ghast extends ot implements NullInterface {
          }
       }
 
-      this.image = this.f > 10? "/mojang/mob/ghast_fire.png" : "/mojang/mob/ghast.png";
+      this.image = this.f > 10? "/mojang/assets/mob/ghast_fire.png" : "/mojang/assets/mob/ghast.png";
    }
 
    private boolean a(double var1, double var3, double var5, double var7) {
@@ -128,7 +129,7 @@ public class Ghast extends ot implements NullInterface {
    }
 
    protected int g_() {
-      return dx.K.aW;
+      return Item.K.aW;
    }
 
    protected float h() {

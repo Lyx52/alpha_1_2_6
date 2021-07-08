@@ -1,6 +1,6 @@
 package mojang.entity.monster;
 
-import mojang.cy;
+import mojang.world.World;
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
 import mojang.fi;
@@ -12,7 +12,7 @@ public class Mob extends LivingEntity {
    protected boolean h = false;
 
 
-   public Mob(cy var1) {
+   public Mob(World var1) {
       super(var1);
    }
 

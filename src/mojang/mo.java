@@ -6,7 +6,7 @@ public class mo {
 
    public void a(ci var1) {}
 
-   public void b(gk var1) {}
+   public void b(BasePacket var1) {}
 
    public void a(String var1) {}
 

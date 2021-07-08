@@ -9,7 +9,7 @@ public class hz extends nq {
    }
 
    public int a(int var1, Random var2) {
-      return this.bh == I.bh?dx.k.aW:(this.bh == aw.bh?dx.l.aW:this.bh);
+      return this.bh == I.bh? Item.k.aW:(this.bh == aw.bh? Item.l.aW:this.bh);
    }
 
    public int a(Random var1) {

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class iy extends nq {
@@ -9,7 +11,7 @@ public class iy extends nq {
       this.b(true);
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return null;
    }
 
@@ -25,11 +27,11 @@ public class iy extends nq {
       return false;
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       return var1.g(var2 - 1, var3, var4)?true:(var1.g(var2 + 1, var3, var4)?true:(var1.g(var2, var3, var4 - 1)?true:var1.g(var2, var3, var4 + 1)));
    }
 
-   public void d(cy var1, int var2, int var3, int var4, int var5) {
+   public void d(World var1, int var2, int var3, int var4, int var5) {
       int var6 = var1.e(var2, var3, var4);
       int var7 = var6 & 8;
       var6 &= 7;
@@ -52,7 +54,7 @@ public class iy extends nq {
       var1.b(var2, var3, var4, var6 + var7);
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       if(var1.g(var2 - 1, var3, var4)) {
          var1.b(var2, var3, var4, 1);
       } else if(var1.g(var2 + 1, var3, var4)) {
@@ -66,7 +68,7 @@ public class iy extends nq {
       this.h(var1, var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       if(this.h(var1, var2, var3, var4)) {
          int var6 = var1.e(var2, var3, var4) & 7;
          boolean var7 = false;
@@ -94,7 +96,7 @@ public class iy extends nq {
 
    }
 
-   private boolean h(cy var1, int var2, int var3, int var4) {
+   private boolean h(World var1, int var2, int var3, int var4) {
       if(!this.a(var1, var2, var3, var4)) {
          this.b_(var1, var2, var3, var4, var1.e(var2, var3, var4));
          var1.d(var2, var3, var4, 0);
@@ -128,11 +130,11 @@ public class iy extends nq {
 
    }
 
-   public void b(cy var1, int var2, int var3, int var4, eb var5) {
+   public void b(World var1, int var2, int var3, int var4, eb var5) {
       this.a(var1, var2, var3, var4, var5);
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4, eb var5) {
+   public boolean a(World var1, int var2, int var3, int var4, eb var5) {
       if(var1.z) {
          return true;
       } else {
@@ -164,7 +166,7 @@ public class iy extends nq {
       }
    }
 
-   public void b(cy var1, int var2, int var3, int var4) {
+   public void b(World var1, int var2, int var3, int var4) {
       int var5 = var1.e(var2, var3, var4);
       if((var5 & 8) > 0) {
          var1.g(var2, var3, var4, this.bh);
@@ -189,7 +191,7 @@ public class iy extends nq {
       return (var1.e(var2, var3, var4) & 8) > 0;
    }
 
-   public boolean c(cy var1, int var2, int var3, int var4, int var5) {
+   public boolean c(World var1, int var2, int var3, int var4, int var5) {
       int var6 = var1.e(var2, var3, var4);
       if((var6 & 8) == 0) {
          return false;
@@ -203,7 +205,7 @@ public class iy extends nq {
       return true;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       if(!var1.z) {
          int var6 = var1.e(var2, var3, var4);
          if((var6 & 8) != 0) {

@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.net.minecraft.client.Minecraft;
+import mojang.world.World;
 
 public class jt extends iv {
 
@@ -24,7 +25,7 @@ public class jt extends iv {
       return false;
    }
 
-   public void a(cy var1) {
+   public void a(World var1) {
       super.a(var1);
    }
 

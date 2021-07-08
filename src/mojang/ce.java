@@ -21,10 +21,10 @@ public class ce extends ec {
    protected boolean a(eb var1, int var2) {
       fp var3 = var1.e.d(3 - var2);
       if(var3 != null) {
-         dx var4 = var3.a();
+         Item var4 = var3.a();
          if(var4 instanceof oj) {
             oj var5 = (oj)var4;
-            this.a("/mojang/armor/" + i[var5.bd] + "_" + (var2 == 2?2:1) + ".png");
+            this.a("/mojang/assets/armor/" + i[var5.bd] + "_" + (var2 == 2?2:1) + ".png");
             dc var6 = var2 == 2?this.h:this.g;
             var6.a.h = var2 == 0;
             var6.b.h = var2 == 0;
@@ -143,7 +143,7 @@ public class ce extends ec {
          this.a.d.b(0.0625F);
          GL11.glTranslatef(-0.0625F, 0.4375F, 0.0625F);
          if(var1.n != null) {
-            var6 = new fp(dx.B.aW);
+            var6 = new fp(Item.B.aW);
          }
 
          float var5;
@@ -154,9 +154,9 @@ public class ce extends ec {
             GL11.glRotatef(20.0F, 1.0F, 0.0F, 0.0F);
             GL11.glRotatef(45.0F, 0.0F, 1.0F, 0.0F);
             GL11.glScalef(var5, -var5, var5);
-         } else if(dx.c[var6.c].a()) {
+         } else if(Item.itemIds[var6.c].a()) {
             var5 = 0.625F;
-            if(dx.c[var6.c].b()) {
+            if(Item.itemIds[var6.c].b()) {
                GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
                GL11.glTranslatef(0.0F, -0.125F, 0.0F);
             }

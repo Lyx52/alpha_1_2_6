@@ -2,6 +2,7 @@ package mojang;
 
 import mojang.entity.item.DroppedItem;
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.Random;
 
@@ -19,7 +20,7 @@ public class ig extends ok {
       return var1 == aA.bh;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var1.j(var2, var3 + 1, var4) >= 9) {
          int var6 = var1.e(var2, var3, var4);
@@ -34,7 +35,7 @@ public class ig extends ok {
 
    }
 
-   private float i(cy var1, int var2, int var3, int var4) {
+   private float i(World var1, int var2, int var3, int var4) {
       float var5 = 1.0F;
       int var6 = var1.a(var2, var3, var4 - 1);
       int var7 = var1.a(var2, var3, var4 + 1);
@@ -86,7 +87,7 @@ public class ig extends ok {
       return 6;
    }
 
-   public void b(cy var1, int var2, int var3, int var4, int var5) {
+   public void b(World var1, int var2, int var3, int var4, int var5) {
       super.b(var1, var2, var3, var4, var5);
       if(!var1.z) {
          for(int var6 = 0; var6 < 3; ++var6) {
@@ -95,7 +96,7 @@ public class ig extends ok {
                float var8 = var1.l.nextFloat() * var7 + (1.0F - var7) * 0.5F;
                float var9 = var1.l.nextFloat() * var7 + (1.0F - var7) * 0.5F;
                float var10 = var1.l.nextFloat() * var7 + (1.0F - var7) * 0.5F;
-               DroppedItem var11 = new DroppedItem(var1, (double)((float)var2 + var8), (double)((float)var3 + var9), (double)((float)var4 + var10), new fp(dx.Q));
+               DroppedItem var11 = new DroppedItem(var1, (double)((float)var2 + var8), (double)((float)var3 + var9), (double)((float)var4 + var10), new fp(Item.Q));
                var11.c = 10;
                var1.a((Entity)var11);
             }
@@ -105,7 +106,7 @@ public class ig extends ok {
    }
 
    public int a(int var1, Random var2) {
-      return var1 == 7?dx.R.aW:-1;
+      return var1 == 7? Item.R.aW:-1;
    }
 
    public int a(Random var1) {

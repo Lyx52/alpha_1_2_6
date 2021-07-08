@@ -1,16 +1,16 @@
 package mojang.entity.monster;
 
-import mojang.cy;
-import mojang.dx;
+import mojang.world.World;
+import mojang.Item;
 import mojang.fi;
 
 import java.io.IOException;
 
 public class Zombie extends Monster {
 
-   public Zombie(cy var1) {
+   public Zombie(World var1) {
       super(var1);
-      this.image = "/mojang/mob/zombie.png";
+      this.image = "/mojang/assets/mob/zombie.png";
       this.am = 0.5F;
       this.f = 5;
    }
@@ -39,6 +39,6 @@ public class Zombie extends Monster {
    }
 
    protected int g_() {
-      return dx.J.aW;
+      return Item.J.aW;
    }
 }

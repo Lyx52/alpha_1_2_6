@@ -3,36 +3,36 @@ package mojang;
 public class he extends nn {
 
    private boolean[] f = new boolean[10];
-   private gq g;
+   private OptionsManager g;
 
 
-   public he(gq var1) {
+   public he(OptionsManager var1) {
       this.g = var1;
    }
 
    public void a(int var1, boolean var2) {
       byte var3 = -1;
-      if(var1 == this.g.k.b) {
+      if(var1 == this.g.ACTION_FORWARD.keyCode) {
          var3 = 0;
       }
 
-      if(var1 == this.g.m.b) {
+      if(var1 == this.g.ACTION_BACK.keyCode) {
          var3 = 1;
       }
 
-      if(var1 == this.g.l.b) {
+      if(var1 == this.g.ACTION_LEFT.keyCode) {
          var3 = 2;
       }
 
-      if(var1 == this.g.n.b) {
+      if(var1 == this.g.ACTION_RIGHT.keyCode) {
          var3 = 3;
       }
 
-      if(var1 == this.g.o.b) {
+      if(var1 == this.g.ACTION_JUMP.keyCode) {
          var3 = 4;
       }
 
-      if(var1 == this.g.t.b) {
+      if(var1 == this.g.ACTION_SNEAK.keyCode) {
          var3 = 5;
       }
 

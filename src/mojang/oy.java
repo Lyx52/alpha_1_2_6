@@ -2,21 +2,21 @@ package mojang;
 
 import java.net.ConnectException;
 import java.net.UnknownHostException;
+
+import mojang.gui.GraphicsUserInterface;
+import mojang.gui.ServerConnectionGUI;
+import mojang.gui.ServerErrorGUI;
 import mojang.net.minecraft.client.Minecraft;
 
-class oy extends Thread {
+public class oy extends Thread {
 
-   // $FF: synthetic field
    final Minecraft a;
-   // $FF: synthetic field
    final String b;
-   // $FF: synthetic field
    final int c;
-   // $FF: synthetic field
-   final og d;
+   final ServerConnectionGUI d;
 
 
-   oy(og var1, Minecraft var2, String var3, int var4) {
+   public oy(ServerConnectionGUI var1, Minecraft var2, String var3, int var4) {
       this.d = var1;
       this.a = var2;
       this.b = var3;
@@ -25,31 +25,31 @@ class oy extends Thread {
 
    public void run() {
       try {
-         og.a(this.d, new ib(this.a, this.b, this.c));
-         if(og.a(this.d)) {
+         ServerConnectionGUI.a(this.d, new ib(this.a, this.b, this.c));
+         if(ServerConnectionGUI.a(this.d)) {
             return;
          }
 
-         og.b(this.d).a((gk)(new hw(this.a.i.b)));
+         ServerConnectionGUI.b(this.d).a((BasePacket)(new hw(this.a.i.b)));
       } catch (UnknownHostException var2) {
-         if(og.a(this.d)) {
+         if(ServerConnectionGUI.a(this.d)) {
             return;
          }
 
-         this.a.a((GraphicsUserInterface)(new ct("Failed to connect to the server", "Unknown host \'" + this.b + "\'")));
-      } catch (ConnectException var3) {
-         if(og.a(this.d)) {
+         this.a.changeGUI((GraphicsUserInterface)(new ServerErrorGUI("Failed to connect to the server", "Unknown host \'" + this.b + "\'")));
+      } catch (ConnectException exception) {
+         if(ServerConnectionGUI.a(this.d)) {
             return;
          }
 
-         this.a.a((GraphicsUserInterface)(new ct("Failed to connect to the server", var3.getMessage())));
+         this.a.changeGUI((GraphicsUserInterface)(new ServerErrorGUI("Failed to connect to the server", exception.getMessage())));
       } catch (Exception var4) {
-         if(og.a(this.d)) {
+         if(ServerConnectionGUI.a(this.d)) {
             return;
          }
 
          var4.printStackTrace();
-         this.a.a((GraphicsUserInterface)(new ct("Failed to connect to the server", var4.toString())));
+         this.a.changeGUI((GraphicsUserInterface)(new ServerErrorGUI("Failed to connect to the server", var4.toString())));
       }
 
    }

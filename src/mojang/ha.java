@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class ha {
    public static boolean a;
    public byte[] b;
    public boolean c;
-   public cy d;
+   public World d;
    public oo e;
    public oo f;
    public oo g;
@@ -31,7 +32,7 @@ public class ha {
    public long s;
 
 
-   public ha(cy var1, int var2, int var3) {
+   public ha(World var1, int var2, int var3) {
       this.l = new HashMap();
       this.m = new List[8];
       this.n = false;
@@ -50,7 +51,7 @@ public class ha {
 
    }
 
-   public ha(cy var1, byte[] var2, int var3, int var4) {
+   public ha(World var1, byte[] var2, int var3, int var4) {
       this(var1, var3, var4);
       this.b = var2;
       this.e = new oo(var2.length);
@@ -274,7 +275,7 @@ public class ha {
          }
 
          this.e.a(var1, var2, var3, var5);
-         if(!this.d.q.e) {
+         if(!this.d.currentDimension.e) {
             if(nq.q[var6] != 0) {
                if(var2 >= var7) {
                   this.g(var1, var2 + 1, var3);
@@ -548,7 +549,7 @@ public class ha {
    }
 
    public boolean a(boolean var1) {
-      return this.p?false:(this.r && this.d.e != this.s?true:this.o);
+      return this.p?false:(this.r && this.d.lastTime != this.s?true:this.o);
    }
 
    public int a(byte[] var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
@@ -598,6 +599,6 @@ public class ha {
    }
 
    public Random a(long var1) {
-      return new Random(this.d.u + (long)(this.j * this.j * 4987142) + (long)(this.j * 5947611) + (long)(this.k * this.k) * 4392871L + (long)(this.k * 389711) ^ var1);
+      return new Random(this.d.worldSeed + (long)(this.j * this.j * 4987142) + (long)(this.j * 5947611) + (long)(this.k * this.k) * 4392871L + (long)(this.k * 389711) ^ var1);
    }
 }

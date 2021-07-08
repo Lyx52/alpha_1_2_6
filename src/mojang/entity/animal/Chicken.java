@@ -1,7 +1,7 @@
 package mojang.entity.animal;
 
-import mojang.cy;
-import mojang.dx;
+import mojang.world.World;
+import mojang.Item;
 import mojang.tags.CompoundTag;
 
 import java.io.IOException;
@@ -17,9 +17,9 @@ public class Chicken extends Animal {
    public int i;
 
 
-   public Chicken(cy var1) {
+   public Chicken(World var1) {
       super(var1);
-      this.image = "/mojang/mob/chicken.png";
+      this.image = "/mojang/assets/mob/chicken.png";
       this.a(0.3F, 0.4F);
       this.J = 4;
       this.i = this.bd.nextInt(6000) + 6000;
@@ -50,7 +50,7 @@ public class Chicken extends Animal {
       this.b += this.f * 2.0F;
       if(!this.as.z && --this.i <= 0) {
          this.as.a(this, "mob.chickenplop", 1.0F, (this.bd.nextFloat() - this.bd.nextFloat()) * 0.2F + 1.0F);
-         this.b(dx.aN.aW, 1);
+         this.b(Item.aN.aW, 1);
          this.i = this.bd.nextInt(6000) + 6000;
       }
 
@@ -79,6 +79,6 @@ public class Chicken extends Animal {
    }
 
    protected int g_() {
-      return dx.J.aW;
+      return Item.J.aW;
    }
 }

@@ -3,6 +3,8 @@ package mojang;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Component;
+
+import mojang.gui.ErrorPanel;
 import mojang.net.minecraft.client.Minecraft;
 import mojang.net.minecraft.client.MinecraftApplet;
 
@@ -17,10 +19,10 @@ public class i extends Minecraft {
       this.a = var1;
    }
 
-   public void a(hr var1) {
+   public void throwMinecraftException(MinecraftException exception) {
       this.a.removeAll();
       this.a.setLayout(new BorderLayout());
-      this.a.add(new av(var1), "Center");
+      this.a.add(new ErrorPanel(exception), "Center");
       this.a.validate();
    }
 }

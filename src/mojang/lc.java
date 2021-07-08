@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class lc extends gk {
+public class lc extends BasePacket {
 
    public double a;
    public double b;

@@ -1,9 +1,11 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.io.File;
 import java.io.IOException;
 
-class mz extends cy {
+class mz extends World {
 
    // $FF: synthetic field
    final ah A;

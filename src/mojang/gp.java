@@ -15,16 +15,16 @@ public class gp extends ad {
 
 
    public gp(Minecraft var1) {
-      super(dx.aQ.a((fp)null));
+      super(Item.aQ.a((fp)null));
       this.g = var1;
-      this.f = 1;
+      this.textureID = 1;
 
       try {
-         BufferedImage var2 = ImageIO.read(Minecraft.class.getResource("/mojang/gui/items.png"));
+         BufferedImage var2 = ImageIO.read(Minecraft.class.getResource("/mojang/assets/gui/items.png"));
          int var3 = this.b % 16 * 16;
          int var4 = this.b / 16 * 16;
          var2.getRGB(var3, var4, 16, 16, this.h, 0, 16);
-         var2 = ImageIO.read(Minecraft.class.getResource("/mojang/misc/dial.png"));
+         var2 = ImageIO.read(Minecraft.class.getResource("/mojang/assets/misc/dial.png"));
          var2.getRGB(0, 0, 16, 16, this.i, 0, 16);
       } catch (IOException var5) {
          var5.printStackTrace();
@@ -34,10 +34,10 @@ public class gp extends ad {
 
    public void a() {
       double var1 = 0.0D;
-      if(this.g.e != null && this.g.playerName != null) {
-         float var3 = this.g.e.b(1.0F);
+      if(this.g.world != null && this.g.playerName != null) {
+         float var3 = this.g.world.b(1.0F);
          var1 = (double)(-var3 * 3.1415927F * 2.0F);
-         if(this.g.e.q.c) {
+         if(this.g.world.currentDimension.c) {
             var1 = Math.random() * 3.1415927410125732D * 2.0D;
          }
       }

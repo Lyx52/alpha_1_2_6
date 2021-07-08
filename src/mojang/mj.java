@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.LivingEntity;
+import mojang.world.World;
 
 import java.util.Random;
 
@@ -19,12 +20,12 @@ public class mj extends lh {
       return aB.bh;
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       super.e(var1, var2, var3, var4);
       this.h(var1, var2, var3, var4);
    }
 
-   private void h(cy var1, int var2, int var3, int var4) {
+   private void h(World var1, int var2, int var3, int var4) {
       int var5 = var1.a(var2, var3, var4 - 1);
       int var6 = var1.a(var2, var3, var4 + 1);
       int var7 = var1.a(var2 - 1, var3, var4);
@@ -60,7 +61,7 @@ public class mj extends lh {
       }
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Random var5) {
+   public void b(World var1, int var2, int var3, int var4, Random var5) {
       if(this.a) {
          int var6 = var1.e(var2, var3, var4);
          float var7 = (float)var2 + 0.5F;
@@ -89,13 +90,13 @@ public class mj extends lh {
       return var1 == 1? t.bh:(var1 == 0? t.bh:(var1 == 3?this.bg - 1:this.bg));
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4, eb var5) {
+   public boolean a(World var1, int var2, int var3, int var4, eb var5) {
       lt var6 = (lt)var1.b(var2, var3, var4);
       var5.a(var6);
       return true;
    }
 
-   public static void a(boolean var0, cy var1, int var2, int var3, int var4) {
+   public static void a(boolean var0, World var1, int var2, int var3, int var4) {
       int var5 = var1.e(var2, var3, var4);
       ji var6 = var1.b(var2, var3, var4);
       if(var0) {
@@ -112,7 +113,7 @@ public class mj extends lh {
       return new lt();
    }
 
-   public void a(cy var1, int var2, int var3, int var4, LivingEntity var5) {
+   public void a(World var1, int var2, int var3, int var4, LivingEntity var5) {
       int var6 = fi.b((double)(var5.aC * 4.0F / 360.0F) + 0.5D) & 3;
       if(var6 == 0) {
          var1.b(var2, var3, var4, 2);

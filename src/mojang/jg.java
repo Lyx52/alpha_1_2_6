@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.net.minecraft.client.Minecraft;
+import mojang.world.World;
 
 public class jg extends iv {
 
@@ -22,8 +23,8 @@ public class jg extends iv {
    }
 
    public boolean b(int var1, int var2, int var3, int var4) {
-      int var5 = this.a.e.a(var1, var2, var3);
-      int var6 = this.a.e.e(var1, var2, var3);
+      int var5 = this.a.world.a(var1, var2, var3);
+      int var6 = this.a.world.e(var1, var2, var3);
       boolean var7 = super.b(var1, var2, var3, var4);
       fp var8 = this.a.playerName.w();
       boolean var9 = this.a.playerName.b(nq.m[var5]);
@@ -36,16 +37,16 @@ public class jg extends iv {
       }
 
       if(var7 && var9) {
-         nq.m[var5].a_(this.a.e, var1, var2, var3, var6);
+         nq.m[var5].a_(this.a.world, var1, var2, var3, var6);
       }
 
       return var7;
    }
 
    public void a(int var1, int var2, int var3, int var4) {
-      int var5 = this.a.e.a(var1, var2, var3);
+      int var5 = this.a.world.a(var1, var2, var3);
       if(var5 > 0 && this.f == 0.0F) {
-         nq.m[var5].b(this.a.e, var1, var2, var3, (eb)this.a.playerName);
+         nq.m[var5].b(this.a.world, var1, var2, var3, (eb)this.a.playerName);
       }
 
       if(var5 > 0 && nq.m[var5].a((eb)this.a.playerName) >= 1.0F) {
@@ -64,7 +65,7 @@ public class jg extends iv {
          --this.i;
       } else {
          if(var1 == this.c && var2 == this.d && var3 == this.e) {
-            int var5 = this.a.e.a(var1, var2, var3);
+            int var5 = this.a.world.a(var1, var2, var3);
             if(var5 == 0) {
                return;
             }
@@ -111,7 +112,7 @@ public class jg extends iv {
       return 4.0F;
    }
 
-   public void a(cy var1) {
+   public void a(World var1) {
       super.a(var1);
    }
 

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class ca extends nq {
@@ -8,7 +10,7 @@ public class ca extends nq {
       super(var1, var2, hb.n);
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       int var5 = var1.e(var2, var3, var4);
       float var6 = 0.125F;
       if(var5 == 2) {
@@ -30,7 +32,7 @@ public class ca extends nq {
       return super.d(var1, var2, var3, var4);
    }
 
-   public co f(cy var1, int var2, int var3, int var4) {
+   public co f(World var1, int var2, int var3, int var4) {
       int var5 = var1.e(var2, var3, var4);
       float var6 = 0.125F;
       if(var5 == 2) {
@@ -64,11 +66,11 @@ public class ca extends nq {
       return 8;
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       return var1.g(var2 - 1, var3, var4)?true:(var1.g(var2 + 1, var3, var4)?true:(var1.g(var2, var3, var4 - 1)?true:var1.g(var2, var3, var4 + 1)));
    }
 
-   public void d(cy var1, int var2, int var3, int var4, int var5) {
+   public void d(World var1, int var2, int var3, int var4, int var5) {
       int var6 = var1.e(var2, var3, var4);
       if((var6 == 0 || var5 == 2) && var1.g(var2, var3, var4 + 1)) {
          var6 = 2;
@@ -89,7 +91,7 @@ public class ca extends nq {
       var1.b(var2, var3, var4, var6);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       int var6 = var1.e(var2, var3, var4);
       boolean var7 = false;
       if(var6 == 2 && var1.g(var2, var3, var4 + 1)) {

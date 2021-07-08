@@ -1,6 +1,8 @@
 package mojang;
 
-public class qk extends dx {
+import mojang.world.World;
+
+public class qk extends Item {
 
    private int a;
 
@@ -11,7 +13,7 @@ public class qk extends dx {
       this.aX = 1;
    }
 
-   public fp a(fp var1, cy var2, eb var3) {
+   public fp a(fp var1, World var2, eb var3) {
       --var1.a;
       var3.c(this.a);
       return var1;

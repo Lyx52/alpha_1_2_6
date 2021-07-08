@@ -9,6 +9,6 @@ public class ic extends dw {
    }
 
    public int a(int var1, Random var2) {
-      return var2.nextInt(10) == 0?dx.an.aW:this.bh;
+      return var2.nextInt(10) == 0? Item.an.aW:this.bh;
    }
 }

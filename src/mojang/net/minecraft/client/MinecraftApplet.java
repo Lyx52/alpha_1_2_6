@@ -20,9 +20,9 @@ public class MinecraftApplet extends Applet {
       }
 
       this.b = new i(this, this, this.a, this, this.getWidth(), this.getHeight(), var1);
-      this.b.j = this.getDocumentBase().getHost();
+      this.b.developerURL = this.getDocumentBase().getHost();
       if(this.getDocumentBase().getPort() > 0) {
-         this.b.j = this.b.j + ":" + this.getDocumentBase().getPort();
+         this.b.developerURL = this.b.developerURL + ":" + this.getDocumentBase().getPort();
       }
 
       if(this.getParameter("username") != null && this.getParameter("sessionid") != null) {

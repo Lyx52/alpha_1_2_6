@@ -1,10 +1,11 @@
 package mojang;
 
 import mojang.entity.LivingEntity;
+import mojang.world.World;
 
 public class ot extends LivingEntity {
 
-   public ot(cy var1) {
+   public ot(World var1) {
       super(var1);
    }
 

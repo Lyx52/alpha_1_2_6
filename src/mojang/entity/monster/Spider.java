@@ -1,16 +1,16 @@
 package mojang.entity.monster;
 
-import mojang.cy;
-import mojang.dx;
+import mojang.world.World;
+import mojang.Item;
 import mojang.entity.Entity;
 import mojang.fi;
 import mojang.tags.CompoundTag;
 
 public class Spider extends Monster {
 
-   public Spider(cy var1) {
+   public Spider(World var1) {
       super(var1);
-      this.image = "/mojang/mob/spider.png";
+      this.image = "/mojang/assets/mob/spider.png";
       this.a(1.4F, 0.9F);
       this.am = 0.8F;
    }
@@ -71,6 +71,6 @@ public class Spider extends Monster {
    }
 
    protected int g_() {
-      return dx.I.aW;
+      return Item.I.aW;
    }
 }

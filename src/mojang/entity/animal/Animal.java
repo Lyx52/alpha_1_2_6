@@ -1,6 +1,6 @@
 package mojang.entity.animal;
 
-import mojang.cy;
+import mojang.world.World;
 import mojang.entity.monster.Mob;
 import mojang.fi;
 import mojang.nq;
@@ -8,7 +8,7 @@ import mojang.tags.CompoundTag;
 
 public abstract class Animal extends Mob {
 
-   public Animal(cy var1) {
+   public Animal(World var1) {
       super(var1);
    }
 

@@ -13,8 +13,8 @@ public class fb extends aq {
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);
       GL11.glEnable('\u803a');
       GL11.glScalef(0.5F, 0.5F, 0.5F);
-      int var10 = dx.aB.a((fp)null);
-      this.a("/mojang/gui/items.png");
+      int var10 = Item.aB.a((fp)null);
+      this.a("/mojang/assets/gui/items.png");
       is var11 = is.a;
       float var12 = (float)(var10 % 16 * 16 + 0) / 256.0F;
       float var13 = (float)(var10 % 16 * 16 + 16) / 256.0F;

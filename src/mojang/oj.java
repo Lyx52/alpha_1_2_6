@@ -1,6 +1,6 @@
 package mojang;
 
-public class oj extends dx {
+public class oj extends Item {
 
    private static final int[] be = new int[]{3, 8, 6, 3};
    private static final int[] bf = new int[]{11, 16, 15, 13};

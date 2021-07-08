@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class u extends fr {
@@ -18,7 +19,7 @@ public class u extends fr {
       GL11.glTranslatef((float)var2 + 0.5F, (float)var4, (float)var6 + 0.5F);
       Entity var9 = (Entity)this.b.get(var1.b);
       if(var9 == null) {
-         var9 = fq.a(var1.b, (cy)null);
+         var9 = fq.a(var1.b, (World)null);
          this.b.put(var1.b, var9);
       }
 

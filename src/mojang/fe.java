@@ -1,12 +1,14 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class fe extends js {
 
    static final byte[] a = new byte[]{(byte)2, (byte)0, (byte)0, (byte)1, (byte)2, (byte)1};
    Random b = new Random();
-   cy c;
+   World c;
    int[] d = new int[]{0, 0, 0};
    int e = 0;
    int f;
@@ -316,7 +318,7 @@ public class fe extends js {
       this.k = var5;
    }
 
-   public boolean a(cy var1, Random var2, int var3, int var4, int var5) {
+   public boolean a(World var1, Random var2, int var3, int var4, int var5) {
       this.c = var1;
       long var6 = var2.nextLong();
       this.b.setSeed(var6);

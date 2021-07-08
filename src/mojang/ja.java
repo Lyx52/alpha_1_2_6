@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class ja extends ld {
@@ -13,17 +15,17 @@ public class ja extends ld {
       super(var1, var2);
    }
 
-   private void j(cy var1, int var2, int var3, int var4) {
+   private void j(World var1, int var2, int var3, int var4) {
       int var5 = var1.e(var2, var3, var4);
       var1.a(var2, var3, var4, this.bh + 1, var5);
       var1.b(var2, var3, var4, var2, var3, var4);
       var1.h(var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       int var6 = this.h(var1, var2, var3, var4);
       byte var7 = 1;
-      if(this.bs == hb.g && !var1.q.d) {
+      if(this.bs == hb.g && !var1.currentDimension.d) {
          var7 = 2;
       }
 
@@ -115,7 +117,7 @@ public class ja extends ld {
 
    }
 
-   private void g(cy var1, int var2, int var3, int var4, int var5) {
+   private void g(World var1, int var2, int var3, int var4, int var5) {
       if(this.m(var1, var2, var3, var4)) {
          int var6 = var1.a(var2, var3, var4);
          if(var6 > 0) {
@@ -131,7 +133,7 @@ public class ja extends ld {
 
    }
 
-   private int a(cy var1, int var2, int var3, int var4, int var5, int var6) {
+   private int a(World var1, int var2, int var3, int var4, int var5, int var6) {
       int var7 = 1000;
 
       for(int var8 = 0; var8 < 4; ++var8) {
@@ -172,7 +174,7 @@ public class ja extends ld {
       return var7;
    }
 
-   private boolean[] k(cy var1, int var2, int var3, int var4) {
+   private boolean[] k(World var1, int var2, int var3, int var4) {
       int var5;
       int var6;
       for(var5 = 0; var5 < 4; ++var5) {
@@ -219,7 +221,7 @@ public class ja extends ld {
       return this.b;
    }
 
-   private boolean l(cy var1, int var2, int var3, int var4) {
+   private boolean l(World var1, int var2, int var3, int var4) {
       int var5 = var1.a(var2, var3, var4);
       if(var5 != aE.bh && var5 != aL.bh && var5 != aD.bh && var5 != aF.bh && var5 != aX.bh) {
          if(var5 == 0) {
@@ -233,7 +235,7 @@ public class ja extends ld {
       }
    }
 
-   protected int f(cy var1, int var2, int var3, int var4, int var5) {
+   protected int f(World var1, int var2, int var3, int var4, int var5) {
       int var6 = this.h(var1, var2, var3, var4);
       if(var6 < 0) {
          return var5;
@@ -250,12 +252,12 @@ public class ja extends ld {
       }
    }
 
-   private boolean m(cy var1, int var2, int var3, int var4) {
+   private boolean m(World var1, int var2, int var3, int var4) {
       hb var5 = var1.f(var2, var3, var4);
       return var5 == this.bs?false:(var5 == hb.g?false:!this.l(var1, var2, var3, var4));
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       super.e(var1, var2, var3, var4);
       if(var1.a(var2, var3, var4) == this.bh) {
          var1.h(var2, var3, var4, this.bh);

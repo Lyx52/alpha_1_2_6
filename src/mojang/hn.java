@@ -9,7 +9,7 @@ public class hn extends aq {
    public void a(Entity var0, double var2, double var4, double var6, float var8, float var9) {
       Arrow var1 = (Arrow)var0;
 
-      this.a("/mojang/item/arrows.png");
+      this.a("/mojang/assets/item/arrows.png");
       GL11.glPushMatrix();
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);
       GL11.glRotatef(var1.aE + (var1.aC - var1.aE) * var9 - 90.0F, 0.0F, 1.0F, 0.0F);

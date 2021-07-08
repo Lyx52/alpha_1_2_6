@@ -3,7 +3,7 @@ package mojang;
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
 
-public class cb extends dx {
+public class cb extends Item {
 
    private nq[] bb;
    private float bc = 4.0F;

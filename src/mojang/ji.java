@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +10,7 @@ public class ji {
 
    private static Map a = new HashMap();
    private static Map b = new HashMap();
-   public cy e;
+   public World e;
    public int f;
    public int g;
    public int h;

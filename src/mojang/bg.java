@@ -4,6 +4,7 @@ import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
 import mojang.entity.monster.Skeleton;
 import mojang.entity.monster.Spider;
+import mojang.world.World;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -14,14 +15,14 @@ public final class bg {
    private static Set a = new HashSet();
 
 
-   protected static on a(cy var0, int var1, int var2) {
+   protected static on a(World var0, int var1, int var2) {
       int var3 = var1 + var0.l.nextInt(16);
       int var4 = var0.l.nextInt(128);
       int var5 = var2 + var0.l.nextInt(16);
       return new on(var3, var4, var5);
    }
 
-   public static final int a(cy var0) {
+   public static final int a(World var0) {
       a.clear();
 
       int var1;
@@ -75,14 +76,14 @@ public final class bg {
                                  float var21 = (float)var16;
                                  float var22 = (float)var17 + 0.5F;
                                  if(var0.a((double)var20, (double)var21, (double)var22, 24.0D) == null) {
-                                    float var23 = var20 - (float)var0.m;
-                                    float var24 = var21 - (float)var0.n;
-                                    float var25 = var22 - (float)var0.o;
+                                    float var23 = var20 - (float)var0.spawnX;
+                                    float var24 = var21 - (float)var0.spawnY;
+                                    float var25 = var22 - (float)var0.spawnZ;
                                     float var26 = var23 * var23 + var24 * var24 + var25 * var25;
                                     if(var26 >= 576.0F) {
                                        LivingEntity var34;
                                        try {
-                                          var34 = (LivingEntity)var33[var8].getConstructor(new Class[]{cy.class}).newInstance(new Object[]{var0});
+                                          var34 = (LivingEntity)var33[var8].getConstructor(new Class[]{World.class}).newInstance(new Object[]{var0});
                                        } catch (Exception var27) {
                                           var27.printStackTrace();
                                           return var1;

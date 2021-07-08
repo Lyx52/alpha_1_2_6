@@ -2,15 +2,16 @@ package mojang;
 
 import mojang.entity.vehicle.Boat;
 import mojang.entity.Entity;
+import mojang.world.World;
 
-public class nw extends dx {
+public class nw extends Item {
 
    public nw(int var1) {
       super(var1);
       this.aX = 1;
    }
 
-   public fp a(fp var1, cy var2, eb var3) {
+   public fp a(fp var1, World var2, eb var3) {
       float var4 = 1.0F;
       float var5 = var3.aF + (var3.aD - var3.aF) * var4;
       float var6 = var3.aE + (var3.aC - var3.aE) * var4;

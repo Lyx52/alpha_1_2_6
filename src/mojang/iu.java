@@ -4,9 +4,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class iu extends gk {
+public class iu extends BasePacket {
 
-   public int a;
+   public int id;
    public String b;
    public String c;
    public long d;
@@ -18,11 +18,11 @@ public class iu extends gk {
    public iu(String var1, String var2, int var3) {
       this.b = var1;
       this.c = var2;
-      this.a = var3;
+      this.id = var3;
    }
 
    public void a(DataInputStream var1) throws IOException {
-      this.a = var1.readInt();
+      this.id = var1.readInt();
       this.b = var1.readUTF();
       this.c = var1.readUTF();
       this.d = var1.readLong();
@@ -30,7 +30,7 @@ public class iu extends gk {
    }
 
    public void a(DataOutputStream var1) throws IOException {
-      var1.writeInt(this.a);
+      var1.writeInt(this.id);
       var1.writeUTF(this.b);
       var1.writeUTF(this.c);
       var1.writeLong(this.d);

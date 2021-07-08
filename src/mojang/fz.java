@@ -2,6 +2,7 @@ package mojang;
 
 import mojang.entity.item.DroppedItem;
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.Random;
 
@@ -13,7 +14,7 @@ public class fz extends nq {
       this.b(true);
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return null;
    }
 
@@ -25,16 +26,16 @@ public class fz extends nq {
       return false;
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       int var5 = var1.a(var2, var3 - 1, var4);
       return var5 != 0 && m[var5].a()?var1.f(var2, var3 - 1, var4).c():false;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       this.h(var1, var2, var3, var4);
    }
 
-   private boolean h(cy var1, int var2, int var3, int var4) {
+   private boolean h(World var1, int var2, int var3, int var4) {
       if(!this.a(var1, var2, var3, var4)) {
          this.b_(var1, var2, var3, var4, var1.e(var2, var3, var4));
          var1.d(var2, var3, var4, 0);
@@ -44,8 +45,8 @@ public class fz extends nq {
       }
    }
 
-   public void a_(cy var1, int var2, int var3, int var4, int var5) {
-      int var6 = dx.aB.aW;
+   public void a_(World var1, int var2, int var3, int var4, int var5) {
+      int var6 = Item.aB.aW;
       float var7 = 0.7F;
       double var8 = (double)(var1.l.nextFloat() * var7) + (double)(1.0F - var7) * 0.5D;
       double var10 = (double)(var1.l.nextFloat() * var7) + (double)(1.0F - var7) * 0.5D;
@@ -57,14 +58,14 @@ public class fz extends nq {
    }
 
    public int a(int var1, Random var2) {
-      return dx.aB.aW;
+      return Item.aB.aW;
    }
 
    public int a(Random var1) {
       return 0;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       if(var1.a(ch.b, var2, var3, var4) > 11) {
          this.b_(var1, var2, var3, var4, var1.e(var2, var3, var4));
          var1.d(var2, var3, var4, 0);

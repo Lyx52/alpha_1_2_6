@@ -32,9 +32,9 @@ public class jj extends ex {
    }
 
    protected void a(float var1) {
-      int var2 = this.b.n.a("/mojang/gui/furnace.png");
+      int var2 = this.minecraft.n.loadTexture("/mojang/assets/gui/furnace.png");
       GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-      this.b.n.b(var2);
+      this.minecraft.n.b(var2);
       int var3 = (this.c - this.a) / 2;
       int var4 = (this.d - this.h) / 2;
       this.b(var3, var4, 0, 0, this.a, this.h);

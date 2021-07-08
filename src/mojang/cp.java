@@ -1,10 +1,12 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class cp extends js {
 
-   public boolean a(cy var1, Random var2, int var3, int var4, int var5) {
+   public boolean a(World var1, Random var2, int var3, int var4, int var5) {
       byte var6 = 3;
       int var7 = var2.nextInt(2) + 2;
       int var8 = var2.nextInt(2) + 2;
@@ -114,7 +116,7 @@ public class cp extends js {
 
    private fp a(Random var1) {
       int var2 = var1.nextInt(11);
-      return var2 == 0?new fp(dx.ay):(var2 == 1?new fp(dx.m, var1.nextInt(4) + 1):(var2 == 2?new fp(dx.S):(var2 == 3?new fp(dx.R, var1.nextInt(4) + 1):(var2 == 4?new fp(dx.K, var1.nextInt(4) + 1):(var2 == 5?new fp(dx.I, var1.nextInt(4) + 1):(var2 == 6?new fp(dx.au):(var2 == 7 && var1.nextInt(100) == 0?new fp(dx.ar):(var2 == 8 && var1.nextInt(2) == 0?new fp(dx.aA, var1.nextInt(4) + 1):(var2 == 9 && var1.nextInt(10) == 0?new fp(dx.c[dx.aU.aW + var1.nextInt(2)]):null)))))))));
+      return var2 == 0?new fp(Item.ay):(var2 == 1?new fp(Item.m, var1.nextInt(4) + 1):(var2 == 2?new fp(Item.S):(var2 == 3?new fp(Item.R, var1.nextInt(4) + 1):(var2 == 4?new fp(Item.K, var1.nextInt(4) + 1):(var2 == 5?new fp(Item.I, var1.nextInt(4) + 1):(var2 == 6?new fp(Item.au):(var2 == 7 && var1.nextInt(100) == 0?new fp(Item.ar):(var2 == 8 && var1.nextInt(2) == 0?new fp(Item.aA, var1.nextInt(4) + 1):(var2 == 9 && var1.nextInt(10) == 0?new fp(Item.itemIds[Item.MUSIC_DISC_13.aW + var1.nextInt(2)]):null)))))))));
    }
 
    private String b(Random var1) {

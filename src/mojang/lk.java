@@ -3,7 +3,7 @@ package mojang;
 import mojang.entity.LivingEntity;
 import mojang.entity.animal.Pig;
 
-public class lk extends dx {
+public class lk extends Item {
 
    public lk(int var1) {
       super(var1);

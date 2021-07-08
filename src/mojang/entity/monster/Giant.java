@@ -1,12 +1,12 @@
 package mojang.entity.monster;
 
-import mojang.cy;
+import mojang.world.World;
 
 public class Giant extends Monster {
 
-   public Giant(cy var1) {
+   public Giant(World var1) {
       super(var1);
-      this.image = "/mojang/mob/zombie.png";
+      this.image = "/mojang/assets/mob/zombie.png";
       this.am = 0.5F;
       this.f = 50;
       this.J *= 10;

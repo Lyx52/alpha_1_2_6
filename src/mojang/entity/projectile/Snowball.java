@@ -4,6 +4,7 @@ import mojang.*;
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Snowball extends Entity {
    private int i = 0;
 
 
-   public Snowball(cy var1) {
+   public Snowball(World var1) {
       super(var1);
       this.a(0.25F, 0.25F);
    }
@@ -32,7 +33,7 @@ public class Snowball extends Entity {
       return var1 < var3 * var3;
    }
 
-   public Snowball(cy var1, LivingEntity var2) {
+   public Snowball(World var1, LivingEntity var2) {
       super(var1);
       this.g = var2;
       this.a(0.25F, 0.25F);
@@ -49,7 +50,7 @@ public class Snowball extends Entity {
       this.a(this.az, this.aA, this.aB, 1.5F, 1.0F);
    }
 
-   public Snowball(cy var1, double var2, double var4, double var6) {
+   public Snowball(World var1, double var2, double var4, double var6) {
       super(var1);
       this.h = 0;
       this.a(0.25F, 0.25F);
@@ -227,7 +228,7 @@ public class Snowball extends Entity {
    }
 
    public void b(eb var1) {
-      if(this.f && this.g == var1 && this.a <= 0 && var1.e.a(new fp(dx.j.aW, 1))) {
+      if(this.f && this.g == var1 && this.a <= 0 && var1.e.a(new fp(Item.j.aW, 1))) {
          this.as.a(this, "random.pop", 0.2F, ((this.bd.nextFloat() - this.bd.nextFloat()) * 0.7F + 1.0F) * 2.0F);
          var1.b(this, 1);
          this.J();

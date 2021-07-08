@@ -5,7 +5,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketAddress;
-import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,7 +47,7 @@ public class jq {
       this.o.start();
    }
 
-   public void a(gk var1) {
+   public void a(BasePacket var1) {
       if(!this.n) {
          Object var2 = this.d;
          synchronized(this.d) {
@@ -66,28 +65,28 @@ public class jq {
    private void b() {
       try {
          boolean var1 = true;
-         gk var2;
+         BasePacket var2;
          Object var3;
          if(!this.k.isEmpty()) {
             var1 = false;
             var3 = this.d;
             synchronized(this.d) {
-               var2 = (gk)this.k.remove(0);
+               var2 = (BasePacket)this.k.remove(0);
                this.t -= var2.a() + 1;
             }
 
-            gk.a(var2, this.h);
+            BasePacket.a(var2, this.h);
          }
 
          if((var1 || this.u-- <= 0) && !this.l.isEmpty()) {
             var1 = false;
             var3 = this.d;
             synchronized(this.d) {
-               var2 = (gk)this.l.remove(0);
+               var2 = (BasePacket)this.l.remove(0);
                this.t -= var2.a() + 1;
             }
 
-            gk.a(var2, this.h);
+            BasePacket.a(var2, this.h);
             this.u = 50;
          }
 
@@ -106,7 +105,7 @@ public class jq {
 
    private void c() {
       try {
-         gk var1 = gk.b(this.g);
+         BasePacket var1 = BasePacket.b(this.g);
          if(var1 != null) {
             this.j.add(var1);
          } else {
@@ -172,7 +171,7 @@ public class jq {
       int var1 = 100;
 
       while(!this.j.isEmpty() && var1-- >= 0) {
-         gk var2 = (gk)this.j.remove(0);
+         BasePacket var2 = (BasePacket)this.j.remove(0);
          var2.a(this.m);
       }
 

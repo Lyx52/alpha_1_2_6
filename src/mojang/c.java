@@ -2,6 +2,7 @@ package mojang;
 
 import mojang.entity.item.DroppedItem;
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.Random;
 
@@ -106,7 +107,7 @@ public class c extends lh {
       return var1 == 1?this.bg - 1:(var1 == 0?this.bg - 1:(var1 == 3?this.bg + 1:this.bg));
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       int var5 = 0;
       if(var1.a(var2 - 1, var3, var4) == this.bh) {
          ++var5;
@@ -127,11 +128,11 @@ public class c extends lh {
       return var5 > 1?false:(this.h(var1, var2 - 1, var3, var4)?false:(this.h(var1, var2 + 1, var3, var4)?false:(this.h(var1, var2, var3, var4 - 1)?false:!this.h(var1, var2, var3, var4 + 1))));
    }
 
-   private boolean h(cy var1, int var2, int var3, int var4) {
+   private boolean h(World var1, int var2, int var3, int var4) {
       return var1.a(var2, var3, var4) != this.bh?false:(var1.a(var2 - 1, var3, var4) == this.bh?true:(var1.a(var2 + 1, var3, var4) == this.bh?true:(var1.a(var2, var3, var4 - 1) == this.bh?true:var1.a(var2, var3, var4 + 1) == this.bh)));
    }
 
-   public void b(cy var1, int var2, int var3, int var4) {
+   public void b(World var1, int var2, int var3, int var4) {
       ga var5 = (ga)var1.b(var2, var3, var4);
 
       for(int var6 = 0; var6 < var5.c(); ++var6) {
@@ -161,7 +162,7 @@ public class c extends lh {
       super.b(var1, var2, var3, var4);
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4, eb var5) {
+   public boolean a(World var1, int var2, int var3, int var4, eb var5) {
       Object var6 = (ga)var1.b(var2, var3, var4);
       if(var1.g(var2, var3 + 1, var4)) {
          return true;

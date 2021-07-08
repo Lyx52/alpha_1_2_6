@@ -7,6 +7,7 @@ import mojang.entity.projectile.Arrow;
 import mojang.tags.BaseTag;
 import mojang.tags.CompoundTag;
 import mojang.tags.ListTag;
+import mojang.world.World;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,15 +27,15 @@ public class eb extends LivingEntity {
    public hj n = null;
 
 
-   public eb(cy var1) {
+   public eb(World var1) {
       super(var1);
       this.aO = 1.62F;
-      this.c((double)var1.m + 0.5D, (double)(var1.n + 1), (double)var1.o + 0.5D, 0.0F, 0.0F);
+      this.c((double)var1.spawnX + 0.5D, (double)(var1.spawnY + 1), (double)var1.spawnZ + 0.5D, 0.0F, 0.0F);
       this.J = 20;
       this.C = "humanoid";
       this.B = 180.0F;
       this.bf = 20;
-      this.image = "/mojang/mob/char.png";
+      this.image = "/mojang/assets/mob/char.png";
    }
 
    public void s() throws IOException {
@@ -114,7 +115,7 @@ public class eb extends LivingEntity {
       this.b(this.aw, this.ax, this.ay);
       this.aA = 0.10000000149011612D;
       if(this.l.equals("Notch")) {
-         this.a(new fp(dx.h, 1), true);
+         this.a(new fp(Item.h, 1), true);
       }
 
       this.e.g();

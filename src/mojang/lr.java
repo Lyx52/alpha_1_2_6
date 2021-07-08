@@ -1,17 +1,19 @@
 package mojang;
 
-class lr {
+import mojang.gui.MinecraftGUI;
+
+public class lr {
 
    public double a;
    public double b;
    public double c;
    // $FF: synthetic field
-   final dj d;
+   final MinecraftGUI d;
 
 
-   public lr(dj var1, int var2, int var3) {
+   public lr(MinecraftGUI var1, int var2, int var3) {
       this.d = var1;
-      this.a = this.b = (double)(10 + var3) + dj.j().nextDouble() * 32.0D + (double)var2;
+      this.a = this.b = (double)(10 + var3) + MinecraftGUI.j().nextDouble() * 32.0D + (double)var2;
    }
 
    public void a() {

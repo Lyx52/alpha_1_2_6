@@ -1,8 +1,10 @@
 package mojang;
 
+import mojang.world.World;
+
 public class jo extends pp {
 
-   public jo(cy var1, double var2, double var4, double var6, dx var8) {
+   public jo(World var1, double var2, double var4, double var6, Item var8) {
       super(var1, var2, var4, var6, 0.0D, 0.0D, 0.0D);
       this.b = var8.a((fp)null);
       this.i = this.j = this.k = 1.0F;

@@ -1,8 +1,10 @@
 package mojang;
 
+import mojang.world.World;
+
 public class ee extends pp {
 
-   public ee(cy var1, double var2, double var4, double var6, double var8, double var10, double var12) {
+   public ee(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
       super(var1, var2, var4, var6, var8, var10, var12);
       this.az = var8 + (double)((float)(Math.random() * 2.0D - 1.0D) * 0.05F);
       this.aA = var10 + (double)((float)(Math.random() * 2.0D - 1.0D) * 0.05F);

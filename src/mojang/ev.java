@@ -17,7 +17,7 @@ public class ev {
 
    static {
       try {
-         BufferedImage var0 = ImageIO.read(ft.class.getResource("/mojang/misc/grasscolor.png"));
+         BufferedImage var0 = ImageIO.read(ft.class.getResource("/mojang/assets/misc/grasscolor.png"));
          var0.getRGB(0, 0, 256, 256, a, 0, 256);
       } catch (Exception var1) {
          var1.printStackTrace();

@@ -1,16 +1,18 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.io.IOException;
 
 public class cu implements bd {
 
    private ha[] b = new ha[256];
-   private cy c;
+   private World c;
    private ai d;
    byte[] a = new byte['\u8000'];
 
 
-   public cu(cy var1, ai var2) {
+   public cu(World var1, ai var2) {
       this.c = var1;
       this.d = var2;
    }

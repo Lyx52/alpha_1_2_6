@@ -1,7 +1,7 @@
 package mojang.entity.monster;
 
 import mojang.ch;
-import mojang.cy;
+import mojang.world.World;
 import mojang.eb;
 import mojang.entity.Entity;
 import mojang.entity.NullInterface;
@@ -15,7 +15,7 @@ public class Monster extends Mob implements NullInterface {
    protected int f = 2;
 
 
-   public Monster(cy var1) {
+   public Monster(World var1) {
       super(var1);
       this.J = 20;
    }

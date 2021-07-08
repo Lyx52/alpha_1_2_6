@@ -14,10 +14,10 @@ public class ls {
    private IntBuffer d = ds.c(1024);
 
 
-   public ls(gq var1, String var2, fu var3) {
+   public ls(OptionsManager var1, String var2, Texture var3) {
       BufferedImage var4;
       try {
-         var4 = ImageIO.read(fu.class.getResourceAsStream(var2));
+         var4 = ImageIO.read(Texture.class.getResourceAsStream(var2));
       } catch (IOException var18) {
          throw new RuntimeException(var18);
       }

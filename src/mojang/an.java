@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.Random;
 
@@ -22,22 +23,22 @@ public class an extends nq {
       return 30;
    }
 
-   public void b(cy var1, int var2, int var3, int var4, eb var5) {
+   public void b(World var1, int var2, int var3, int var4, eb var5) {
       this.h(var1, var2, var3, var4);
       super.b(var1, var2, var3, var4, var5);
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Entity var5) {
+   public void b(World var1, int var2, int var3, int var4, Entity var5) {
       this.h(var1, var2, var3, var4);
       super.b(var1, var2, var3, var4, var5);
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4, eb var5) {
+   public boolean a(World var1, int var2, int var3, int var4, eb var5) {
       this.h(var1, var2, var3, var4);
       return super.a(var1, var2, var3, var4, var5);
    }
 
-   private void h(cy var1, int var2, int var3, int var4) {
+   private void h(World var1, int var2, int var3, int var4) {
       this.i(var1, var2, var3, var4);
       if(this.bh == aN.bh) {
          var1.d(var2, var3, var4, aO.bh);
@@ -45,7 +46,7 @@ public class an extends nq {
 
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       if(this.bh == aO.bh) {
          var1.d(var2, var3, var4, aN.bh);
       }
@@ -53,21 +54,21 @@ public class an extends nq {
    }
 
    public int a(int var1, Random var2) {
-      return dx.aA.aW;
+      return Item.aA.aW;
    }
 
    public int a(Random var1) {
       return 4 + var1.nextInt(2);
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Random var5) {
+   public void b(World var1, int var2, int var3, int var4, Random var5) {
       if(this.a) {
          this.i(var1, var2, var3, var4);
       }
 
    }
 
-   private void i(cy var1, int var2, int var3, int var4) {
+   private void i(World var1, int var2, int var3, int var4) {
       Random var5 = var1.l;
       double var6 = 0.0625D;
 

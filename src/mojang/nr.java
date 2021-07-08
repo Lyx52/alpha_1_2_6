@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,10 +13,10 @@ public class nr implements bd {
    private ha a;
    private Map b = new HashMap();
    private List c = new ArrayList();
-   private cy d;
+   private World d;
 
 
-   public nr(cy var1) {
+   public nr(World var1) {
       this.a = new ha(var1, new byte['\u8000'], 0, 0);
       this.a.q = true;
       this.a.p = true;

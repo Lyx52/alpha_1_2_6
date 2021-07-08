@@ -10,7 +10,7 @@ public class pr extends ec {
    }
 
    protected boolean a(Sheep var1, int var2) {
-      this.a("/mojang/mob/sheep_fur.png");
+      this.a("/mojang/assets/mob/sheep_fur.png");
       return var2 == 0 && !var1.a;
    }
 }

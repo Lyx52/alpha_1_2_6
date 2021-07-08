@@ -3,6 +3,7 @@ package mojang.entity.item;
 import mojang.*;
 import mojang.entity.Entity;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ public class DroppedItem extends Entity {
    public float d = (float)(Math.random() * 3.141592653589793D * 2.0D);
 
 
-   public DroppedItem(cy var1, double var2, double var4, double var6, fp var8) {
+   public DroppedItem(World var1, double var2, double var4, double var6, fp var8) {
       super(var1);
       this.a(0.25F, 0.25F);
       this.aO = this.aQ / 2.0F;
@@ -29,7 +30,7 @@ public class DroppedItem extends Entity {
       this.aT = false;
    }
 
-   public DroppedItem(cy var1) {
+   public DroppedItem(World var1) {
       super(var1);
       this.a(0.25F, 0.25F);
       this.aO = this.aQ / 2.0F;

@@ -1,6 +1,6 @@
 package mojang.entity.animal;
 
-import mojang.cy;
+import mojang.world.World;
 import mojang.entity.item.DroppedItem;
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
@@ -12,9 +12,9 @@ public class Sheep extends Animal {
    public boolean a = false;
 
 
-   public Sheep(cy var1) {
+   public Sheep(World var1) {
       super(var1);
-      this.image = "/mojang/mob/sheep.png";
+      this.image = "/mojang/assets/mob/sheep.png";
       this.a(0.9F, 1.3F);
    }
 

@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.io.IOException;
 
@@ -15,7 +16,7 @@ public class ps extends eb {
    float a = 0.0F;
 
 
-   public ps(cy var1, String var2) {
+   public ps(World var1, String var2) {
       super(var1);
       this.l = var2;
       this.aO = 0.0F;

@@ -3,6 +3,7 @@ package mojang.entity;
 import mojang.*;
 import mojang.entity.item.DroppedItem;
 import mojang.tags.*;
+import mojang.world.World;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +17,7 @@ public abstract class Entity {
    public boolean ap;
    public Entity aq;
    public Entity ar;
-   public cy as;
+   public World as;
    public double at;
    public double au;
    public double av;
@@ -79,7 +80,7 @@ public abstract class Entity {
    public boolean bw;
 
 
-   public Entity(cy var1) {
+   public Entity(World var1) {
       this.an = a++;
       this.ao = 1.0D;
       this.ap = false;
@@ -441,7 +442,7 @@ public abstract class Entity {
             var28 = this.as.a(var38, var26, var40);
             if(this.aS > (float)this.b && var28 > 0) {
                ++this.b;
-               mojang.bi var29 = nq.m[var28].bq;
+               Block var29 = nq.m[var28].bq;
                if(this.as.a(var38, var26 + 1, var40) == nq.aS.bh) {
                   var29 = nq.aS.bq;
                   this.as.a(this, var29.d(), var29.b() * 0.15F, var29.c());
@@ -574,7 +575,7 @@ public abstract class Entity {
       return this.as.c(var2, var5, var6);
    }
 
-   public void a(cy var1) {
+   public void a(World var1) {
       this.as = var1;
    }
 

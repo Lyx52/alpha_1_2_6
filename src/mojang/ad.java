@@ -9,7 +9,7 @@ public class ad {
    public boolean c = false;
    public int d = 0;
    public int e = 1;
-   public int f = 0;
+   public int textureID = 0;
 
 
    public ad(int var1) {
@@ -18,11 +18,11 @@ public class ad {
 
    public void a() {}
 
-   public void a(fu var1) {
-      if(this.f == 0) {
-         GL11.glBindTexture(3553, var1.a("/mojang/terrain.png"));
-      } else if(this.f == 1) {
-         GL11.glBindTexture(3553, var1.a("/mojang/gui/items.png"));
+   public void setTexture(Texture texture) {
+      if(this.textureID == 0) {
+         GL11.glBindTexture(3553, texture.loadTexture("/mojang/terrain.png"));
+      } else if(this.textureID == 1) {
+         GL11.glBindTexture(3553, texture.loadTexture("/mojang/assets/gui/items.png"));
       }
 
    }

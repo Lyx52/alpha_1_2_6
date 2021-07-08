@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
 
-public class ci extends gk {
+public class ci extends BasePacket {
 
    public int a;
    public int b;

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class pj extends js {
@@ -11,7 +13,7 @@ public class pj extends js {
       this.a = var1;
    }
 
-   public boolean a(cy var1, Random var2, int var3, int var4, int var5) {
+   public boolean a(World var1, Random var2, int var3, int var4, int var5) {
       if(var1.a(var3, var4 + 1, var5) != nq.t.bh) {
          return false;
       } else if(var1.a(var3, var4 - 1, var5) != nq.t.bh) {

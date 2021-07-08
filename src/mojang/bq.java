@@ -2,8 +2,10 @@ package mojang;
 
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
+import mojang.gui.GraphicsUserInterface;
 import mojang.net.minecraft.client.Minecraft;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 
@@ -17,7 +19,7 @@ public class bq extends eb {
    public float d;
 
 
-   public bq(Minecraft var1, cy var2, ea var3, int var4) {
+   public bq(Minecraft var1, World var2, ea var3, int var4) {
       super(var2);
       this.bx = var1;
       this.m = var4;
@@ -93,23 +95,23 @@ public class bq extends eb {
    }
 
    public void a(hi var1) {
-      this.bx.a((GraphicsUserInterface)(new er(this.e, var1)));
+      this.bx.changeGUI((GraphicsUserInterface)(new er(this.e, var1)));
    }
 
    public void a(qc var1) {
-      this.bx.a((GraphicsUserInterface)(new pv(var1)));
+      this.bx.changeGUI((GraphicsUserInterface)(new pv(var1)));
    }
 
    public void m() {
-      this.bx.a((GraphicsUserInterface)(new jc(this.e)));
+      this.bx.changeGUI((GraphicsUserInterface)(new jc(this.e)));
    }
 
    public void a(lt var1) {
-      this.bx.a((GraphicsUserInterface)(new jj(this.e, var1)));
+      this.bx.changeGUI((GraphicsUserInterface)(new jj(this.e, var1)));
    }
 
    public void b(Entity var1, int var2) {
-      this.bx.h.a((pp)(new cm(this.bx.e, var1, this, -0.5F)));
+      this.bx.h.a((pp)(new cm(this.bx.world, var1, this, -0.5F)));
    }
 
    public int n() {

@@ -3,6 +3,8 @@ package mojang;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class gz {
@@ -13,8 +15,8 @@ public class gz {
    public static double b;
    public static double c;
    public static double d;
-   public fu e;
-   public cy f;
+   public Texture e;
+   public World f;
    public eb g;
    public float h;
    public float i;
@@ -53,7 +55,7 @@ public class gz {
       return var1 == null?null:this.a(var1.getClass());
    }
 
-   public void a(cy var1, fu var2, ls var3, eb var4, float var5) {
+   public void a(World var1, Texture var2, ls var3, eb var4, float var5) {
       this.f = var1;
       this.e = var2;
       this.g = var4;

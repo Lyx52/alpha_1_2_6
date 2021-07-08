@@ -1,7 +1,7 @@
 package mojang.entity.monster;
 
-import mojang.cy;
-import mojang.dx;
+import mojang.world.World;
+import mojang.Item;
 import mojang.entity.projectile.Arrow;
 import mojang.entity.Entity;
 import mojang.fi;
@@ -12,12 +12,12 @@ import java.io.IOException;
 
 public class Skeleton extends Monster {
 
-   private static final fp a = new fp(dx.i, 1);
+   private static final fp a = new fp(Item.i, 1);
 
 
-   public Skeleton(cy var1) {
+   public Skeleton(World var1) {
       super(var1);
-      this.image = "/mojang/mob/skeleton.png";
+      this.image = "/mojang/assets/mob/skeleton.png";
    }
 
    protected String d() {
@@ -73,7 +73,7 @@ public class Skeleton extends Monster {
    }
 
    protected int g_() {
-      return dx.j.aW;
+      return Item.j.aW;
    }
 
    public fp l() {

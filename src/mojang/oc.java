@@ -1,11 +1,13 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.ArrayList;
 import java.util.List;
 
 class oc {
 
-   private cy b;
+   private World b;
    private int c;
    private int d;
    private int e;
@@ -15,7 +17,7 @@ class oc {
    final jn a;
 
 
-   public oc(jn var1, cy var2, int var3, int var4, int var5) {
+   public oc(jn var1, World var2, int var3, int var4, int var5) {
       this.a = var1;
       this.g = new ArrayList();
       this.b = var2;

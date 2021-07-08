@@ -1,8 +1,9 @@
 package mojang;
 
 import mojang.entity.animal.Cow;
+import mojang.world.World;
 
-public class ag extends dx {
+public class ag extends Item {
 
    private int a;
 
@@ -14,7 +15,7 @@ public class ag extends dx {
       this.a = var2;
    }
 
-   public fp a(fp var1, cy var2, eb var3) {
+   public fp a(fp var1, World var2, eb var3) {
       float var4 = 1.0F;
       float var5 = var3.aF + (var3.aD - var3.aF) * var4;
       float var6 = var3.aE + (var3.aC - var3.aE) * var4;
@@ -82,7 +83,7 @@ public class ag extends dx {
                }
 
                if(var2.a(var25, var26, var27) == 0 || !var2.f(var25, var26, var27).a()) {
-                  if(var2.q.d && this.a == nq.A.bh) {
+                  if(var2.currentDimension.d && this.a == nq.A.bh) {
                      var2.a(var7 + 0.5D, var9 + 0.5D, var11 + 0.5D, "random.fizz", 0.5F, 2.6F + (var2.l.nextFloat() - var2.l.nextFloat()) * 0.8F);
 
                      for(int var28 = 0; var28 < 8; ++var28) {

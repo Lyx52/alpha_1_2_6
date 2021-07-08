@@ -3,6 +3,7 @@ package mojang.entity.item;
 import mojang.*;
 import mojang.entity.Entity;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Painting extends Entity {
    public fl b;
 
 
-   public Painting(cy var1) {
+   public Painting(World var1) {
       super(var1);
       this.c = 0;
       this.a = 0;
@@ -25,7 +26,7 @@ public class Painting extends Entity {
       this.a(0.5F, 0.5F);
    }
 
-   public Painting(cy var1, int var2, int var3, int var4, int var5) {
+   public Painting(World var1, int var2, int var3, int var4, int var5) {
       this(var1);
       this.d = var2;
       this.e = var3;
@@ -115,7 +116,7 @@ public class Painting extends Entity {
       if(this.c++ == 100 && !this.k()) {
          this.c = 0;
          this.J();
-         this.as.a((Entity)(new DroppedItem(this.as, this.aw, this.ax, this.ay, new fp(dx.aq))));
+         this.as.a((Entity)(new DroppedItem(this.as, this.aw, this.ax, this.ay, new fp(Item.aq))));
       }
 
    }
@@ -182,7 +183,7 @@ public class Painting extends Entity {
    public boolean a(Entity var1, int var2) {
       this.J();
       this.M();
-      this.as.a((Entity)(new DroppedItem(this.as, this.aw, this.ax, this.ay, new fp(dx.aq))));
+      this.as.a((Entity)(new DroppedItem(this.as, this.aw, this.ax, this.ay, new fp(Item.aq))));
       return true;
    }
 

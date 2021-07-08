@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public abstract class aq {
@@ -15,12 +16,12 @@ public abstract class aq {
    public abstract void a(Entity var1, double var2, double var4, double var6, float var8, float var9);
 
    protected void a(String var1) {
-      fu var2 = this.b.e;
-      var2.b(var2.a(var1));
+      Texture var2 = this.b.e;
+      var2.b(var2.loadTexture(var1));
    }
 
    protected void a(String var1, String var2) {
-      fu var3 = this.b.e;
+      Texture var3 = this.b.e;
       var3.b(var3.a(var1, var2));
    }
 
@@ -67,9 +68,9 @@ public abstract class aq {
    private void c(Entity var1, double var2, double var4, double var6, float var8, float var9) {
       GL11.glEnable(3042);
       GL11.glBlendFunc(770, 771);
-      fu var10 = this.b.e;
-      var10.b(var10.a("%clamp%/misc/shadow.png"));
-      cy var11 = this.b();
+      Texture var10 = this.b.e;
+      var10.b(var10.loadTexture("%clamp%/misc/shadow.png"));
+      World var11 = this.b();
       GL11.glDepthMask(false);
       float var12 = this.c;
       double var13 = var1.aV + (var1.aw - var1.aV) * (double)var9;
@@ -104,7 +105,7 @@ public abstract class aq {
       GL11.glDepthMask(true);
    }
 
-   private cy b() {
+   private World b() {
       return this.b.g;
    }
 

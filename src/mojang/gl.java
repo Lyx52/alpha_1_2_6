@@ -13,8 +13,8 @@ public class gl extends aq {
       GL11.glEnable('\u803a');
       float var10 = 2.0F;
       GL11.glScalef(var10 / 1.0F, var10 / 1.0F, var10 / 1.0F);
-      int var11 = dx.aB.a((fp)null);
-      this.a("/mojang/gui/items.png");
+      int var11 = Item.aB.a((fp)null);
+      this.a("/mojang/assets/gui/items.png");
       is var12 = is.a;
       float var13 = (float)(var11 % 16 * 16 + 0) / 256.0F;
       float var14 = (float)(var11 % 16 * 16 + 16) / 256.0F;

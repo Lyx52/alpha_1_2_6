@@ -2,6 +2,7 @@ package mojang;
 
 import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
+import mojang.world.World;
 
 public class iv {
 
@@ -13,7 +14,7 @@ public class iv {
       this.a = var1;
    }
 
-   public void a(cy var1) {}
+   public void a(World var1) {}
 
    public void a(int var1, int var2, int var3, int var4) {
       this.b(var1, var2, var3, var4);
@@ -21,12 +22,12 @@ public class iv {
 
    public boolean b(int var1, int var2, int var3, int var4) {
       this.a.h.a(var1, var2, var3);
-      cy var5 = this.a.e;
+      World var5 = this.a.world;
       nq var6 = nq.m[var5.a(var1, var2, var3)];
       int var7 = var5.e(var1, var2, var3);
       boolean var8 = var5.d(var1, var2, var3, 0);
       if(var6 != null && var8) {
-         this.a.A.b(var6.bq.a(), (float)var1 + 0.5F, (float)var2 + 0.5F, (float)var3 + 0.5F, (var6.bq.b() + 1.0F) / 2.0F, var6.bq.c() * 0.8F);
+         this.a.A.b(var6.bq.getStepSound(), (float)var1 + 0.5F, (float)var2 + 0.5F, (float)var3 + 0.5F, (var6.bq.b() + 1.0F) / 2.0F, var6.bq.c() * 0.8F);
          var6.b(var5, var1, var2, var3, var7);
       }
 
@@ -43,7 +44,7 @@ public class iv {
       return 5.0F;
    }
 
-   public boolean a(eb var1, cy var2, fp var3) {
+   public boolean a(eb var1, World var2, fp var3) {
       int var4 = var3.a;
       fp var5 = var3.a(var2, var1);
       if(var5 == var3 && (var5 == null || var5.a == var4)) {
@@ -68,13 +69,13 @@ public class iv {
 
    public void b(eb var1) {}
 
-   public boolean a(eb var1, cy var2, fp var3, int var4, int var5, int var6, int var7) {
+   public boolean a(eb var1, World var2, fp var3, int var4, int var5, int var6, int var7) {
       int var8 = var2.a(var4, var5, var6);
       return var8 > 0 && nq.m[var8].a(var2, var4, var5, var6, var1)?true:(var3 == null?false:var3.a(var1, var2, var4, var5, var6, var7));
    }
 
-   public eb b(cy var1) {
-      return new bq(this.a, var1, this.a.i, var1.q.g);
+   public eb b(World var1) {
+      return new bq(this.a, var1, this.a.i, var1.currentDimension.g);
    }
 
    public void a(eb var1, Entity var2) {

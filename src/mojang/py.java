@@ -1,12 +1,13 @@
 package mojang;
 
 import mojang.tags.CompoundTag;
+import mojang.world.WorldIOStream;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class py extends gk {
+public class py extends BasePacket {
 
    public int a;
    public int b;
@@ -28,7 +29,7 @@ public class py extends gk {
       var4.b(this.e);
 
       try {
-         this.d = ab.a(this.e);
+         this.d = WorldIOStream.writeByteArray(this.e);
       } catch (IOException var6) {
          var6.printStackTrace();
       }
@@ -42,7 +43,7 @@ public class py extends gk {
       int var2 = var1.readShort() & '\uffff';
       this.d = new byte[var2];
       var1.readFully(this.d);
-      this.e = ab.a(this.d);
+      this.e = WorldIOStream.a(this.d);
    }
 
    public void a(DataOutputStream var1) throws IOException {

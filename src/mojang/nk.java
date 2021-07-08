@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Arrays;
@@ -66,7 +68,7 @@ public class nk {
    }
 
    public void a(kw var1) {
-      cy var2 = var1.b;
+      World var2 = var1.b;
       if(var2 == null) {
          var1.f = true;
          var1.e = true;

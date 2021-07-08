@@ -4,6 +4,8 @@ import mojang.entity.Entity;
 import mojang.tags.BaseTag;
 import mojang.tags.CompoundTag;
 import mojang.tags.ListTag;
+import mojang.world.World;
+import mojang.world.WorldIOStream;
 
 import java.io.*;
 import java.util.Iterator;
@@ -45,12 +47,12 @@ public class mu implements ai {
       return !var6.exists() && !this.b?null:var6;
    }
 
-   public ha a(cy var1, int var2, int var3) throws IOException {
+   public ha a(World var1, int var2, int var3) throws IOException {
       File var4 = this.a(var2, var3);
       if(var4 != null && var4.exists()) {
          try {
             FileInputStream var5 = new FileInputStream(var4);
-            CompoundTag var6 = ab.a((InputStream)var5);
+            CompoundTag var6 = WorldIOStream.readLevelData((InputStream)var5);
             if(!var6.hasKey("Level")) {
                System.out.println("Chunk file at " + var2 + "," + var3 + " is missing level data, skipping");
                return null;
@@ -78,11 +80,11 @@ public class mu implements ai {
       return null;
    }
 
-   public void a(cy var1, ha var2) {
-      var1.n();
+   public void a(World var1, ha var2) {
+      var1.lockOutputStreamFile();
       File var3 = this.a(var2.j, var2.k);
       if(var3.exists()) {
-         var1.v -= var3.length();
+         var1.size -= var3.length();
       }
 
       try {
@@ -92,25 +94,25 @@ public class mu implements ai {
          CompoundTag var7 = new CompoundTag();
          var6.putBaseTag("Level", (BaseTag)var7);
          this.a(var2, var1, var7);
-         ab.a(var6, (OutputStream)var5);
+         WorldIOStream.a(var6, (OutputStream)var5);
          var5.close();
          if(var3.exists()) {
             var3.delete();
          }
 
          var4.renameTo(var3);
-         var1.v += var3.length();
+         var1.size += var3.length();
       } catch (Exception var8) {
          var8.printStackTrace();
       }
 
    }
 
-   public void a(ha var1, cy var2, CompoundTag var3) {
-      var2.n();
+   public void a(ha var1, World var2, CompoundTag var3) {
+      var2.lockOutputStreamFile();
       var3.putIntegerTag("xPos", var1.j);
       var3.putIntegerTag("zPos", var1.k);
-      var3.putLongTag("LastUpdate", var2.e);
+      var3.putLongTag("LastUpdate", var2.lastTime);
       var3.putByteArrayTag("Blocks", var1.b);
       var3.putByteArrayTag("Data", var1.e.a);
       var3.putByteArrayTag("SkyLight", var1.f.a);
@@ -149,7 +151,7 @@ public class mu implements ai {
       var3.putBaseTag("TileEntities", (BaseTag)var9);
    }
 
-   public static ha a(cy var0, CompoundTag var1) {
+   public static ha a(World var0, CompoundTag var1) {
       int var2 = var1.getInteger("xPos");
       int var3 = var1.getInteger("zPos");
       ha var4 = new ha(var0, var2, var3);
@@ -204,5 +206,5 @@ public class mu implements ai {
 
    public void b() {}
 
-   public void b(cy var1, ha var2) {}
+   public void b(World var1, ha var2) {}
 }

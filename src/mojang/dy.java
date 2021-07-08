@@ -2,6 +2,7 @@ package mojang;
 
 import mojang.entity.Entity;
 import mojang.entity.item.FallingSand;
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class dy extends aq {
@@ -20,7 +21,7 @@ public class dy extends aq {
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);
       this.a("/mojang/terrain.png");
       nq var10 = nq.m[var1.a];
-      cy var11 = var1.k();
+      World var11 = var1.k();
       GL11.glDisable(2896);
       this.a.a(var10, var11, fi.b(var1.aw), fi.b(var1.ax), fi.b(var1.ay));
       GL11.glEnable(2896);

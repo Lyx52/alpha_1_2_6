@@ -1,14 +1,16 @@
 package mojang;
 
+import mojang.world.World;
+
 public class cs implements pk {
 
    private int a;
    private int b;
    private ha[][] c;
-   private cy d;
+   private World d;
 
 
-   public cs(cy var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+   public cs(World var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       this.d = var1;
       this.a = var2 >> 4;
       this.b = var4 >> 4;
@@ -43,7 +45,7 @@ public class cs implements pk {
    }
 
    public float c(int var1, int var2, int var3) {
-      return this.d.q.f[this.d(var1, var2, var3)];
+      return this.d.currentDimension.f[this.d(var1, var2, var3)];
    }
 
    public int d(int var1, int var2, int var3) {

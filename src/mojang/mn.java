@@ -18,6 +18,7 @@ import mojang.entity.projectile.Arrow;
 import mojang.entity.projectile.Snowball;
 import mojang.entity.vehicle.Boat;
 import mojang.entity.vehicle.Minecart;
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class mn {
@@ -28,13 +29,13 @@ public class mn {
    public static double b;
    public static double c;
    public static double d;
-   public fu e;
+   public Texture e;
    public ku f;
-   public cy g;
+   public World g;
    public eb h;
    public float i;
    public float j;
-   public gq k;
+   public OptionsManager k;
    public double l;
    public double m;
    public double n;
@@ -88,7 +89,7 @@ public class mn {
       return this.a(var1.getClass());
    }
 
-   public void a(cy var1, fu var2, ls var3, eb var4, gq var5, float var6) {
+   public void a(World var1, Texture var2, ls var3, eb var4, OptionsManager var5, float var6) {
       this.g = var1;
       this.e = var2;
       this.k = var5;
@@ -120,7 +121,7 @@ public class mn {
 
    }
 
-   public void a(cy var1) {
+   public void a(World var1) {
       this.g = var1;
    }
 

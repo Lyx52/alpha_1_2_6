@@ -15,6 +15,7 @@ import mojang.entity.projectile.Snowball;
 import mojang.entity.vehicle.Boat;
 import mojang.entity.vehicle.Minecart;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,13 +35,13 @@ public class fq {
       d.put(var0, Integer.valueOf(var2));
    }
 
-   public static Entity a(String var0, cy var1) {
+   public static Entity a(String var0, World var1) {
       Entity var2 = null;
 
       try {
          Class var3 = (Class)a.get(var0);
          if(var3 != null) {
-            var2 = (Entity)var3.getConstructor(new Class[]{cy.class}).newInstance(new Object[]{var1});
+            var2 = (Entity)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
          }
       } catch (Exception var4) {
          var4.printStackTrace();
@@ -49,13 +50,13 @@ public class fq {
       return var2;
    }
 
-   public static Entity a(CompoundTag var0, cy var1) {
+   public static Entity a(CompoundTag var0, World var1) {
       Entity var2 = null;
 
       try {
          Class var3 = (Class)a.get(var0.getString("id"));
          if(var3 != null) {
-            var2 = (Entity)var3.getConstructor(new Class[]{cy.class}).newInstance(new Object[]{var1});
+            var2 = (Entity)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
          }
       } catch (Exception var4) {
          var4.printStackTrace();
@@ -70,13 +71,13 @@ public class fq {
       return var2;
    }
 
-   public static Entity a(int var0, cy var1) {
+   public static Entity a(int var0, World var1) {
       Entity var2 = null;
 
       try {
          Class var3 = (Class)c.get(Integer.valueOf(var0));
          if(var3 != null) {
-            var2 = (Entity)var3.getConstructor(new Class[]{cy.class}).newInstance(new Object[]{var1});
+            var2 = (Entity)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
          }
       } catch (Exception var4) {
          var4.printStackTrace();

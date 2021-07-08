@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class po {
@@ -15,10 +17,10 @@ public class po {
 
    protected po() {}
 
-   public po(cy var1) {
-      this.e = new ng(new Random(var1.u * 9871L), 4);
-      this.f = new ng(new Random(var1.u * 39811L), 4);
-      this.g = new ng(new Random(var1.u * 543321L), 2);
+   public po(World var1) {
+      this.e = new ng(new Random(var1.worldSeed * 9871L), 4);
+      this.f = new ng(new Random(var1.worldSeed * 39811L), 4);
+      this.g = new ng(new Random(var1.worldSeed * 543321L), 2);
    }
 
    public gg a(qm var1) {

@@ -17,7 +17,7 @@ public class ft {
 
    static {
       try {
-         BufferedImage var0 = ImageIO.read(ft.class.getResource("/mojang/misc/foliagecolor.png"));
+         BufferedImage var0 = ImageIO.read(ft.class.getResource("/mojang/assets/misc/foliagecolor.png"));
          var0.getRGB(0, 0, 256, 256, a, 0, 256);
       } catch (Exception var1) {
          var1.printStackTrace();

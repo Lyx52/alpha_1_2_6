@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class fa extends gk {
+public class fa extends BasePacket {
 
    public double a;
    public double b;

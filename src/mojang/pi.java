@@ -1,15 +1,17 @@
 package mojang;
 
+import mojang.world.World;
+
 public class pi extends pp {
 
    float a;
 
 
-   public pi(cy var1, double var2, double var4, double var6) {
+   public pi(World var1, double var2, double var4, double var6) {
       this(var1, var2, var4, var6, 1.0F);
    }
 
-   public pi(cy var1, double var2, double var4, double var6, float var8) {
+   public pi(World var1, double var2, double var4, double var6, float var8) {
       super(var1, var2, var4, var6, 0.0D, 0.0D, 0.0D);
       this.az *= 0.10000000149011612D;
       this.aA *= 0.10000000149011612D;

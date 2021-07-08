@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class ir extends ld {
@@ -13,7 +15,7 @@ public class ir extends ld {
 
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var1.a(var2, var3, var4) == this.bh) {
          this.j(var1, var2, var3, var4);
@@ -21,7 +23,7 @@ public class ir extends ld {
 
    }
 
-   private void j(cy var1, int var2, int var3, int var4) {
+   private void j(World var1, int var2, int var3, int var4) {
       int var5 = var1.e(var2, var3, var4);
       var1.i = true;
       var1.a(var2, var3, var4, this.bh - 1, var5);
@@ -30,7 +32,7 @@ public class ir extends ld {
       var1.i = false;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       if(this.bs == hb.g) {
          int var6 = var5.nextInt(3);
 
@@ -52,7 +54,7 @@ public class ir extends ld {
 
    }
 
-   private boolean k(cy var1, int var2, int var3, int var4) {
+   private boolean k(World var1, int var2, int var3, int var4) {
       return var1.f(var2, var3, var4).e();
    }
 }

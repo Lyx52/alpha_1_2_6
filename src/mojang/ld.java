@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.Random;
 
@@ -27,7 +28,7 @@ public abstract class ld extends nq {
       return var1 != 0 && var1 != 1?this.bg + 1:this.bg;
    }
 
-   protected int h(cy var1, int var2, int var3, int var4) {
+   protected int h(World var1, int var2, int var3, int var4) {
       return var1.f(var2, var3, var4) != this.bs?-1:var1.e(var2, var3, var4);
    }
 
@@ -61,7 +62,7 @@ public abstract class ld extends nq {
       return var6 == this.bs?false:(var6 == hb.r?false:(var5 == 1?true:super.b(var1, var2, var3, var4, var5)));
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return null;
    }
 
@@ -159,7 +160,7 @@ public abstract class ld extends nq {
       return var5;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Entity var5, ao var6) {
+   public void a(World var1, int var2, int var3, int var4, Entity var5, ao var6) {
       ao var7 = this.e((pk)var1, var2, var3, var4);
       var6.a += var7.a;
       var6.b += var7.b;
@@ -176,7 +177,7 @@ public abstract class ld extends nq {
       return var5 > var6?var5:var6;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       super.a(var1, var2, var3, var4, var5);
    }
 
@@ -184,7 +185,7 @@ public abstract class ld extends nq {
       return this.bs == hb.f?1:0;
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Random var5) {
+   public void b(World var1, int var2, int var3, int var4, Random var5) {
       if(this.bs == hb.f && var5.nextInt(64) == 0) {
          int var6 = var1.e(var2, var3, var4);
          if(var6 > 0 && var6 < 8) {
@@ -214,15 +215,15 @@ public abstract class ld extends nq {
       return var5.a == 0.0D && var5.c == 0.0D?-1000.0D:Math.atan2(var5.c, var5.a) - 1.5707963267948966D;
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       this.j(var1, var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       this.j(var1, var2, var3, var4);
    }
 
-   private void j(cy var1, int var2, int var3, int var4) {
+   private void j(World var1, int var2, int var3, int var4) {
       if(var1.a(var2, var3, var4) == this.bh) {
          if(this.bs == hb.g) {
             boolean var5 = false;
@@ -261,7 +262,7 @@ public abstract class ld extends nq {
       }
    }
 
-   protected void i(cy var1, int var2, int var3, int var4) {
+   protected void i(World var1, int var2, int var3, int var4) {
       var1.a((double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.l.nextFloat() - var1.l.nextFloat()) * 0.8F);
 
       for(int var5 = 0; var5 < 8; ++var5) {

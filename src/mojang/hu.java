@@ -17,7 +17,7 @@ public class hu implements pu {
       this.b = var1;
    }
 
-   public void a(String var1) {
+   public void primaryText(String var1) {
       this.e = false;
       this.c(var1);
    }
@@ -47,14 +47,14 @@ public class hu implements pu {
       }
    }
 
-   public void d(String var1) {
+   public void secondaryText(String text) {
       if(!this.b.H) {
          if(!this.e) {
             throw new pq();
          }
       } else {
          this.d = 0L;
-         this.a = var1;
+         this.a = text;
          this.a(-1);
          this.d = 0L;
       }
@@ -81,7 +81,7 @@ public class hu implements pu {
             GL11.glTranslatef(0.0F, 0.0F, -200.0F);
             GL11.glClear(16640);
             is var7 = is.a;
-            int var8 = this.b.n.a("/mojang/gui/background.png");
+            int var8 = this.b.n.loadTexture("/mojang/assets/gui/background.png");
             GL11.glBindTexture(3553, var8);
             float var9 = 32.0F;
             var7.b();

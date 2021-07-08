@@ -2,6 +2,7 @@ package mojang;
 
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
+import mojang.world.World;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -23,7 +24,7 @@ public class mb extends nq {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return super.d(var1, var2, var3, var4);
    }
 
@@ -43,7 +44,7 @@ public class mb extends nq {
       return super.b(var1, var2, var3, var4, var5);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, co var5, ArrayList var6) {
+   public void a(World var1, int var2, int var3, int var4, co var5, ArrayList var6) {
       int var7 = var1.e(var2, var3, var4);
       if(var7 == 0) {
          this.a(0.0F, 0.0F, 0.0F, 0.5F, 0.5F, 1.0F);
@@ -70,15 +71,15 @@ public class mb extends nq {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Random var5) {
+   public void b(World var1, int var2, int var3, int var4, Random var5) {
       this.a.b(var1, var2, var3, var4, var5);
    }
 
-   public void b(cy var1, int var2, int var3, int var4, eb var5) {
+   public void b(World var1, int var2, int var3, int var4, eb var5) {
       this.a.b(var1, var2, var3, var4, var5);
    }
 
-   public void b(cy var1, int var2, int var3, int var4, int var5) {
+   public void b(World var1, int var2, int var3, int var4, int var5) {
       this.a.b(var1, var2, var3, var4, var5);
    }
 
@@ -118,11 +119,11 @@ public class mb extends nq {
       return this.a.d();
    }
 
-   public co f(cy var1, int var2, int var3, int var4) {
+   public co f(World var1, int var2, int var3, int var4) {
       return this.a.f(var1, var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Entity var5, ao var6) {
+   public void a(World var1, int var2, int var3, int var4, Entity var5, ao var6) {
       this.a.a(var1, var2, var3, var4, var5, var6);
    }
 
@@ -134,44 +135,44 @@ public class mb extends nq {
       return this.a.a(var1, var2);
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       return this.a.a(var1, var2, var3, var4);
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       this.a(var1, var2, var3, var4, 0);
       this.a.e(var1, var2, var3, var4);
    }
 
-   public void b(cy var1, int var2, int var3, int var4) {
+   public void b(World var1, int var2, int var3, int var4) {
       this.a.b(var1, var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5, float var6) {
+   public void a(World var1, int var2, int var3, int var4, int var5, float var6) {
       this.a.a(var1, var2, var3, var4, var5, var6);
    }
 
-   public void b_(cy var1, int var2, int var3, int var4, int var5) {
+   public void b_(World var1, int var2, int var3, int var4, int var5) {
       this.a.b_(var1, var2, var3, var4, var5);
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Entity var5) {
+   public void b(World var1, int var2, int var3, int var4, Entity var5) {
       this.a.b(var1, var2, var3, var4, var5);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       this.a.a(var1, var2, var3, var4, var5);
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4, eb var5) {
+   public boolean a(World var1, int var2, int var3, int var4, eb var5) {
       return this.a.a(var1, var2, var3, var4, var5);
    }
 
-   public void c(cy var1, int var2, int var3, int var4) {
+   public void c(World var1, int var2, int var3, int var4) {
       this.a.c(var1, var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, LivingEntity var5) {
+   public void a(World var1, int var2, int var3, int var4, LivingEntity var5) {
       int var6 = fi.b((double)(var5.aC * 4.0F / 360.0F) + 0.5D) & 3;
       if(var6 == 0) {
          var1.b(var2, var3, var4, 2);

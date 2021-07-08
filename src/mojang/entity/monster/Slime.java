@@ -5,6 +5,7 @@ import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
 import mojang.entity.NullInterface;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 
@@ -16,9 +17,9 @@ public class Slime extends LivingEntity implements NullInterface {
    public int c = 1;
 
 
-   public Slime(cy var1) {
+   public Slime(World var1) {
       super(var1);
-      this.image = "/mojang/mob/slime.png";
+      this.image = "/mojang/assets/mob/slime.png";
       this.c = 1 << this.bd.nextInt(3);
       this.aO = 0.0F;
       this.d = this.bd.nextInt(20) + 10;
@@ -125,7 +126,7 @@ public class Slime extends LivingEntity implements NullInterface {
    }
 
    protected int g_() {
-      return this.c == 1? dx.aK.aW:0;
+      return this.c == 1? Item.aK.aW:0;
    }
 
    public boolean a() {

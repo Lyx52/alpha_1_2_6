@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -25,7 +27,7 @@ public class ah extends Canvas implements KeyListener, MouseListener, MouseMotio
    private int a = 0;
    private int b = 2;
    private boolean c = true;
-   private cy d;
+   private World d;
    private File e = this.a();
    private boolean f = true;
    private List g = Collections.synchronizedList(new LinkedList());
@@ -82,7 +84,7 @@ public class ah extends Canvas implements KeyListener, MouseListener, MouseMotio
    public ah() {
       for(int var1 = 0; var1 < 64; ++var1) {
          for(int var2 = 0; var2 < 64; ++var2) {
-            this.h[var1][var2] = new kw((cy)null, var1, var2);
+            this.h[var1][var2] = new kw((World)null, var1, var2);
          }
       }
 
@@ -209,7 +211,7 @@ public class ah extends Canvas implements KeyListener, MouseListener, MouseMotio
       var1.scale((double)this.b, (double)this.b);
       var1.translate(this.i, this.j);
       if(this.d != null) {
-         var1.translate(-(this.d.m + this.d.o), -(-this.d.m + this.d.o) + 64);
+         var1.translate(-(this.d.spawnX + this.d.spawnZ), -(-this.d.spawnX + this.d.spawnZ) + 64);
       }
 
       Rectangle var3 = var1.getClipBounds();

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class jn extends nq {
@@ -9,7 +11,7 @@ public class jn extends nq {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return null;
    }
 
@@ -17,7 +19,7 @@ public class jn extends nq {
       return false;
    }
 
-   public nx a(cy var1, int var2, int var3, int var4, ao var5, ao var6) {
+   public nx a(World var1, int var2, int var3, int var4, ao var5, ao var6) {
       this.a((pk)var1, var2, var3, var4);
       return super.a(var1, var2, var3, var4, var5, var6);
    }
@@ -48,11 +50,11 @@ public class jn extends nq {
       return 1;
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       return var1.g(var2, var3 - 1, var4);
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       if(!var1.z) {
          var1.b(var2, var3, var4, 15);
          this.h(var1, var2, var3, var4);
@@ -60,7 +62,7 @@ public class jn extends nq {
 
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       if(!var1.z) {
          int var6 = var1.e(var2, var3, var4);
          boolean var7 = false;
@@ -94,7 +96,7 @@ public class jn extends nq {
       }
    }
 
-   private void h(cy var1, int var2, int var3, int var4) {
+   private void h(World var1, int var2, int var3, int var4) {
       if(!var1.z) {
          (new oc(this, var1, var2, var3, var4)).a(var1.o(var2, var3, var4));
       }

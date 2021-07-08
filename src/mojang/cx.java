@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.LivingEntity;
+import mojang.world.World;
 
 public class cx extends nq {
 
@@ -33,16 +34,16 @@ public class cx extends nq {
       return var1 == 1?this.bg:(var1 == 0?this.bg:(var1 == 3?this.bg + 1 + 16:this.bg + 16));
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       super.e(var1, var2, var3, var4);
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       int var5 = var1.a(var2, var3, var4);
       return (var5 == 0 || m[var5].bs.d()) && var1.g(var2, var3 - 1, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, LivingEntity var5) {
+   public void a(World var1, int var2, int var3, int var4, LivingEntity var5) {
       int var6 = fi.b((double)(var5.aC * 4.0F / 360.0F) + 0.5D) & 3;
       var1.b(var2, var3, var4, var6);
    }

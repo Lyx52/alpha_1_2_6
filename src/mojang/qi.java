@@ -4,15 +4,15 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class qi extends gk {
+public class qi extends BasePacket {
 
    public String a;
 
 
    public qi() {}
 
-   public qi(String var1) {
-      this.a = var1;
+   public qi(String message) {
+      this.a = message;
    }
 
    public void a(DataInputStream var1) throws IOException {

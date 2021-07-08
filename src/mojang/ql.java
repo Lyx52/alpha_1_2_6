@@ -20,7 +20,7 @@ public class ql extends ec {
       } else if(var2 != 0) {
          return false;
       } else {
-         this.a("/mojang/mob/spider_eyes.png");
+         this.a("/mojang/assets/mob/spider_eyes.png");
          float var3 = (1.0F - var1.a(1.0F)) * 0.5F;
          GL11.glEnable(3042);
          GL11.glDisable(3008);

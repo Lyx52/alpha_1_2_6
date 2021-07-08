@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class ni extends lh {
@@ -18,11 +20,11 @@ public class ni extends lh {
       this.a(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var5, 0.5F + var4);
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return null;
    }
 
-   public co f(cy var1, int var2, int var3, int var4) {
+   public co f(World var1, int var2, int var3, int var4) {
       this.a(var1, var2, var3, var4);
       return super.f(var1, var2, var3, var4);
    }
@@ -77,10 +79,10 @@ public class ni extends lh {
    }
 
    public int a(int var1, Random var2) {
-      return dx.as.aW;
+      return Item.as.aW;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       boolean var6 = false;
       if(this.b) {
          if(!var1.f(var2, var3 - 1, var4).a()) {

@@ -1,7 +1,7 @@
 package mojang.entity.monster;
 
-import mojang.cy;
-import mojang.dx;
+import mojang.world.World;
+import mojang.Item;
 import mojang.eb;
 import mojang.entity.Entity;
 import mojang.fp;
@@ -14,12 +14,12 @@ public class PigZombie extends Zombie {
 
    private int a = 0;
    private int b = 0;
-   private static final fp c = new fp(dx.E, 1);
+   private static final fp c = new fp(Item.E, 1);
 
 
-   public PigZombie(cy var1) {
+   public PigZombie(World var1) {
       super(var1);
-      this.image = "/mojang/mob/pigzombie.png";
+      this.image = "/mojang/assets/mob/pigzombie.png";
       this.am = 0.5F;
       this.f = 5;
       this.bm = true;
@@ -93,7 +93,7 @@ public class PigZombie extends Zombie {
    }
 
    protected int g_() {
-      return dx.ap.aW;
+      return Item.ap.aW;
    }
 
    public fp l() {

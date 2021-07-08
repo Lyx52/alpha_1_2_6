@@ -4,6 +4,7 @@ import mojang.*;
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,19 +22,19 @@ public class Arrow extends Entity {
    private int i = 0;
 
 
-   public Arrow(cy var1) {
+   public Arrow(World var1) {
       super(var1);
       this.a(0.5F, 0.5F);
    }
 
-   public Arrow(cy var1, double var2, double var4, double var6) {
+   public Arrow(World var1, double var2, double var4, double var6) {
       super(var1);
       this.a(0.5F, 0.5F);
       this.b(var2, var4, var6);
       this.aO = 0.0F;
    }
 
-   public Arrow(cy var1, LivingEntity var2) {
+   public Arrow(World var1, LivingEntity var2) {
       super(var1);
       this.b = var2;
       this.a(0.5F, 0.5F);
@@ -242,7 +243,7 @@ public class Arrow extends Entity {
 
    public void b(eb var1) {
       if(!this.as.z) {
-         if(this.g && this.b == var1 && this.a <= 0 && var1.e.a(new fp(dx.j.aW, 1))) {
+         if(this.g && this.b == var1 && this.a <= 0 && var1.e.a(new fp(Item.j.aW, 1))) {
             this.as.a(this, "random.pop", 0.2F, ((this.bd.nextFloat() - this.bd.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             var1.b(this, 1);
             this.J();

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class df extends js {
@@ -13,7 +15,7 @@ public class df extends js {
       this.b = var2;
    }
 
-   public boolean a(cy var1, Random var2, int var3, int var4, int var5) {
+   public boolean a(World var1, Random var2, int var3, int var4, int var5) {
       float var6 = var2.nextFloat() * 3.1415927F;
       double var7 = (double)((float)(var3 + 8) + fi.a(var6) * (float)this.b / 8.0F);
       double var9 = (double)((float)(var3 + 8) - fi.a(var6) * (float)this.b / 8.0F);

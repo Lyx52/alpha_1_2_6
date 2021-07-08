@@ -6,6 +6,7 @@ import java.util.Random;
 
 import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
+import mojang.world.World;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
@@ -39,7 +40,7 @@ public class kb {
 
    public void a() {
       this.n = this.o;
-      float var1 = this.h.e.c(fi.b(this.h.playerName.aw), fi.b(this.h.playerName.ax), fi.b(this.h.playerName.ay));
+      float var1 = this.h.world.c(fi.b(this.h.playerName.aw), fi.b(this.h.playerName.ax), fi.b(this.h.playerName.ay));
       float var2 = (float)(3 - this.h.y.viewDistance) / 3.0F;
       float var3 = var1 * (1.0F - var2) + var2;
       this.o += (var3 - this.o) * 0.1F;
@@ -76,7 +77,7 @@ public class kb {
          ao var8 = var6.c(var7.a * var2, var7.b * var2, var7.c * var2);
          this.k = null;
          float var9 = 1.0F;
-         List var10 = this.h.e.b((Entity)this.h.playerName, this.h.playerName.aG.a(var7.a * var2, var7.b * var2, var7.c * var2).b((double)var9, (double)var9, (double)var9));
+         List var10 = this.h.world.b((Entity)this.h.playerName, this.h.playerName.aG.a(var7.a * var2, var7.b * var2, var7.c * var2).b((double)var9, (double)var9, (double)var9));
          double var11 = 0.0D;
 
          for(int var13 = 0; var13 < var10.size(); ++var13) {
@@ -180,7 +181,7 @@ public class kb {
             var20 *= 0.1F;
             var21 *= 0.1F;
             var22 *= 0.1F;
-            nx var23 = this.h.e.a(ao.b(var3 + (double)var20, var5 + (double)var21, var7 + (double)var22), ao.b(var3 - var13 + (double)var20 + (double)var22, var5 - var17 + (double)var21, var7 - var15 + (double)var22));
+            nx var23 = this.h.world.a(ao.b(var3 + (double)var20, var5 + (double)var21, var7 + (double)var22), ao.b(var3 - var13 + (double)var20 + (double)var22, var5 - var17 + (double)var21, var7 - var15 + (double)var22));
             if(var23 != null) {
                double var24 = var23.f.c(ao.b(var3, var5, var7));
                if(var24 < var9) {
@@ -296,7 +297,7 @@ public class kb {
          int var9 = var7.b();
          int var10 = Mouse.getX() * var8 / this.h.c;
          int var11 = var9 - Mouse.getY() * var9 / this.h.d - 1;
-         if(this.h.e != null) {
+         if(this.h.world != null) {
             this.c(var1);
             if(!Keyboard.isKeyDown(59)) {
                this.h.u.a(var1, this.h.p != null, var10, var11);
@@ -357,7 +358,7 @@ public class kb {
          this.h.f.a(var2, false);
          this.a(0);
          GL11.glEnable(2912);
-         GL11.glBindTexture(3553, this.h.n.a("/mojang/terrain.png"));
+         GL11.glBindTexture(3553, this.h.n.loadTexture("/mojang/terrain.png"));
          mojang.l.a();
          var3.a(var2, 0, (double)var1);
          mojang.l.b();
@@ -377,7 +378,7 @@ public class kb {
          this.a(0);
          GL11.glEnable(3042);
          GL11.glDisable(2884);
-         GL11.glBindTexture(3553, this.h.n.a("/mojang/terrain.png"));
+         GL11.glBindTexture(3553, this.h.n.loadTexture("/mojang/terrain.png"));
          if(this.h.y.fancyGraphics) {
             GL11.glColorMask(false, false, false, false);
             int var13 = var3.a(var2, 1, (double)var1);
@@ -430,7 +431,7 @@ public class kb {
    private void c() {
       if(this.h.y.fancyGraphics) {
          bq var1 = this.h.playerName;
-         cy var2 = this.h.e;
+         World var2 = this.h.world;
          int var3 = fi.b(var1.aw);
          int var4 = fi.b(var1.ax);
          int var5 = fi.b(var1.ay);
@@ -467,7 +468,7 @@ public class kb {
    }
 
    private void h(float var1) {
-      cy var2 = this.h.e;
+      World var2 = this.h.world;
       bq var3 = this.h.playerName;
       float var4 = 1.0F / (float)(4 - this.h.y.viewDistance);
       var4 = 1.0F - (float)Math.pow((double)var4, 0.25D);
@@ -554,7 +555,7 @@ public class kb {
             GL11.glFogi('\u855a', '\u855b');
          }
 
-         if(this.h.e.q.c) {
+         if(this.h.world.currentDimension.c) {
             GL11.glFogf(2915, 0.0F);
          }
       }

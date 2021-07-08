@@ -2,6 +2,7 @@ package mojang.entity;
 
 import mojang.*;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,7 +20,7 @@ public class LivingEntity extends Entity {
    protected float w;
    protected float x;
    protected boolean y = true;
-   protected String image = "/mojang/mob/char.png";
+   protected String image = "/mojang/assets/mob/char.png";
    protected boolean A = true;
    protected float B = 0.0F;
    protected String C = null;
@@ -64,7 +65,7 @@ public class LivingEntity extends Entity {
    private int c = 0;
 
 
-   public LivingEntity(cy var1) {
+   public LivingEntity(World var1) {
       super(var1);
       this.ap = true;
       this.r = (float)(Math.random() + 1.0D) * 0.01F;
@@ -436,7 +437,7 @@ public class LivingEntity extends Entity {
          this.a((Entity)null, var2);
          int var3 = this.as.a(fi.b(this.aw), fi.b(this.ax - 0.20000000298023224D - (double)this.aO), fi.b(this.ay));
          if(var3 > 0) {
-            mojang.bi var4 = nq.m[var3].bq;
+            Block var4 = nq.m[var3].bq;
             this.as.a(this, var4.d(), var4.b() * 0.5F, var4.c() * 0.75F);
          }
       }

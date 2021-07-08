@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class cm extends pp {
@@ -12,7 +13,7 @@ public class cm extends pp {
    private float r;
 
 
-   public cm(cy var1, Entity var2, Entity var3, float var4) {
+   public cm(World var1, Entity var2, Entity var3, float var4) {
       super(var1, var2.aw, var2.ax, var2.ay, var2.az, var2.aA, var2.aB);
       this.a = var2;
       this.o = var3;

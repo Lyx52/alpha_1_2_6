@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class kj implements bd {
@@ -12,7 +14,7 @@ public class kj implements bd {
    private nf m;
    public nf a;
    public nf b;
-   private cy n;
+   private World n;
    private double[] o;
    private double[] p = new double[256];
    private double[] q = new double[256];
@@ -25,7 +27,7 @@ public class kj implements bd {
    double[] g;
 
 
-   public kj(cy var1, long var2) {
+   public kj(World var1, long var2) {
       this.n = var1;
       this.h = new Random(var2);
       this.i = new nf(this.h, 16);

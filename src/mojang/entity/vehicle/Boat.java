@@ -3,6 +3,7 @@ package mojang.entity.vehicle;
 import mojang.*;
 import mojang.entity.Entity;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Boat extends Entity {
    private double l;
 
 
-   public Boat(cy var1) {
+   public Boat(World var1) {
       super(var1);
       this.a = 0;
       this.b = 0;
@@ -46,7 +47,7 @@ public class Boat extends Entity {
       return true;
    }
 
-   public Boat(cy var1, double var2, double var4, double var6) {
+   public Boat(World var1, double var2, double var4, double var6) {
       this(var1);
       this.b(var2, var4 + (double)this.aO, var6);
       this.az = 0.0D;
@@ -74,7 +75,7 @@ public class Boat extends Entity {
             }
 
             for(var3 = 0; var3 < 2; ++var3) {
-               this.a(dx.B.aW, 1, 0.0F);
+               this.a(Item.B.aW, 1, 0.0F);
             }
 
             this.J();
@@ -243,7 +244,7 @@ public class Boat extends Entity {
                }
 
                for(var24 = 0; var24 < 2; ++var24) {
-                  this.a(dx.B.aW, 1, 0.0F);
+                  this.a(Item.B.aW, 1, 0.0F);
                }
             }
          } else {

@@ -1,6 +1,6 @@
 package mojang.entity.item;
 
-import mojang.cy;
+import mojang.world.World;
 import mojang.entity.Entity;
 import mojang.fi;
 import mojang.tags.CompoundTag;
@@ -10,7 +10,7 @@ public class PrimedTNT extends Entity {
    public int a;
 
 
-   public PrimedTNT(cy var1) {
+   public PrimedTNT(World var1) {
       super(var1);
       this.a = 0;
       this.ap = true;
@@ -18,7 +18,7 @@ public class PrimedTNT extends Entity {
       this.aO = this.aQ / 2.0F;
    }
 
-   public PrimedTNT(cy var1, double var2, double var4, double var6) {
+   public PrimedTNT(World var1, double var2, double var4, double var6) {
       this(var1);
       this.b(var2, var4, var6);
       float var8 = (float)(Math.random() * 3.1415927410125732D * 2.0D);

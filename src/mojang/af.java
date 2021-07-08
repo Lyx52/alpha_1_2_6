@@ -71,7 +71,7 @@ public class af extends aq {
          if(var10.c < 256) {
             this.a("/mojang/terrain.png");
          } else {
-            this.a("/mojang/gui/items.png");
+            this.a("/mojang/assets/gui/items.png");
          }
 
          is var15 = is.a;
@@ -108,11 +108,11 @@ public class af extends aq {
       GL11.glPopMatrix();
    }
 
-   public void a(ls var1, fu var2, fp var3, int var4, int var5) {
+   public void a(ls var1, Texture var2, fp var3, int var4, int var5) {
       if(var3 != null) {
          if(var3.c < 256 && bk.a(nq.m[var3.c].g())) {
             int var6 = var3.c;
-            var2.b(var2.a("/mojang/terrain.png"));
+            var2.b(var2.loadTexture("/mojang/terrain.png"));
             nq var7 = nq.m[var6];
             GL11.glPushMatrix();
             GL11.glTranslatef((float)(var4 - 2), (float)(var5 + 3), 0.0F);
@@ -127,9 +127,9 @@ public class af extends aq {
          } else if(var3.b() >= 0) {
             GL11.glDisable(2896);
             if(var3.c < 256) {
-               var2.b(var2.a("/mojang/terrain.png"));
+               var2.b(var2.loadTexture("/mojang/terrain.png"));
             } else {
-               var2.b(var2.a("/mojang/gui/items.png"));
+               var2.b(var2.loadTexture("/mojang/assets/gui/items.png"));
             }
 
             this.a(var4, var5, var3.b() % 16 * 16, var3.b() / 16 * 16, 16, 16);
@@ -140,7 +140,7 @@ public class af extends aq {
       }
    }
 
-   public void b(ls var1, fu var2, fp var3, int var4, int var5) {
+   public void b(ls var1, Texture var2, fp var3, int var4, int var5) {
       if(var3 != null) {
          if(var3.a > 1) {
             String var6 = "" + var3.a;

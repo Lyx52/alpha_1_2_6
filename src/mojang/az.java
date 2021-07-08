@@ -3,6 +3,7 @@ package mojang;
 import mojang.entity.Entity;
 import mojang.entity.LivingEntity;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,7 +24,7 @@ public class az extends Entity {
    public double d;
 
 
-   public az(cy var1) {
+   public az(World var1) {
       super(var1);
       this.a(1.0F, 1.0F);
    }
@@ -34,7 +35,7 @@ public class az extends Entity {
       return var1 < var3 * var3;
    }
 
-   public az(cy var1, LivingEntity var2, double var3, double var5, double var7) {
+   public az(World var1, LivingEntity var2, double var3, double var5, double var7) {
       super(var1);
       this.j = var2;
       this.a(1.0F, 1.0F);

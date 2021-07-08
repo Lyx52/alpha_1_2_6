@@ -2,6 +2,8 @@ package mojang;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import mojang.gui.GraphicsUserInterface;
 import org.lwjgl.opengl.GL11;
 
 public abstract class ex extends GraphicsUserInterface {
@@ -40,11 +42,11 @@ public abstract class ex extends GraphicsUserInterface {
          }
       }
 
-      fo var10 = this.b.playerName.e;
+      fo var10 = this.minecraft.playerName.e;
       if(var10.e != null) {
          GL11.glTranslatef(0.0F, 0.0F, 32.0F);
-         j.a(this.g, this.b.n, var10.e, var1 - var4 - 8, var2 - var5 - 8);
-         j.b(this.g, this.b.n, var10.e, var1 - var4 - 8, var2 - var5 - 8);
+         j.a(this.g, this.minecraft.n, var10.e, var1 - var4 - 8, var2 - var5 - 8);
+         j.b(this.g, this.minecraft.n, var10.e, var1 - var4 - 8, var2 - var5 - 8);
       }
 
       GL11.glDisable('\u803a');
@@ -71,15 +73,15 @@ public abstract class ex extends GraphicsUserInterface {
          int var7 = var1.c();
          if(var7 >= 0) {
             GL11.glDisable(2896);
-            this.b.n.b(this.b.n.a("/mojang/gui/items.png"));
+            this.minecraft.n.b(this.minecraft.n.loadTexture("/mojang/assets/gui/items.png"));
             this.b(var4, var5, var7 % 16 * 16, var7 / 16 * 16, 16, 16);
             GL11.glEnable(2896);
             return;
          }
       }
 
-      j.a(this.g, this.b.n, var6, var4, var5);
-      j.b(this.g, this.b.n, var6, var4, var5);
+      j.a(this.g, this.minecraft.n, var6, var4, var5);
+      j.b(this.g, this.minecraft.n, var6, var4, var5);
    }
 
    private dz a(int var1, int var2) {
@@ -93,10 +95,10 @@ public abstract class ex extends GraphicsUserInterface {
       return null;
    }
 
-   protected void a(int var1, int var2, int var3) {
+   public void updateButtons(int var1, int var2, int var3) {
       if(var3 == 0 || var3 == 1) {
          dz var4 = this.a(var1, var2);
-         fo var5 = this.b.playerName.e;
+         fo var5 = this.minecraft.playerName.e;
          int var7;
          if(var4 != null) {
             fp var6 = var4.b();
@@ -181,7 +183,7 @@ public abstract class ex extends GraphicsUserInterface {
             int var9 = (this.c - this.a) / 2;
             var7 = (this.d - this.h) / 2;
             if(var1 < var9 || var2 < var7 || var1 >= var9 + this.a || var2 >= var7 + this.a) {
-               bq var8 = this.b.playerName;
+               bq var8 = this.minecraft.playerName;
                if(var3 == 0) {
                   var8.a(var5.e);
                   var5.e = null;
@@ -199,25 +201,25 @@ public abstract class ex extends GraphicsUserInterface {
 
    }
 
-   protected void b(int var1, int var2, int var3) {
-      if(var3 == 0) {
+   protected void updateCancelButtonState(int mx, int my, int mouseButton) {
+      if(mouseButton == 0) {
          ;
       }
 
    }
 
    protected void a(char var1, int var2) {
-      if(var2 == 1 || var2 == this.b.y.p.b) {
-         this.b.a((GraphicsUserInterface)null);
+      if(var2 == 1 || var2 == this.minecraft.y.ACTION_INVENTORY.keyCode) {
+         this.minecraft.changeGUI((GraphicsUserInterface)null);
       }
 
    }
 
    public void h() {
-      if(this.b.playerName != null) {
-         fo var1 = this.b.playerName.e;
+      if(this.minecraft.playerName != null) {
+         fo var1 = this.minecraft.playerName.e;
          if(var1.e != null) {
-            this.b.playerName.a(var1.e);
+            this.minecraft.playerName.a(var1.e);
             var1.e = null;
          }
 

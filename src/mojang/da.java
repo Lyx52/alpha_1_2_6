@@ -34,7 +34,7 @@ public class da extends aq {
       float var12 = 0.75F;
       GL11.glScalef(var12, var12, var12);
       GL11.glScalef(1.0F / var12, 1.0F / var12, 1.0F / var12);
-      this.a("/mojang/item/boat.png");
+      this.a("/mojang/assets/item/boat.png");
       GL11.glScalef(-1.0F, -1.0F, 1.0F);
       this.a.b(0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
       GL11.glPopMatrix();

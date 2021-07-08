@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class qh extends nq {
@@ -24,7 +26,7 @@ public class qh extends nq {
       this.b[var1] = var3;
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       return null;
    }
 
@@ -48,7 +50,7 @@ public class qh extends nq {
       return 10;
    }
 
-   public void a(cy var1, int var2, int var3, int var4, Random var5) {
+   public void a(World var1, int var2, int var3, int var4, Random var5) {
       boolean var6 = var1.a(var2, var3 - 1, var4) == bb.bh;
       int var7 = var1.e(var2, var3, var4);
       if(var7 < 15) {
@@ -94,7 +96,7 @@ public class qh extends nq {
       }
    }
 
-   private void a(cy var1, int var2, int var3, int var4, int var5, Random var6) {
+   private void a(World var1, int var2, int var3, int var4, int var5, Random var6) {
       int var7 = this.b[var1.a(var2, var3, var4)];
       if(var6.nextInt(var5) < var7) {
          boolean var8 = var1.a(var2, var3, var4) == am.bh;
@@ -111,11 +113,11 @@ public class qh extends nq {
 
    }
 
-   private boolean h(cy var1, int var2, int var3, int var4) {
+   private boolean h(World var1, int var2, int var3, int var4) {
       return this.c((pk)var1, var2 + 1, var3, var4)?true:(this.c((pk)var1, var2 - 1, var3, var4)?true:(this.c((pk)var1, var2, var3 - 1, var4)?true:(this.c((pk)var1, var2, var3 + 1, var4)?true:(this.c((pk)var1, var2, var3, var4 - 1)?true:this.c((pk)var1, var2, var3, var4 + 1)))));
    }
 
-   private int i(cy var1, int var2, int var3, int var4) {
+   private int i(World var1, int var2, int var3, int var4) {
       byte var5 = 0;
       if(var1.a(var2, var3, var4) != 0) {
          return 0;
@@ -138,22 +140,22 @@ public class qh extends nq {
       return this.a[var1.a(var2, var3, var4)] > 0;
    }
 
-   public int g(cy var1, int var2, int var3, int var4, int var5) {
+   public int g(World var1, int var2, int var3, int var4, int var5) {
       int var6 = this.a[var1.a(var2, var3, var4)];
       return var6 > var5?var6:var5;
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       return var1.g(var2, var3 - 1, var4) || this.h(var1, var2, var3, var4);
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       if(!var1.g(var2, var3 - 1, var4) && !this.h(var1, var2, var3, var4)) {
          var1.d(var2, var3, var4, 0);
       }
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       if(var1.a(var2, var3 - 1, var4) != ap.bh || !be.a_(var1, var2, var3, var4)) {
          if(!var1.g(var2, var3 - 1, var4) && !this.h(var1, var2, var3, var4)) {
             var1.d(var2, var3, var4, 0);
@@ -163,7 +165,7 @@ public class qh extends nq {
       }
    }
 
-   public void b(cy var1, int var2, int var3, int var4, Random var5) {
+   public void b(World var1, int var2, int var3, int var4, Random var5) {
       if(var5.nextInt(24) == 0) {
          var1.a((double)((float)var2 + 0.5F), (double)((float)var3 + 0.5F), (double)((float)var4 + 0.5F), "fire.fire", 1.0F + var5.nextFloat(), var5.nextFloat() * 0.7F + 0.3F);
       }

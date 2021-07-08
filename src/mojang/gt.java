@@ -2,8 +2,9 @@ package mojang;
 
 import mojang.entity.item.DroppedItem;
 import mojang.entity.Entity;
+import mojang.world.World;
 
-public class gt extends dx {
+public class gt extends Item {
 
    public gt(int var1, int var2) {
       super(var1);
@@ -11,7 +12,7 @@ public class gt extends dx {
       this.aY = 32 << var2;
    }
 
-   public boolean a(fp var1, eb var2, cy var3, int var4, int var5, int var6, int var7) {
+   public boolean a(fp var1, eb var2, World var3, int var4, int var5, int var6, int var7) {
       int var8 = var3.a(var4, var5, var6);
       hb var9 = var3.f(var4, var5 + 1, var6);
       if((var9.a() || var8 != nq.u.bh) && var8 != nq.v.bh) {

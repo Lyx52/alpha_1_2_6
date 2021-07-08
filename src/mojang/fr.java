@@ -8,8 +8,8 @@ public abstract class fr {
    public abstract void a(ji var1, double var2, double var4, double var6, float var8);
 
    protected void a(String var1) {
-      fu var2 = this.a.e;
-      var2.b(var2.a(var1));
+      Texture var2 = this.a.e;
+      var2.b(var2.loadTexture(var1));
    }
 
    public void a(gz var1) {

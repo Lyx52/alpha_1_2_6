@@ -15,7 +15,10 @@ import mojang.entity.projectile.Arrow;
 import mojang.entity.projectile.Snowball;
 import mojang.entity.vehicle.Boat;
 import mojang.entity.vehicle.Minecart;
+import mojang.gui.GraphicsUserInterface;
+import mojang.gui.ServerErrorGUI;
 import mojang.net.minecraft.client.Minecraft;
+import mojang.world.World;
 
 public class ib extends mo {
 
@@ -23,7 +26,7 @@ public class ib extends mo {
    private jq d;
    public String a;
    private Minecraft e;
-   private hv f;
+   private ServerWorld f;
    private boolean g = false;
    Random b = new Random();
 
@@ -42,12 +45,12 @@ public class ib extends mo {
 
    public void a(iu var1) throws IOException {
       this.e.b = new pg(this.e, this);
-      this.f = new hv(this, var1.d, var1.e);
+      this.f = new ServerWorld(this, var1.d, var1.e);
       this.f.z = true;
-      this.e.a((cy)this.f);
-      this.e.a((GraphicsUserInterface)(new du(this)));
-      this.e.playerName.an = var1.a;
-      System.out.println("clientEntityId: " + var1.a);
+      this.e.setWorld((World)this.f);
+      this.e.changeGUI((GraphicsUserInterface)(new du(this)));
+      this.e.playerName.an = var1.id;
+      System.out.println("clientEntityId: " + var1.id);
    }
 
    public void a(id var1) {
@@ -126,7 +129,7 @@ public class ib extends mo {
       double var6 = (double)var1.e / 32.0D;
       float var8 = (float)(var1.f * 360) / 256.0F;
       float var9 = (float)(var1.g * 360) / 256.0F;
-      ps var10 = new ps(this.e.e, var1.b);
+      ps var10 = new ps(this.e.world, var1.b);
       var10.br = var1.c;
       var10.bs = var1.d;
       var10.bt = var1.e;
@@ -200,13 +203,13 @@ public class ib extends mo {
       var1.b = var2.aG.b;
       var1.c = var2.ay;
       var1.d = var2.ax;
-      this.d.a((gk)var1);
+      this.d.a((BasePacket)var1);
       if(!this.g) {
          this.e.playerName.at = this.e.playerName.aw;
          this.e.playerName.au = this.e.playerName.ax;
          this.e.playerName.av = this.e.playerName.ay;
          this.g = true;
-         this.e.a((GraphicsUserInterface)null);
+         this.e.changeGUI((GraphicsUserInterface)null);
       }
 
    }
@@ -246,19 +249,19 @@ public class ib extends mo {
    public void a(qi var1) {
       this.d.a("Got kicked");
       this.c = true;
-      this.e.a((cy)null);
-      this.e.a((GraphicsUserInterface)(new ct("Disconnected by server", var1.a)));
+      this.e.setWorld((World)null);
+      this.e.changeGUI((GraphicsUserInterface)(new ServerErrorGUI("Disconnected by server", var1.a)));
    }
 
    public void a(String var1) {
       if(!this.c) {
          this.c = true;
-         this.e.a((cy)null);
-         this.e.a((GraphicsUserInterface)(new ct("Connection lost", var1)));
+         this.e.setWorld((World)null);
+         this.e.changeGUI((GraphicsUserInterface)(new ServerErrorGUI("Connection lost", var1)));
       }
    }
 
-   public void a(gk var1) {
+   public void a(BasePacket var1) {
       if(!this.c) {
          this.d.a(var1);
       }
@@ -273,7 +276,7 @@ public class ib extends mo {
 
       if(var2 != null) {
          this.f.a(var2, "random.pop", 0.2F, ((this.b.nextFloat() - this.b.nextFloat()) * 0.7F + 1.0F) * 2.0F);
-         this.e.h.a((pp)(new cm(this.e.e, var2, (Entity)var3, -0.5F)));
+         this.e.h.a((pp)(new cm(this.e.world, var2, (Entity)var3, -0.5F)));
          this.f.c(var1.a);
       }
 
@@ -328,7 +331,7 @@ public class ib extends mo {
 
    public void a(hw var1) {
       if(var1.a.equals("-")) {
-         this.a((gk)(new iu(this.e.i.b, "Password", 6)));
+         this.a((BasePacket)(new iu(this.e.i.b, "Password", 6)));
       } else {
          try {
             URL var2 = new URL("http://www.minecraft.net/game/joinserver.jsp?user=" + this.e.i.b + "&sessionId=" + this.e.i.c + "&serverId=" + var1.a);
@@ -336,7 +339,7 @@ public class ib extends mo {
             String var4 = var3.readLine();
             var3.close();
             if(var4.equalsIgnoreCase("ok")) {
-               this.a((gk)(new iu(this.e.i.b, "Password", 6)));
+               this.a((BasePacket)(new iu(this.e.i.b, "Password", 6)));
             } else {
                this.d.a("Failed to login: " + var4);
             }
@@ -359,7 +362,7 @@ public class ib extends mo {
       double var6 = (double)var1.e / 32.0D;
       float var8 = (float)(var1.f * 360) / 256.0F;
       float var9 = (float)(var1.g * 360) / 256.0F;
-      LivingEntity var10 = (LivingEntity)fq.a(var1.b, this.e.e);
+      LivingEntity var10 = (LivingEntity)fq.a(var1.b, this.e.world);
       var10.br = var1.c;
       var10.bs = var1.d;
       var10.bt = var1.e;
@@ -370,7 +373,7 @@ public class ib extends mo {
    }
 
    public void a(ek var1) {
-      this.e.e.a(var1.a);
+      this.e.world.a(var1.a);
    }
 
    public void a(p var1) {
@@ -410,9 +413,9 @@ public class ib extends mo {
    }
 
    public void a(kv var1) {
-      this.f.m = var1.a;
-      this.f.n = var1.b;
-      this.f.o = var1.c;
+      this.f.spawnX = var1.a;
+      this.f.spawnY = var1.b;
+      this.f.spawnZ = var1.c;
    }
 
    public void a(io var1) {
@@ -448,7 +451,7 @@ public class ib extends mo {
    }
 
    public void a(lc var1) {
-      ks var2 = new ks(this.e.e, (Entity)null, var1.a, var1.b, var1.c, var1.d);
+      ks var2 = new ks(this.e.world, (Entity)null, var1.a, var1.b, var1.c, var1.d);
       var2.g = var1.e;
       var2.b();
    }

@@ -1,6 +1,8 @@
 package mojang;
 
-public class nv extends dx {
+import mojang.world.World;
+
+public class nv extends Item {
 
    public nv(int var1) {
       super(var1);
@@ -8,7 +10,7 @@ public class nv extends dx {
       this.aX = 1;
    }
 
-   public boolean a(fp var1, eb var2, cy var3, int var4, int var5, int var6, int var7) {
+   public boolean a(fp var1, eb var2, World var3, int var4, int var5, int var6, int var7) {
       if(var7 == 0) {
          return false;
       } else if(!var3.f(var4, var5, var6).a()) {

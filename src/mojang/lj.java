@@ -9,7 +9,7 @@ public class lj extends nq {
    }
 
    public int a(int var1, Random var2) {
-      return dx.aG.aW;
+      return Item.aG.aW;
    }
 
    public int a(Random var1) {

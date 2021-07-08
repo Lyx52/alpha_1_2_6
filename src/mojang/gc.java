@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class gc extends gk {
+public class gc extends BasePacket {
 
    public int a;
    public int b;

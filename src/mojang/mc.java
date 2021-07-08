@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 public class mc {
 
    public final ch a;
@@ -21,7 +23,7 @@ public class mc {
       this.g = var7;
    }
 
-   public void a(cy var1) {
+   public void a(World var1) {
       int var2 = this.e - this.b + 1;
       int var3 = this.f - this.c + 1;
       int var4 = this.g - this.d + 1;

@@ -1,11 +1,13 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.awt.image.BufferedImage;
 
 public class kw {
 
    public BufferedImage a;
-   public cy b;
+   public World b;
    public int c;
    public int d;
    public boolean e = false;
@@ -14,7 +16,7 @@ public class kw {
    public boolean h = false;
 
 
-   public kw(cy var1, int var2, int var3) {
+   public kw(World var1, int var2, int var3) {
       this.b = var1;
       this.a(var2, var3);
    }
@@ -27,7 +29,7 @@ public class kw {
       this.h = false;
    }
 
-   public void a(cy var1, int var2, int var3) {
+   public void a(World var1, int var2, int var3) {
       this.b = var1;
       this.a(var2, var3);
    }

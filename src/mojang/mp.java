@@ -3,6 +3,7 @@ package mojang;
 import mojang.entity.item.DroppedItem;
 import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
+import mojang.world.World;
 
 import java.io.IOException;
 
@@ -22,7 +23,7 @@ public class mp extends bq {
    private int bI = 0;
 
 
-   public mp(Minecraft var1, cy var2, ea var3, ib var4) {
+   public mp(Minecraft var1, World var2, ea var3, ib var4) {
       super(var1, var2, var3, 0);
       this.bx = var4;
    }
@@ -51,9 +52,9 @@ public class mp extends bq {
       boolean var1 = this.p();
       if(var1 != this.bH) {
          if(var1) {
-            this.bx.a((gk)(new ii(this, 104)));
+            this.bx.a((BasePacket)(new ii(this, 104)));
          } else {
-            this.bx.a((gk)(new ii(this, 105)));
+            this.bx.a((BasePacket)(new ii(this, 105)));
          }
 
          this.bH = var1;
@@ -69,23 +70,23 @@ public class mp extends bq {
       boolean var15 = var10 != 0.0D || var12 != 0.0D;
       if(this.ar != null) {
          if(var15) {
-            this.bx.a((gk)(new t(this.az, -999.0D, -999.0D, this.aB, this.aH)));
+            this.bx.a((BasePacket)(new t(this.az, -999.0D, -999.0D, this.aB, this.aH)));
          } else {
-            this.bx.a((gk)(new cr(this.az, -999.0D, -999.0D, this.aB, this.aC, this.aD, this.aH)));
+            this.bx.a((BasePacket)(new cr(this.az, -999.0D, -999.0D, this.aB, this.aC, this.aD, this.aH)));
          }
 
          var14 = false;
       } else if(var14 && var15) {
-         this.bx.a((gk)(new cr(this.aw, this.aG.b, this.ax, this.ay, this.aC, this.aD, this.aH)));
+         this.bx.a((BasePacket)(new cr(this.aw, this.aG.b, this.ax, this.ay, this.aC, this.aD, this.aH)));
          this.bI = 0;
       } else if(var14) {
-         this.bx.a((gk)(new t(this.aw, this.aG.b, this.ax, this.ay, this.aH)));
+         this.bx.a((BasePacket)(new t(this.aw, this.aG.b, this.ax, this.ay, this.aH)));
          this.bI = 0;
       } else if(var15) {
-         this.bx.a((gk)(new nz(this.aC, this.aD, this.aH)));
+         this.bx.a((BasePacket)(new nz(this.aC, this.aD, this.aH)));
          this.bI = 0;
       } else {
-         this.bx.a((gk)(new fa(this.aH)));
+         this.bx.a((BasePacket)(new fa(this.aH)));
          if(this.bG == this.aH && this.bI <= 20) {
             ++this.bI;
          } else {
@@ -110,9 +111,9 @@ public class mp extends bq {
 
    private void Q() {
       if(!this.e.a(this.bF)) {
-         this.bx.a((gk)(new p(-1, this.e.a)));
-         this.bx.a((gk)(new p(-2, this.e.c)));
-         this.bx.a((gk)(new p(-3, this.e.b)));
+         this.bx.a((BasePacket)(new p(-1, this.e.a)));
+         this.bx.a((BasePacket)(new p(-2, this.e.c)));
+         this.bx.a((BasePacket)(new p(-3, this.e.b)));
          this.bF = this.e.i();
       }
 
@@ -120,7 +121,7 @@ public class mp extends bq {
 
    protected void a(DroppedItem var1) {
       id var2 = new id(var1);
-      this.bx.a((gk)var2);
+      this.bx.a((BasePacket)var2);
       var1.aw = (double)var2.b / 32.0D;
       var1.ax = (double)var2.c / 32.0D;
       var1.ay = (double)var2.d / 32.0D;
@@ -130,17 +131,17 @@ public class mp extends bq {
    }
 
    public void a(String var1) {
-      this.bx.a((gk)(new jr(var1)));
+      this.bx.a((BasePacket)(new jr(var1)));
    }
 
    public void z() {
       super.z();
-      this.bx.a((gk)(new ii(this, 1)));
+      this.bx.a((BasePacket)(new ii(this, 1)));
    }
 
    public void r() {
       this.Q();
-      this.bx.a((gk)(new jk()));
+      this.bx.a((BasePacket)(new jk()));
    }
 
    protected void b(int var1) {

@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 public abstract class lh extends nq {
 
    protected lh(int var1, hb var2) {
@@ -11,12 +13,12 @@ public abstract class lh extends nq {
       super(var1, var2, var3);
    }
 
-   public void e(cy var1, int var2, int var3, int var4) {
+   public void e(World var1, int var2, int var3, int var4) {
       super.e(var1, var2, var3, var4);
       var1.a(var2, var3, var4, this.a_());
    }
 
-   public void b(cy var1, int var2, int var3, int var4) {
+   public void b(World var1, int var2, int var3, int var4) {
       super.b(var1, var2, var3, var4);
       var1.l(var2, var3, var4);
    }

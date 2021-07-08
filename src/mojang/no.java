@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.Random;
 
@@ -9,14 +10,14 @@ public class no {
    private Random a = new Random();
 
 
-   public void a(cy var1, Entity var2) {
+   public void a(World var1, Entity var2) {
       if(!this.b(var1, var2)) {
          this.c(var1, var2);
          this.b(var1, var2);
       }
    }
 
-   public boolean b(cy var1, Entity var2) {
+   public boolean b(World var1, Entity var2) {
       short var3 = 128;
       double var4 = -1.0D;
       int var6 = 0;
@@ -25,7 +26,7 @@ public class no {
       int var9 = fi.b(var2.aw);
       int var10 = fi.b(var2.ay);
 
-      double var18;
+      double Z;
       for(int var11 = var9 - var3; var11 <= var9 + var3; ++var11) {
          double var12 = (double)var11 + 0.5D - var2.aw;
 
@@ -38,8 +39,8 @@ public class no {
                      --var17;
                   }
 
-                  var18 = (double)var17 + 0.5D - var2.ax;
-                  double var20 = var12 * var12 + var18 * var18 + var15 * var15;
+                  Z = (double)var17 + 0.5D - var2.ax;
+                  double var20 = var12 * var12 + Z * Z + var15 * var15;
                   if(var4 < 0.0D || var20 < var4) {
                      var4 = var20;
                      var6 = var11;
@@ -52,27 +53,27 @@ public class no {
       }
 
       if(var4 >= 0.0D) {
-         double var22 = (double)var6 + 0.5D;
-         double var16 = (double)var7 + 0.5D;
-         var18 = (double)var8 + 0.5D;
+         double X = (double)var6 + 0.5D;
+         double Y = (double)var7 + 0.5D;
+         Z = (double)var8 + 0.5D;
          if(var1.a(var6 - 1, var7, var8) == nq.be.bh) {
-            var22 -= 0.5D;
+            X -= 0.5D;
          }
 
          if(var1.a(var6 + 1, var7, var8) == nq.be.bh) {
-            var22 += 0.5D;
+            X += 0.5D;
          }
 
          if(var1.a(var6, var7, var8 - 1) == nq.be.bh) {
-            var18 -= 0.5D;
+            Z -= 0.5D;
          }
 
          if(var1.a(var6, var7, var8 + 1) == nq.be.bh) {
-            var18 += 0.5D;
+            Z += 0.5D;
          }
 
-         System.out.println("Teleporting to " + var22 + ", " + var16 + ", " + var18);
-         var2.c(var22, var16, var18, var2.aC, 0.0F);
+         System.out.println("Teleporting to " + X + ", " + Y + ", " + Z);
+         var2.c(X, Y, Z, var2.aC, 0.0F);
          var2.az = var2.aA = var2.aB = 0.0D;
          return true;
       } else {
@@ -80,7 +81,7 @@ public class no {
       }
    }
 
-   public boolean c(cy var1, Entity var2) {
+   public boolean c(World var1, Entity var2) {
       byte var3 = 16;
       double var4 = -1.0D;
       int var6 = fi.b(var2.aw);

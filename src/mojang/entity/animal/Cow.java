@@ -1,7 +1,7 @@
 package mojang.entity.animal;
 
-import mojang.cy;
-import mojang.dx;
+import mojang.world.World;
+import mojang.Item;
 import mojang.eb;
 import mojang.fp;
 import mojang.tags.CompoundTag;
@@ -11,9 +11,9 @@ public class Cow extends Animal {
    public boolean a = false;
 
 
-   public Cow(cy var1) {
+   public Cow(World var1) {
       super(var1);
-      this.image = "/mojang/mob/cow.png";
+      this.image = "/mojang/assets/mob/cow.png";
       this.a(0.9F, 1.3F);
    }
 
@@ -42,13 +42,13 @@ public class Cow extends Animal {
    }
 
    protected int g_() {
-      return dx.aD.aW;
+      return Item.aD.aW;
    }
 
    public boolean a(eb var1) {
       fp var2 = var1.e.a();
-      if(var2 != null && var2.c == dx.au.aW) {
-         var1.e.a(var1.e.d, new fp(dx.aE));
+      if(var2 != null && var2.c == Item.au.aW) {
+         var1.e.a(var1.e.d, new fp(Item.aE));
          return true;
       } else {
          return false;

@@ -2,6 +2,7 @@ package mojang;
 
 import mojang.entity.Entity;
 import mojang.tags.CompoundTag;
+import mojang.world.World;
 
 public class pp extends Entity {
 
@@ -20,7 +21,7 @@ public class pp extends Entity {
    public static double n;
 
 
-   public pp(cy var1, double var2, double var4, double var6, double var8, double var10, double var12) {
+   public pp(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
       super(var1);
       this.a(0.2F, 0.2F);
       this.aO = this.aQ / 2.0F;

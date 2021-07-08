@@ -1,6 +1,6 @@
 package mojang.entity.item;
 
-import mojang.cy;
+import mojang.world.World;
 import mojang.entity.Entity;
 import mojang.fi;
 import mojang.tags.CompoundTag;
@@ -11,11 +11,11 @@ public class FallingSand extends Entity {
    public int b = 0;
 
 
-   public FallingSand(cy var1) {
+   public FallingSand(World var1) {
       super(var1);
    }
 
-   public FallingSand(cy var1, float var2, float var3, float var4, int var5) {
+   public FallingSand(World var1, float var2, float var3, float var4, int var5) {
       super(var1);
       this.a = var5;
       this.ap = true;
@@ -83,7 +83,7 @@ public class FallingSand extends Entity {
       return 0.0F;
    }
 
-   public cy k() {
+   public World k() {
       return this.as;
    }
 }

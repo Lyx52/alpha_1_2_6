@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class gv extends nq {
@@ -48,12 +50,12 @@ public class gv extends nq {
       return 7;
    }
 
-   public co f(cy var1, int var2, int var3, int var4) {
+   public co f(World var1, int var2, int var3, int var4) {
       this.a((pk)var1, var2, var3, var4);
       return super.f(var1, var2, var3, var4);
    }
 
-   public co d(cy var1, int var2, int var3, int var4) {
+   public co d(World var1, int var2, int var3, int var4) {
       this.a((pk)var1, var2, var3, var4);
       return super.d(var1, var2, var3, var4);
    }
@@ -83,11 +85,11 @@ public class gv extends nq {
 
    }
 
-   public void b(cy var1, int var2, int var3, int var4, eb var5) {
+   public void b(World var1, int var2, int var3, int var4, eb var5) {
       this.a(var1, var2, var3, var4, var5);
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4, eb var5) {
+   public boolean a(World var1, int var2, int var3, int var4, eb var5) {
       if(this.bs == hb.e) {
          return true;
       } else {
@@ -116,7 +118,7 @@ public class gv extends nq {
       }
    }
 
-   public void a(cy var1, int var2, int var3, int var4, boolean var5) {
+   public void a(World var1, int var2, int var3, int var4, boolean var5) {
       int var6 = var1.e(var2, var3, var4);
       if((var6 & 8) != 0) {
          if(var1.a(var2, var3 - 1, var4) == this.bh) {
@@ -142,7 +144,7 @@ public class gv extends nq {
       }
    }
 
-   public void a(cy var1, int var2, int var3, int var4, int var5) {
+   public void a(World var1, int var2, int var3, int var4, int var5) {
       int var6 = var1.e(var2, var3, var4);
       if((var6 & 8) != 0) {
          if(var1.a(var2, var3 - 1, var4) != this.bh) {
@@ -178,10 +180,10 @@ public class gv extends nq {
    }
 
    public int a(int var1, Random var2) {
-      return (var1 & 8) != 0?0:(this.bs == hb.e?dx.az.aW:dx.at.aW);
+      return (var1 & 8) != 0?0:(this.bs == hb.e? Item.az.aW: Item.at.aW);
    }
 
-   public nx a(cy var1, int var2, int var3, int var4, ao var5, ao var6) {
+   public nx a(World var1, int var2, int var3, int var4, ao var5, ao var6) {
       this.a((pk)var1, var2, var3, var4);
       return super.a(var1, var2, var3, var4, var5, var6);
    }
@@ -190,7 +192,7 @@ public class gv extends nq {
       return (var1 & 4) == 0?var1 - 1 & 3:var1 & 3;
    }
 
-   public boolean a(cy var1, int var2, int var3, int var4) {
+   public boolean a(World var1, int var2, int var3, int var4) {
       return var3 >= 127?false:var1.g(var2, var3 - 1, var4) && super.a(var1, var2, var3, var4) && super.a(var1, var2, var3 + 1, var4);
    }
 }

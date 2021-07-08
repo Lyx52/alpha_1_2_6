@@ -1,7 +1,7 @@
 package mojang.entity.animal;
 
-import mojang.cy;
-import mojang.dx;
+import mojang.world.World;
+import mojang.Item;
 import mojang.eb;
 import mojang.tags.CompoundTag;
 
@@ -10,9 +10,9 @@ public class Pig extends Animal {
    public boolean a = false;
 
 
-   public Pig(cy var1) {
+   public Pig(World var1) {
       super(var1);
-      this.image = "/mojang/mob/pig.png";
+      this.image = "/mojang/assets/mob/pig.png";
       this.a(0.9F, 0.9F);
       this.a = false;
    }
@@ -49,6 +49,6 @@ public class Pig extends Animal {
    }
 
    protected int g_() {
-      return dx.ao.aW;
+      return Item.ao.aW;
    }
 }

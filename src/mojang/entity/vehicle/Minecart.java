@@ -7,6 +7,7 @@ import mojang.entity.item.DroppedItem;
 import mojang.tags.BaseTag;
 import mojang.tags.CompoundTag;
 import mojang.tags.ListTag;
+import mojang.world.World;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class Minecart extends Entity implements hi {
    private double s;
 
 
-   public Minecart(cy var1) {
+   public Minecart(World var1) {
       super(var1);
       this.h = new fp[36];
       this.a = 0;
@@ -58,7 +59,7 @@ public class Minecart extends Entity implements hi {
       return true;
    }
 
-   public Minecart(cy var1, double var2, double var4, double var6, int var8) {
+   public Minecart(World var1, double var2, double var4, double var6, int var8) {
       this(var1);
       this.b(var2, var4 + (double)this.aO, var6);
       this.az = 0.0D;
@@ -81,7 +82,7 @@ public class Minecart extends Entity implements hi {
          this.M();
          this.a += var2 * 10;
          if(this.a > 40) {
-            this.a(dx.ax.aW, 1, 0.0F);
+            this.a(Item.ax.aW, 1, 0.0F);
             if(this.d == 1) {
                this.a(nq.au.bh, 1, 0.0F);
             } else if(this.d == 2) {
@@ -683,7 +684,7 @@ public class Minecart extends Entity implements hi {
          var1.a((hi)this);
       } else if(this.d == 2) {
          fp var2 = var1.e.a();
-         if(var2 != null && var2.c == dx.k.aW) {
+         if(var2 != null && var2.c == Item.k.aW) {
             if(--var2.a == 0) {
                var1.e.a(var1.e.d, (fp)null);
             }

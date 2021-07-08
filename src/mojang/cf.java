@@ -18,7 +18,7 @@ public class cf extends aq {
       GL11.glTranslatef((float)var2, (float)var4, (float)var6);
       GL11.glRotatef(var8, 0.0F, 1.0F, 0.0F);
       GL11.glEnable('\u803a');
-      this.a("/mojang/art/kz.png");
+      this.a("/mojang/assets/art/kz.png");
       fl var10 = var1.b;
       float var11 = 0.0625F;
       GL11.glScalef(var11, var11, var11);

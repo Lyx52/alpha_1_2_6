@@ -9,14 +9,15 @@ import java.util.Random;
 
 import mojang.entity.Entity;
 import mojang.net.minecraft.client.Minecraft;
+import mojang.world.World;
 import org.lwjgl.opengl.ARBOcclusionQuery;
 import org.lwjgl.opengl.GL11;
 
 public class f implements jv {
 
    public List a = new ArrayList();
-   private cy k;
-   private fu l;
+   private World k;
+   private Texture l;
    private List m = new ArrayList();
    private bw[] n;
    private bw[] o;
@@ -61,7 +62,7 @@ public class f implements jv {
    int j = 0;
 
 
-   public f(Minecraft var1, fu var2) {
+   public f(Minecraft var1, Texture var2) {
       this.t = var1;
       this.l = var2;
       byte var3 = 64;
@@ -168,7 +169,7 @@ public class f implements jv {
       var2.a();
    }
 
-   public void a(cy var1) {
+   public void a(World var1) {
       if(this.k != null) {
          this.k.b((jv)this);
       }
@@ -561,7 +562,7 @@ public class f implements jv {
    }
 
    public void a(float var1) {
-      if(!this.t.e.q.c) {
+      if(!this.t.world.currentDimension.c) {
          GL11.glDisable(3553);
          ao var2 = this.k.a(this.t.playerName, var1);
          float var3 = (float)var2.a;
@@ -588,7 +589,7 @@ public class f implements jv {
          GL11.glDisable(3008);
          GL11.glEnable(3042);
          GL11.glBlendFunc(770, 771);
-         float[] var15 = this.k.q.b(this.k.b(var1), var1);
+         float[] var15 = this.k.currentDimension.b(this.k.b(var1), var1);
          float var11;
          if(var15 != null) {
             GL11.glDisable(3553);
@@ -626,7 +627,7 @@ public class f implements jv {
          GL11.glRotatef(0.0F, 0.0F, 0.0F, 1.0F);
          GL11.glRotatef(this.k.b(var1) * 360.0F, 1.0F, 0.0F, 0.0F);
          float var17 = 30.0F;
-         GL11.glBindTexture(3553, this.l.a("/mojang/terrain/sun.png"));
+         GL11.glBindTexture(3553, this.l.loadTexture("/mojang/assets/terrain/sun.png"));
          var14.b();
          var14.a((double)(-var17), 100.0D, (double)(-var17), 0.0D, 0.0D);
          var14.a((double)var17, 100.0D, (double)(-var17), 1.0D, 0.0D);
@@ -634,7 +635,7 @@ public class f implements jv {
          var14.a((double)(-var17), 100.0D, (double)var17, 0.0D, 1.0D);
          var14.a();
          var17 = 20.0F;
-         GL11.glBindTexture(3553, this.l.a("/mojang/terrain/moon.png"));
+         GL11.glBindTexture(3553, this.l.loadTexture("/mojang/assets/terrain/moon.png"));
          var14.b();
          var14.a((double)(-var17), -100.0D, (double)var17, 1.0D, 1.0D);
          var14.a((double)var17, -100.0D, (double)var17, 0.0D, 1.0D);
@@ -662,7 +663,7 @@ public class f implements jv {
    }
 
    public void b(float var1) {
-      if(!this.t.e.q.c) {
+      if(!this.t.world.currentDimension.c) {
          if(this.t.y.fancyGraphics) {
             this.c(var1);
          } else {
@@ -671,7 +672,7 @@ public class f implements jv {
             byte var3 = 32;
             int var4 = 256 / var3;
             is var5 = is.a;
-            GL11.glBindTexture(3553, this.l.a("/mojang/environment/clouds.png"));
+            GL11.glBindTexture(3553, this.l.loadTexture("/mojang/assets/environment/clouds.png"));
             GL11.glEnable(3042);
             GL11.glBlendFunc(770, 771);
             ao var6 = this.k.c(var1);
@@ -731,7 +732,7 @@ public class f implements jv {
       int var12 = fi.b(var8 / 2048.0D);
       var6 -= (double)(var11 * 2048);
       var8 -= (double)(var12 * 2048);
-      GL11.glBindTexture(3553, this.l.a("/mojang/environment/clouds.png"));
+      GL11.glBindTexture(3553, this.l.loadTexture("/mojang/assets/environment/clouds.png"));
       GL11.glEnable(3042);
       GL11.glBlendFunc(770, 771);
       ao var13 = this.k.c(var1);
@@ -890,7 +891,7 @@ public class f implements jv {
       if(var3 == 0) {
          if(this.i > 0.0F) {
             GL11.glBlendFunc(774, 768);
-            int var7 = this.l.a("/mojang/terrain.png");
+            int var7 = this.l.loadTexture("/mojang/terrain.png");
             GL11.glBindTexture(3553, var7);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 0.5F);
             GL11.glPushMatrix();
@@ -922,7 +923,7 @@ public class f implements jv {
          GL11.glBlendFunc(770, 771);
          float var16 = fi.a((float)System.currentTimeMillis() / 100.0F) * 0.2F + 0.8F;
          GL11.glColor4f(var16, var16, var16, fi.a((float)System.currentTimeMillis() / 200.0F) * 0.2F + 0.5F);
-         var8 = this.l.a("/mojang/terrain.png");
+         var8 = this.l.loadTexture("/mojang/terrain.png");
          GL11.glBindTexture(3553, var8);
          int var17 = var2.b;
          int var18 = var2.c;
@@ -1110,9 +1111,9 @@ public class f implements jv {
          } else if(var1 == "reddust") {
             this.t.h.a((pp)(new fh(this.k, var2, var4, var6)));
          } else if(var1 == "snowballpoof") {
-            this.t.h.a((pp)(new jo(this.k, var2, var4, var6, dx.aB)));
+            this.t.h.a((pp)(new jo(this.k, var2, var4, var6, Item.aB)));
          } else if(var1 == "slime") {
-            this.t.h.a((pp)(new jo(this.k, var2, var4, var6, dx.aK)));
+            this.t.h.a((pp)(new jo(this.k, var2, var4, var6, Item.aK)));
          }
 
       }

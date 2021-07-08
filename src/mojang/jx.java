@@ -40,7 +40,7 @@ public class jx extends fr {
          this.b.b.h = false;
       }
 
-      this.a("/mojang/item/sign.png");
+      this.a("/mojang/assets/item/sign.png");
       GL11.glPushMatrix();
       GL11.glScalef(var10, -var10, -var10);
       this.b.a();

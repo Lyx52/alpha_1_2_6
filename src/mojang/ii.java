@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class ii extends gk {
+public class ii extends BasePacket {
 
    public int a;
    public int b;

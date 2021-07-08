@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.gui.Button;
+import mojang.gui.GraphicsUserInterface;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
@@ -29,11 +31,11 @@ public class pv extends GraphicsUserInterface {
       ++this.i;
    }
 
-   protected void a(Button var1) {
-      if(var1.g) {
-         if(var1.f == 0) {
+   protected void buttonClicked(Button var1) {
+      if(var1.visible) {
+         if(var1.value == 0) {
             this.h.h();
-            this.b.a((GraphicsUserInterface)null);
+            this.minecraft.changeGUI((GraphicsUserInterface)null);
          }
 
       }
@@ -60,7 +62,7 @@ public class pv extends GraphicsUserInterface {
 
    public void a(int var1, int var2, float var3) {
       this.i();
-      this.a(this.g, this.a, this.c / 2, 40, 16777215);
+      this.displayButton(this.g, this.a, this.c / 2, 40, 16777215);
       GL11.glPushMatrix();
       GL11.glTranslatef((float)(this.c / 2), (float)(this.d / 2), 50.0F);
       float var4 = 93.75F;

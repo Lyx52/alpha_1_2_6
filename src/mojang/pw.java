@@ -1,6 +1,8 @@
 package mojang;
 
-public class pw extends dx {
+import mojang.world.World;
+
+public class pw extends Item {
 
    public pw(int var1) {
       super(var1);
@@ -8,7 +10,7 @@ public class pw extends dx {
       this.aY = 64;
    }
 
-   public boolean a(fp var1, eb var2, cy var3, int var4, int var5, int var6, int var7) {
+   public boolean a(fp var1, eb var2, World var3, int var4, int var5, int var6, int var7) {
       if(var7 == 0) {
          --var5;
       }

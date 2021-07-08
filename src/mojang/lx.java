@@ -1,5 +1,7 @@
 package mojang;
 
+import mojang.world.World;
+
 import java.util.Random;
 
 public class lx extends dl {
@@ -158,7 +160,7 @@ public class lx extends dl {
 
    }
 
-   protected void a(cy var1, int var2, int var3, int var4, int var5, byte[] var6) {
+   protected void a(World var1, int var2, int var3, int var4, int var5, byte[] var6) {
       int var7 = this.b.nextInt(this.b.nextInt(this.b.nextInt(40) + 1) + 1);
       if(this.b.nextInt(15) != 0) {
          var7 = 0;

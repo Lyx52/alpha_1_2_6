@@ -10,7 +10,7 @@ public class hp extends ec {
    }
 
    protected boolean a(Pig var1, int var2) {
-      this.a("/mojang/mob/saddle.png");
+      this.a("/mojang/assets/mob/saddle.png");
       return var2 == 0 && var1.a;
    }
 }

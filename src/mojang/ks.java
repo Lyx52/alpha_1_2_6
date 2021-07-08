@@ -1,6 +1,7 @@
 package mojang;
 
 import mojang.entity.Entity;
+import mojang.world.World;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,7 +13,7 @@ public class ks {
 
    public boolean a = false;
    private Random h = new Random();
-   private cy i;
+   private World i;
    public double b;
    public double c;
    public double d;
@@ -21,7 +22,7 @@ public class ks {
    public Set g = new HashSet();
 
 
-   public ks(cy var1, Entity var2, double var3, double var5, double var7, float var9) {
+   public ks(World var1, Entity var2, double var3, double var5, double var7, float var9) {
       this.i = var1;
       this.e = var2;
       this.f = var9;
